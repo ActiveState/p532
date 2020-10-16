@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "node-sass": "^4.14.0",
+    "npm-watch": "^0.6.0"
+  },
+  "scripts": {
+    "css": "node-sass style.scss -o dist",
+    "css:watch": "npm run css && node-sass style.scss -wo dist",
+    "lint": "npx stylelint \"**/*.scss\" --fix"
+  },
+  "devDependencies": {
+    "stylelint": "^13.3.3",
+    "stylelint-config-standard": "^20.0.0"
+  }
+}

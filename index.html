@@ -1,0 +1,148 @@
+<html>
+  <head>
+    <title>Modern Perl Has Arrived - ActivePerl 5.32 Beta</title>
+
+    <link rel="stylesheet" href="dist/reset.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="dist/style.css" type="text/css" media="screen">
+  </head>
+
+  <body>
+    <div class="page">
+      
+      <div class="header">
+      <img src="img/activestate-logo.svg" width="130"/>
+      </div>
+
+      <div class="section hero">
+        <div class="col">
+          <h1>ActivePerl 5.32 Beta is here!</h1>
+          <h2>The modern perl experience</h2>
+          <p>Some awesome benefits of modern perl. Some awesome benefits of modern perl. Some awesome benefits of modern perl. Some awesome benefits of modern perl.</p>
+        </div>
+        <div class="col">
+          <img width="200" src="img/modern-perl.png" />
+        </div>
+      </div>
+
+      <div class="cli-install">
+        <div class="cli-header">
+          <h4>Install via Command Line</h4>
+          <div class="platform-picker">
+            <a class="selected" href="#">Linux</a><a href="#">Windows</a>
+          </div>
+        </div>
+        <input class="cli-command" value="sh <(curl -q https://platform.activestate.com/dl/cli/install.sh)" type="text"/>
+      </div>
+
+      <hr />
+
+      <h1>So, what's new?</h1>
+
+      <div class="section">
+        <div class="col ">
+          <h3>Easy Dependency Management</h3>
+          <p>Add packages easily from the command line. We have all the best packages we've been told. The best. Just run a command and see.</p>
+          <h4>Add a package</h4>
+          <input class="cli-command" value="state install DateTime" type="text"/>
+          <!-- <a href="#">See other commands</a> -->
+        </div>
+        <div class="col">
+          <div class="terminal">
+<pre>
+$ state install DateTime
+░ Building from source
+↓ Downloading...
+<span class="success">✓ Package installed: DateTime</span>
+
+$ _
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="section bundles-section">
+        <div class="col ">
+            <div class="bundle-wrapper">
+              <div class="bundle">
+                <input type="checkbox" />
+                <input checked type="checkbox" />
+                <h4>Utilities Bundle</h4>
+                <p>This cool bundle is cool.</p>
+              </div>
+              <div class="bundle">
+                <input type="checkbox" />
+                <input checked type="checkbox" />
+                <h4>Databases Bundle</h4>
+                <p>This cool bundle is cool.</p>
+              </div>
+              <div class="bundle">
+                <input type="checkbox" />
+                <input checked type="checkbox" />
+                <h4>Testing Bundle</h4>
+                <p>This cool bundle is cool.</p>
+              </div>
+            </div>
+        </div>
+        <div class="col">
+          <h3>Package Bundles</h3>
+          <p>Add bundles it's cool. Add bundles it's cool. Add bundles it's cool. Add bundles it's cool. Add bundles it's cool. Add bundles it's cool. Add bundles it's cool. Add bundles it's cool. </p>
+          <a href="#">Check out all the bundles</a>
+        </div>
+      </div>
+
+
+      <div class="section build-progress-section">
+        <div class="col">
+          <h3>Parallel builds</h3>
+          <p>Builds are done in parallel, they are done in parallel. Builds are done in parallel, they are done in parallel. Builds are done in parallel, they are done in parallel. Builds are done in parallel, they are done in parallel.</p>
+        </div>
+        <div class="col">
+          <div class="build-progress">
+            <div class="progress">
+              <div class="bar"></div>
+            </div>
+            <div class="item">
+              <span class="name">Package-One</span>
+              <span class="version">1.2.3</span>
+              <span class="status"><img src="img/checkmark-circle-green.svg" width="16px"/></span>
+
+            </div>
+            <div class="item">
+              <span class="name">Package-Two</span>
+              <span class="version">1.2.3</span>
+              <span class="status"><img src="img/checkmark-circle-green.svg" width="16px"/></span>
+
+            </div>
+            <div class="item">
+              <span class="name">Package-Three</span>
+              <span class="version">1.2.3</span>
+              <span class="status"><img src="img/checkmark-circle-green.svg" width="16px"/></span>
+
+            </div>
+            <div class="item">
+              <span class="name">Package-Four</span>
+              <span class="version">1.2.3</span>
+              <span class="status"><img src="img/checkmark-circle-green.svg" width="16px"/></span>
+
+            </div>
+            <div class="item">
+              <span class="name">Package-Five</span>
+              <span class="version">1.2.3</span>
+              <span class="status"><img src="img/checkmark-circle-green.svg" width="16px"/></span>
+
+            </div>
+            <div class="item">
+              <span class="name">Package-Six</span>
+              <span class="version">1.2.3</span>
+              <span class="status"><img src="img/checkmark-circle-green.svg" width="16px"/></span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
+
+<script src="app.js" type="text/javascript" charset="utf-8"></script>

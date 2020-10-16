@@ -1,0 +1,224 @@
+html {
+  font-family: "Open Sans";
+  padding-bottom: 500px; }
+
+h1, h2, h3, h4 {
+  font-family: "Roboto"; }
+
+h1 {
+  font-size: 2.4rem;
+  margin: 0 0 .3rem 0;
+  font-weight: 300; }
+
+h2 {
+  font-size: 1.5rem; }
+
+h3 {
+  font-size: 26px;
+  font-weight: 300; }
+
+h4 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-family: "Roboto";
+  margin: 0 0 .6rem 0; }
+
+p {
+  line-height: 140%;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.65); }
+
+a {
+  color: #3279d8; }
+
+hr {
+  margin: 3rem 0;
+  border: none;
+  border-bottom: solid 1px #DDD; }
+
+.page {
+  width: clamp(600px, 75%, 1000px);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1; }
+
+h1 + .section {
+  margin-top: 60px; }
+
+.header {
+  border-bottom: solid 1px #DDD;
+  margin: 2rem 0 4rem 0;
+  padding: 0 0 1rem 0; }
+
+.section.hero {
+  margin-bottom: 1rem;
+  margin-top: 0; }
+  .section.hero img {
+    width: 100%; }
+  .section.hero h1 {
+    margin: 0 0 .5rem 0; }
+  .section.hero h2 {
+    margin: 0 0 1.2rem 0; }
+  .section.hero p {
+    font-size: 1.15rem;
+    color: rgba(0, 0, 0, 0.5); }
+
+.section {
+  margin: 150px 0;
+  display: flex;
+  z-index: 1;
+  position: relative; }
+  .section h3 {
+    margin: .5rem 0 1rem 0; }
+  .section p {
+    margin: 0 0 1.5rem 0;
+    line-height: 150%; }
+
+.col {
+  z-index: 1;
+  flex: 1;
+  position: relative; }
+  .col:first-child {
+    margin-right: 30px; }
+  .col:last-child {
+    margin-left: 30px; }
+
+.build-progress {
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12); }
+
+.progress {
+  background: rgba(0, 0, 0, 0.12);
+  margin: 0 0 10px 0;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  height: 8px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 3px; }
+  .progress .bar {
+    height: inherit;
+    width: 10%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #5dc133;
+    transition: width .2s linear; }
+
+.item {
+  border-bottom: solid 1px rgba(0, 0, 0, 0.12);
+  padding: 8px 0px;
+  font-size: .9rem;
+  color: rgba(0, 0, 0, 0.4);
+  display: flex; }
+  .item .name {
+    width: 150px; }
+  .item .status {
+    margin-left: auto; }
+  .item img {
+    display: none;
+    margin-left: auto; }
+  .item.done {
+    color: rgba(0, 0, 0, 0.65); }
+    .item.done img {
+      display: inline-block; }
+  .item:last-child {
+    border: none; }
+
+.bundle-wrapper {
+  background: #eee;
+  padding: 20px;
+  border-radius: 10px; }
+
+.bundle {
+  padding: 15px 15px 10px 15px;
+  border-radius: 10px;
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 10px;
+  opacity: .5;
+  background: white; }
+  .bundle:last-child {
+    margin-bottom: 0; }
+  .bundle.selected {
+    opacity: 1;
+    animation: bundlePop .25s ease-in-out;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1); }
+
+@keyframes bundlePop {
+  0% {
+    transform: scale(1); }
+  50% {
+    transform: scale(0.98); }
+  100% {
+    transform: scale(1); } }
+
+.bundle input[checked] {
+  display: none; }
+
+.bundle.selected input[checked] {
+  display: block; }
+
+.bundle h4 {
+  margin: 0; }
+
+.bundle p {
+  margin: 0; }
+
+.bundle input {
+  position: absolute;
+  top: 12px;
+  left: 10px; }
+
+.cli-install {
+  padding: 30px 25px 15px 25px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background: white;
+  width: calc(100%);
+  margin: 0 -25px; }
+  .cli-install h4 {
+    margin: 0; }
+  .cli-install .cli-header {
+    display: flex; }
+    .cli-install .cli-header .platform-picker {
+      margin-left: auto;
+      z-index: 2;
+      padding-right: 1rem; }
+      .cli-install .cli-header .platform-picker a {
+        color: rgba(0, 0, 0, 0.5);
+        text-decoration: none;
+        padding-bottom: .75rem;
+        display: inline-block;
+        margin: 0 .6rem; }
+        .cli-install .cli-header .platform-picker a.selected {
+          color: rgba(0, 0, 0, 0.8);
+          border-bottom: solid 4px #3569C4;
+          font-weight: 600; }
+
+.cli-command {
+  background: #daeaff;
+  padding: 20px;
+  display: block;
+  width: 100%;
+  border: none;
+  font-size: 1rem;
+  font-family: "Roboto Mono", monospace;
+  color: #498fec;
+  border-radius: 3px;
+  z-index: 1; }
+
+.terminal {
+  background: #222;
+  border-top: solid 20px #DDD;
+  border-radius: 5px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12);
+  padding: 20px; }
+  .terminal pre {
+    font-family: "Roboto Mono", monospace;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 140%; }
+  .terminal .success {
+    color: #29b929; }
