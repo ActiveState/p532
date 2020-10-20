@@ -21,7 +21,7 @@ let options = {
 }
 
 let bar = document.querySelector(".build-progress-section .bar");
-let packageEls = document.querySelectorAll(".item");
+let packageEls = Array.from(document.querySelectorAll(".item"));
 let itemCount = packageEls.length;
 let startAt = 0;
 
@@ -48,35 +48,7 @@ let observeBundleProgress = (entries, observer) => {
   updateItems(entries, observer, bundleEls, "selected");
 }
 
-const updateItems = (entries, observer, elements, className) => {
-  console.log("we be updatin");
-
-  let itemArray = Array.from(elements);
-  let itemCount = itemArray.length;
-
-  for (let el of itemArray) {
-    el.classList.remove(className);
-  }
-
-  for (let entry of entries) {
-
-    let ratio = (startAt > 0) ? (entry.intersectionRatio - startAt) / startAt : entry.intersectionRatio;
-    ratio = (ratio < 0) ? 0 : ratio;
-
-    let finishedItemCount = Math.ceil(ratio * itemCount);
-    let completedItems = itemArray.slice(0, finishedItemCount);
-
-    for(let el of completedItems) {
-      el.classList.add(className);
-    }
-
-    if(ratio == 1) {
-      // observer.disconnect();
-    }
-  }
-}
-
-let bundleEls = document.querySelectorAll(".bundle");
+let bundleEls = Array.from(document.querySelectorAll(".bundle"));
 let bundleProgressObserver = new IntersectionObserver(observeBundleProgress, options);
 let bundleTarget = document.querySelector('.bundles-section');
 bundleProgressObserver.observe(bundleTarget);
@@ -88,7 +60,7 @@ let observeHistoryProgress = (entries, observer) => {
   updateItems(entries, observer, historyEls, "visible");
 }
 
-let historyEls = document.querySelectorAll(".history-section .item");
+let historyEls = Array.from(document.querySelectorAll(".history-section .item"));
 let historyProgressObserver = new IntersectionObserver(observeHistoryProgress, options);
 let historyTarget = document.querySelector('.history-section');
 historyProgressObserver.observe(historyTarget);
@@ -112,14 +84,57 @@ virtualObserver.observe(virtualTarget);
 //Dependencies
 
 let observeDependencyProgress = (entries, observer) => {
-  updateItems(entries, observer, depEls, "resolved");
+  updateItemsTwo(entries, observer, depEls, "resolved");
 }
 
-let depEls = document.querySelectorAll(".dependencies-section .package");
+let depEls = Array.from(document.querySelectorAll(".dependencies-section .package")).reverse();
 let depObserver = new IntersectionObserver(observeDependencyProgress, options);
-let depTarget = document.querySelector('.dependencies-section');
-depObserver.observe(depTarget);
+depObserver.observe(document.querySelector('.dependencies-section'));
 
+const updateItemsTwo = (entries, observer, elements, className) => {
 
+  let itemArray = elements;
+  let itemCount = itemArray.length;
 
+  for (let el of itemArray) {
+    el.classList.remove(className);
+  }
 
+  for (let entry of entries) {
+    let ratio = entry.intersectionRatio;
+
+    let finishedItemCount = Math.ceil(ratio * itemCount);
+    let completedItems = itemArray.slice(0, finishedItemCount);
+
+    for(let el of completedItems) {
+      el.classList.add(className);
+    }
+  }
+}
+
+const updateItems = (entries, observer, elements, className) => {
+
+  let itemArray = elements;
+  let itemCount = itemArray.length;
+
+  for (let el of itemArray) {
+    el.classList.remove(className);
+  }
+
+  for (let entry of entries) {
+
+    let ratio = (startAt > 0) ? (entry.intersectionRatio - startAt) / startAt : entry.intersectionRatio;
+    ratio = (ratio < 0) ? 0 : ratio;
+
+    let finishedItemCount = Math.ceil(ratio * itemCount);
+    let completedItems = itemArray.slice(0, finishedItemCount);
+
+    for(let el of completedItems) {
+      el.classList.add(className);
+    }
+
+    if(ratio == 1) {
+      // observer.disconnect();
+    }
+  }
+}
