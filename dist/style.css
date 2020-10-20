@@ -424,7 +424,16 @@ h1 + .section {
     background-size: contain;
     background-repeat: no-repeat; }
     .dependency-tree .package.resolved {
-      background: url(../img/package.svg); }
+      background: url(../img/package.svg);
+      animation: packagePop .15s ease-out; }
+
+@keyframes packagePop {
+  0% {
+    transform: scale(0.9); }
+  60% {
+    transform: scale(1.1); }
+  100% {
+    transform: scale(1); } }
   .dependency-tree .level-one {
     display: flex; }
     .dependency-tree .level-one .package {

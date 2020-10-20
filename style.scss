@@ -635,6 +635,20 @@ h1 + .section {
 
     &.resolved {
       background: url(../img/package.svg);
+      animation: packagePop .15s ease-out;
+    }
+
+    @keyframes packagePop {
+      0% {
+        transform: scale(.9)
+      }
+      60% {
+        transform: scale(1.1)
+      }
+      100% {
+        transform: scale(1)
+      }
+
     }
   }
 
