@@ -30,15 +30,13 @@ $cubeSize: 150px;
   position: relative;
   top:100px;
   transform-style: preserve-3d;
-  transition: ease-out .2s transform;
+  transition: transform .2s ease-out;
   margin: 0 auto;
   transform-origin: 50% 50% 50%;
 
   .face {
     height: 100%;
     width: 100%;
-
-    // border: solid 2px rgba(73,143,236, var(--virtual-progress));
     position: absolute;
     top: 0;
     left: 0;
@@ -52,6 +50,7 @@ $cubeSize: 150px;
       background: black;
       background: rgba(0,80,255,.12);
       transform: scale(var(--virtual-progress));
+      transition: transform .2s ease-out;
     }
   }
 
@@ -84,8 +83,6 @@ $cubeSize: 150px;
     transform: translateZ($cubeSize / 2) rotateX(-90deg) rotateY(var(--reverse-angle)) ;
     position: absolute;
     box-sizing: border-box;
-
-    // transform: rotateY(var(--angle)) rotateX(90deg);
     // animation: innerSpin 5s linear infinite;
 
     left: 20%;

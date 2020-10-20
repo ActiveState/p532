@@ -20,7 +20,7 @@
   position: relative;
   top: 100px;
   transform-style: preserve-3d;
-  transition: ease-out .2s transform;
+  transition: transform .2s ease-out;
   margin: 0 auto;
   transform-origin: 50% 50% 50%; }
   .spinner .face {
@@ -37,7 +37,8 @@
       height: 100%;
       background: black;
       background: rgba(0, 80, 255, 0.12);
-      transform: scale(var(--virtual-progress)); }
+      transform: scale(var(--virtual-progress));
+      transition: transform .2s ease-out; }
   .spinner .top {
     transform: translateZ(150px); }
   .spinner .back {
