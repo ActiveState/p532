@@ -661,8 +661,10 @@ h1 + .section {
       margin: auto;
       display: block;
       position: relative;
+      background: url(../img/package.svg);
 
       &.resolved {
+        animation: none;
         &:after {
           content: "";
           background: url(../img/package-checkmark.svg);

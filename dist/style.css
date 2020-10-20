@@ -441,20 +441,23 @@ h1 + .section {
       width: 100px;
       margin: auto;
       display: block;
-      position: relative; }
-      .dependency-tree .level-one .package.resolved:after {
-        content: "";
-        background: url(../img/package-checkmark.svg);
-        background-size: contain;
-        width: 50px;
-        height: 50px;
-        position: absolute;
-        right: -15px;
-        top: 0px;
-        opacity: 0;
-        animation: checkPop .2s ease-out;
-        animation-fill-mode: forwards;
-        animation-delay: .3s; }
+      position: relative;
+      background: url(../img/package.svg); }
+      .dependency-tree .level-one .package.resolved {
+        animation: none; }
+        .dependency-tree .level-one .package.resolved:after {
+          content: "";
+          background: url(../img/package-checkmark.svg);
+          background-size: contain;
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          right: -15px;
+          top: 0px;
+          opacity: 0;
+          animation: checkPop .2s ease-out;
+          animation-fill-mode: forwards;
+          animation-delay: .3s; }
 
 @keyframes checkPop {
   0% {
