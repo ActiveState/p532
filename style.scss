@@ -622,3 +622,75 @@ h1 + .section {
     }
   }
 }
+
+
+.dependency-tree {
+  display: flex;
+  flex-direction: row;
+
+  .package {
+    background: url(../img/package-wire.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    &.resolved {
+      background: url(../img/package.svg);
+    }
+  }
+
+  .level-one {
+    display: flex;
+
+    .package {
+      height: 100px;
+      width: 100px;
+      margin: auto;
+      display: block;
+    }
+  }
+  .level-two {
+    display: flex;
+    flex-direction: column;
+
+    .package {
+      height: 75px;
+      width: 75px;
+    }
+  }
+
+  .level-two-arrow {
+    display: flex;
+    flex-direction: column;
+    img {
+      margin: auto;
+      height: 180px;
+    }
+  }
+  .level-three {
+    display: flex;
+    flex-direction: column;
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      height: 75px;
+      
+    }
+
+    .package {
+      height: 50px;
+      width: 50px;
+      margin: auto 5px;
+    }
+  }
+
+  .level-three-arrows {
+    display: flex;
+    flex-direction: column;
+
+    img {
+      height: 25px;
+      margin: auto 5px;
+    }
+  }
+}

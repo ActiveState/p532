@@ -169,14 +169,39 @@ $ _
       <hr>
 
       <!-- Compiler Free Toolchain --> 
-      <div class="section bundles-section">
+      <div class="section dependencies-section">
         <div class="col ">
           <h3>No Compiler Toolchain</h3>
           <p>
             Need to add specific dependencies post-install? We’ll automatically build them (including linked C libraries) for you, just like PPM. No need to maintain your own build environment.
           </p>
         </div>
-        <div class="col"></div>
+        <div class="col">
+          <div class="dependency-tree">
+            <div class="level-one">
+              <div class="package"></div>
+            </div>
+            <div class="level-two-arrow">
+              <img src="img/large-arrow.svg"/>
+            </div>
+            <div class="level-two">
+              <div class="package"></div>
+              <div class="package"></div>
+              <div class="package"></div>
+            </div>
+
+            <div class="level-three-arrows">
+              <img src="img/small-arrow.svg"/>
+              <img src="img/small-arrow.svg"/>
+              <img src="img/small-arrow.svg"/>
+            </div>
+            <div class="level-three">
+              <div class="row"><div class="package"></div><div class="package"></div></div>
+              <div class="row"><div class="package"></div><div class="package"></div><div class="package"></div></div>
+              <div class="row"><div class="package"></div></div>
+            </div>
+          </div>
+        </div>
       </div>
       <hr />
 

@@ -415,3 +415,49 @@ h1 + .section {
       display: inline-block; }
   .build-history .item:last-child {
     border: none; }
+
+.dependency-tree {
+  display: flex;
+  flex-direction: row; }
+  .dependency-tree .package {
+    background: url(../img/package-wire.svg);
+    background-size: contain;
+    background-repeat: no-repeat; }
+    .dependency-tree .package.resolved {
+      background: url(../img/package.svg); }
+  .dependency-tree .level-one {
+    display: flex; }
+    .dependency-tree .level-one .package {
+      height: 100px;
+      width: 100px;
+      margin: auto;
+      display: block; }
+  .dependency-tree .level-two {
+    display: flex;
+    flex-direction: column; }
+    .dependency-tree .level-two .package {
+      height: 75px;
+      width: 75px; }
+  .dependency-tree .level-two-arrow {
+    display: flex;
+    flex-direction: column; }
+    .dependency-tree .level-two-arrow img {
+      margin: auto;
+      height: 180px; }
+  .dependency-tree .level-three {
+    display: flex;
+    flex-direction: column; }
+    .dependency-tree .level-three .row {
+      display: flex;
+      flex-direction: row;
+      height: 75px; }
+    .dependency-tree .level-three .package {
+      height: 50px;
+      width: 50px;
+      margin: auto 5px; }
+  .dependency-tree .level-three-arrows {
+    display: flex;
+    flex-direction: column; }
+    .dependency-tree .level-three-arrows img {
+      height: 25px;
+      margin: auto 5px; }

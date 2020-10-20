@@ -109,3 +109,22 @@ let observeVirtualProgess = (entries, observer) => {
 let virtualObserver = new IntersectionObserver(observeVirtualProgess, options);
 let virtualTarget = document.querySelector('.spinner-wrapper');
 virtualObserver.observe(virtualTarget);
+
+
+
+
+
+//Dependencies
+
+let observeDependencyProgress = (entries, observer) => {
+  updateItems(entries, observer, depEls, "resolved");
+}
+
+let depEls = document.querySelectorAll(".dependencies-section .package");
+let depObserver = new IntersectionObserver(observeDependencyProgress, options);
+let depTarget = document.querySelector('.dependencies-section');
+depObserver.observe(depTarget);
+
+
+
+
