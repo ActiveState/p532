@@ -16,7 +16,7 @@ let buildRatio = size => {
 }
 
 let options = {
-  rootMargin: "-150px",
+  rootMargin: "-200px",
   threshold: buildRatio(20) // 20 steps
 }
 
@@ -100,18 +100,13 @@ historyProgressObserver.observe(historyTarget);
 let observeVirtualProgess = (entries, observer) => {
   for (let entry of entries) {
     let ratio = entry.intersectionRatio > .95 ? .95 : entry.intersectionRatio;
-    
     root.style.setProperty('--virtual-progress', ratio);
-    
   }
 }
 
 let virtualObserver = new IntersectionObserver(observeVirtualProgess, options);
 let virtualTarget = document.querySelector('.spinner-wrapper');
 virtualObserver.observe(virtualTarget);
-
-
-
 
 
 //Dependencies
