@@ -1,3 +1,12 @@
+let root = document.documentElement;
+
+window.addEventListener("scroll", e => {
+  let deg = window.scrollY / 8;
+  root.style.setProperty('--angle', deg + "deg");
+  root.style.setProperty('--reverse-angle', -deg + "deg");
+});
+
+
 let buildRatio = size => {
   let arr = [];
   for(var i = 0; i <= size; i++) {
@@ -7,7 +16,7 @@ let buildRatio = size => {
 }
 
 let options = {
-  rootMargin: "-200px",
+  rootMargin: "-150px",
   threshold: buildRatio(20) // 20 steps
 }
 
@@ -40,6 +49,7 @@ let observeBundleProgress = (entries, observer) => {
 }
 
 const updateItems = (entries, observer, elements, className) => {
+  console.log("we be updatin");
 
   let itemArray = Array.from(elements);
   let itemCount = itemArray.length;
@@ -70,5 +80,37 @@ let bundleEls = document.querySelectorAll(".bundle");
 let bundleProgressObserver = new IntersectionObserver(observeBundleProgress, options);
 let bundleTarget = document.querySelector('.bundles-section');
 bundleProgressObserver.observe(bundleTarget);
+
+
+//History
+
+let observeHistoryProgress = (entries, observer) => {
+  updateItems(entries, observer, historyEls, "selected");
+}
+
+let historyEls = document.querySelectorAll(".history-section .item");
+let historyProgressObserver = new IntersectionObserver(observeHistoryProgress, options);
+let historyTarget = document.querySelector('.history-section');
+// historyProgressObserver.observe(historyTarget);
+
+
+
+//History
+
+let observeVirtualProgess = (entries, observer) => {
+  for (let entry of entries) {
+    let ratio = entry.intersectionRatio > .95 ? .95 : entry.intersectionRatio;
+    
+    root.style.setProperty('--virtual-progress', ratio);
+    
+  }
+}
+
+let virtualObserver = new IntersectionObserver(observeVirtualProgess, options);
+let virtualTarget = document.querySelector('.spinner-wrapper');
+virtualObserver.observe(virtualTarget);
+
+
+
 
 

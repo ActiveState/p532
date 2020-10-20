@@ -1,3 +1,105 @@
+:root {
+  --angle: "30deg";
+  --reverse-angle: "30deg";
+  --virtual-progress: 0; }
+
+.spinner-wrapper {
+  perspective: 500px;
+  height: 200px; }
+
+@keyframes spin {
+  from {
+    transform: rotateY(0deg) rotateX(90deg); }
+  to {
+    transform: rotateY(359deg) rotateX(90deg); } }
+
+.spinner {
+  transform: rotateY(var(--angle)) rotateX(90deg);
+  height: 150px;
+  width: 150px;
+  position: relative;
+  top: 100px;
+  transform-style: preserve-3d;
+  transition: ease-out .2s transform;
+  margin: 0 auto;
+  transform-origin: 50% 50% 50%; }
+  .spinner .face {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box; }
+    .spinner .face .panel {
+      border-radius: 5px;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: black;
+      background: rgba(0, 80, 255, 0.12);
+      transform: scale(var(--virtual-progress)); }
+  .spinner .top {
+    transform: translateZ(150px); }
+  .spinner .back {
+    transform-origin: top;
+    transform: rotateX(90deg); }
+  .spinner .front {
+    transform-origin: bottom;
+    transform: rotateX(-90deg); }
+  .spinner .left {
+    transform-origin: left;
+    transform: rotateY(-90deg); }
+  .spinner .right {
+    transform-origin: right;
+    transform: rotateY(90deg); }
+  .spinner .mini-terminal {
+    background: black;
+    transform: translateZ(75px) rotateX(-90deg) rotateY(var(--reverse-angle));
+    position: absolute;
+    box-sizing: border-box;
+    left: 20%;
+    top: 25%;
+    width: 60%;
+    height: 50%;
+    border-radius: 5px;
+    background: linear-gradient(321deg, #003f84 0%, #040000 33%, #003f84 100%); }
+    .spinner .mini-terminal .dots {
+      position: absolute;
+      top: -5px;
+      padding-left: 0;
+      letter-spacing: -3px;
+      padding: 0 0 0 5px;
+      opacity: .4;
+      width: 100%;
+      height: 20px;
+      border-bottom: solid 1px white; }
+    .spinner .mini-terminal .cursor {
+      animation: blink 1s ease-in-out infinite; }
+
+@keyframes blink {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+    .spinner .mini-terminal div {
+      font-family: "Roboto Mono", sans-serif;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      color: white;
+      padding: 10px;
+      font-size: 16px; }
+
+@keyframes innerSpin {
+  0% {
+    transform: translateZ(65px) rotateX(-90deg) rotateY(0); }
+  50% {
+    transform: translateZ(85px) rotateX(-90deg) rotateY(-180deg); }
+  100% {
+    transform: translateZ(65px) rotateX(-90deg) rotateY(-359deg); } }
+
 html {
   font-family: "Open Sans";
   padding-bottom: 500px; }
@@ -36,6 +138,9 @@ hr {
   border: none;
   border-bottom: solid 1px #DDD; }
 
+.section + hr {
+  margin: 5rem 0; }
+
 .page {
   width: clamp(600px, 75%, 1000px);
   margin: 0 auto;
@@ -64,20 +169,28 @@ h1 + .section {
     color: rgba(0, 0, 0, 0.5); }
 
 .section {
-  margin: 150px 0;
   display: flex;
   z-index: 1;
   position: relative; }
   .section h3 {
-    margin: .5rem 0 1rem 0; }
+    margin: 0 0 1rem 0; }
   .section p {
     margin: 0 0 1.5rem 0;
     line-height: 150%; }
+    .section p:last-child {
+      margin: 0; }
 
 .col {
   z-index: 1;
   flex: 1;
-  position: relative; }
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  .col:empty:after {
+    padding: 80px;
+    margin: 0 auto;
+    display: block; }
   .col:first-child {
     margin-right: 30px; }
   .col:last-child {
@@ -173,7 +286,6 @@ h1 + .section {
 
 .cli-install {
   padding: 30px 25px 15px 25px;
-  position: sticky;
   top: 0;
   z-index: 99;
   background: white;
@@ -222,3 +334,23 @@ h1 + .section {
     line-height: 140%; }
   .terminal .success {
     color: #29b929; }
+
+.build-history .item {
+  border-bottom: solid 1px rgba(0, 0, 0, 0.12);
+  padding: 8px 0px;
+  font-size: .9rem;
+  color: rgba(0, 0, 0, 0.4);
+  display: flex; }
+  .build-history .item .name {
+    width: 150px; }
+  .build-history .item .status {
+    margin-left: auto; }
+  .build-history .item img {
+    display: none;
+    margin-left: auto; }
+  .build-history .item.done {
+    color: rgba(0, 0, 0, 0.65); }
+    .build-history .item.done img {
+      display: inline-block; }
+  .build-history .item:last-child {
+    border: none; }

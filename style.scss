@@ -1,3 +1,156 @@
+:root {
+  --angle: "30deg";
+  --reverse-angle: "30deg";
+  --virtual-progress: 0;
+}
+
+
+
+.spinner-wrapper {
+  perspective: 500px;
+  height: 200px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotateY(0deg) rotateX(90deg);
+  }
+  to {
+    transform: rotateY(359deg) rotateX(90deg);
+  }
+}
+
+$cubeSize: 150px;
+
+.spinner {
+  transform: rotateY(var(--angle)) rotateX(90deg);
+  height: $cubeSize;
+  width: $cubeSize;
+  // animation: spin 5s linear infinite;
+  position: relative;
+  top:100px;
+  transform-style: preserve-3d;
+  transition: ease-out .2s transform;
+  margin: 0 auto;
+  transform-origin: 50% 50% 50%;
+
+  .face {
+    height: 100%;
+    width: 100%;
+
+    // border: solid 2px rgba(73,143,236, var(--virtual-progress));
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+
+    .panel {
+      border-radius: 5px;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: black;
+      background: rgba(0,80,255,.12);
+      transform: scale(var(--virtual-progress));
+    }
+  }
+
+  .top {
+    transform: translateZ($cubeSize);
+  }
+
+  .back {
+    transform-origin: top;
+    transform: rotateX(90deg);
+  }
+
+  .front {
+    transform-origin: bottom;
+    transform: rotateX(-90deg);
+  }
+
+  .left {
+    transform-origin: left;
+    transform: rotateY(-90deg);
+  }
+
+  .right {
+    transform-origin: right;
+    transform: rotateY(90deg);
+  }
+
+  .mini-terminal {
+    background: black;
+    transform: translateZ($cubeSize / 2) rotateX(-90deg) rotateY(var(--reverse-angle)) ;
+    position: absolute;
+    box-sizing: border-box;
+
+    // transform: rotateY(var(--angle)) rotateX(90deg);
+    // animation: innerSpin 5s linear infinite;
+
+    left: 20%;
+    top: 25%;
+    width: 60%;
+    height: 50%;
+    border-radius: 5px;
+    background: linear-gradient(321deg, rgba(0,63,132,1) 0%, rgba(4,0,0,1) 33%, rgba(0,63,132,1) 100%);
+
+    .dots {
+      position: absolute;
+      top: -5px;
+      padding-left: 0;
+      letter-spacing: -3px;
+      padding: 0 0 0 5px;
+      opacity: .4;
+      width: 100%;
+
+      height: 20px;
+      border-bottom: solid 1px white;
+    }
+
+    .cursor {
+      animation: blink 1s ease-in-out infinite;
+
+      @keyframes blink {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+
+      }
+    }
+
+    div {
+      font-family: "Roboto Mono", sans-serif;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      color: white;
+      padding: 10px;
+      font-size: 16px;
+    }
+  }
+}
+
+@keyframes innerSpin {
+  0% {
+    transform: translateZ($cubeSize / 2 - 10) rotateX(-90deg) rotateY(0);
+  }
+
+  50% {
+    transform: translateZ($cubeSize / 2 + 10) rotateX(-90deg) rotateY(-180deg);
+  }
+
+  100% {
+    transform: translateZ($cubeSize / 2 - 10) rotateX(-90deg) rotateY(-359deg);
+  }
+}
+
 html {
   font-family: "Open Sans";
   padding-bottom: 500px;
@@ -46,6 +199,10 @@ hr {
   border-bottom: solid 1px #DDD;
 }
 
+.section + hr {
+  margin: 5rem 0;
+}
+
 .page {
   width: clamp(600px, 75%, 1000px);
   margin: 0 auto;
@@ -86,18 +243,21 @@ h1 + .section {
 }
 
 .section {
-  margin: 150px 0;
   display: flex;
   z-index: 1;
   position: relative;
 
   h3 {
-    margin: .5rem 0 1rem 0;
+    margin: 0 0 1rem 0;
   }
 
   p {
     margin: 0 0 1.5rem 0;
     line-height: 150%;
+
+    &:last-child {
+      margin: 0;
+    }
   }
 }
 
@@ -105,6 +265,24 @@ h1 + .section {
   z-index: 1;
   flex: 1;
   position: relative;
+
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+
+  &:empty {
+      
+    &:after {
+      // content: "image placeholder";
+      // background: pink;
+      padding: 80px;
+      margin: 0 auto;
+      display: block;
+
+    }
+  }
 
   &:first-child {
     margin-right: 30px;
@@ -242,7 +420,7 @@ h1 + .section {
 
 .cli-install {
   padding: 30px 25px 15px 25px;
-  position: sticky;
+  // position: sticky;
   top: 0;
   z-index: 99;
   background: white;
@@ -252,8 +430,6 @@ h1 + .section {
   h4 {
     margin: 0;
   }
-
-
 
   .cli-header {
     display: flex;
@@ -310,5 +486,42 @@ h1 + .section {
 
   .success {
     color: #29b929;
+  }
+}
+
+
+.build-history {
+
+  .item {
+    border-bottom: solid 1px rgba(0,0,0,.12);
+    padding: 8px 0px;
+    font-size: .9rem;
+    color: rgba(0,0,0,.4);
+    display: flex;
+
+    .name {
+      // display: inline-block;
+      width: 150px;
+    }
+
+    .status {
+      margin-left: auto;
+    }
+
+    img {
+      display: none;
+      margin-left: auto;
+    }
+
+    &.done {
+      color: rgba(0,0,0,.65);
+      img {
+        display: inline-block;
+      }
+    }
+
+    &:last-child {
+      border: none;
+    }
   }
 }
