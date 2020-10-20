@@ -85,17 +85,17 @@ bundleProgressObserver.observe(bundleTarget);
 //History
 
 let observeHistoryProgress = (entries, observer) => {
-  updateItems(entries, observer, historyEls, "selected");
+  updateItems(entries, observer, historyEls, "visible");
 }
 
 let historyEls = document.querySelectorAll(".history-section .item");
 let historyProgressObserver = new IntersectionObserver(observeHistoryProgress, options);
 let historyTarget = document.querySelector('.history-section');
-// historyProgressObserver.observe(historyTarget);
+historyProgressObserver.observe(historyTarget);
 
 
 
-//History
+//Virtual Envs
 
 let observeVirtualProgess = (entries, observer) => {
   for (let entry of entries) {
@@ -109,8 +109,3 @@ let observeVirtualProgess = (entries, observer) => {
 let virtualObserver = new IntersectionObserver(observeVirtualProgess, options);
 let virtualTarget = document.querySelector('.spinner-wrapper');
 virtualObserver.observe(virtualTarget);
-
-
-
-
-

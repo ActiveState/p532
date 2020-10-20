@@ -492,14 +492,114 @@ h1 + .section {
   .item {
     border-bottom: solid 1px rgba(0,0,0,.12);
     padding: 8px 0px;
-    font-size: .9rem;
+    font-family: "Roboto Mono", monospace, sans-serif;
+    font-size: 1rem;
     color: rgba(0,0,0,.4);
-    display: flex;
+    white-space: nowrap;
+    opacity: 0;
+    
+    overflow: hidden;
+
+    &.visible {
+      opacity: 1;
+
+      .name {
+        opacity: 1;
+      }
+    }
 
     .name {
-      // display: inline-block;
-      width: 150px;
+      display: inline-block;
+      overflow: hidden;
+      transition: max-width .3s ease-out;
+      transition-delay: .3s;
+      position: relative;
+      top: 2px;
+      width: auto;
+      opacity:0;
+      transition: opacity .2s ease-out;
     }
+
+    .action {
+      margin-left: auto;
+      position: relative;
+      top: 2px;
+      opacity: .5;
+    }
+
+    .icon {
+      height: 20px;
+      display: inline-block;
+      width: 20px;
+      border-radius: 10px;
+      margin-right: 10px;
+      background: #35ce35;
+      color: white;
+    }
+
+    &.added {
+      .name {
+        color: #72c653;
+      }
+      .action {
+        color: #60bf3e;
+      }
+      .icon {
+        background-image: url(../img/circle-plus.svg);
+      }
+    }
+
+    &.changed {
+      .name {
+        color: #3569C4;
+      }
+      .action {
+        color: #498fec;
+      }
+      .icon {
+        background: #3569C4;
+      }
+    }
+
+
+    &.removed {
+      .name {
+        color: #db3444;
+      }
+      .action {
+        color: #db3444;
+      }
+      .icon {
+        background-image: url(../img/circle-minus.svg);
+      }
+    }
+
+    &.visible {
+      .icon {
+        animation: iconAppear .3s ease-out;
+      }
+      .name {
+        max-width: 300px;
+      }
+
+      @keyframes iconAppear {
+        0% {
+          transform: scaleX(0);
+        }
+        60% {
+          transform: scaleX(1.1);
+        }
+        80% {
+          transform: scaleX(.9);
+        }
+
+        100% {
+          transform: scaleX(1);
+        }
+      }
+    }
+
+
 
     .status {
       margin-left: auto;

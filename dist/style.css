@@ -339,11 +339,71 @@ h1 + .section {
 .build-history .item {
   border-bottom: solid 1px rgba(0, 0, 0, 0.12);
   padding: 8px 0px;
-  font-size: .9rem;
+  font-family: "Roboto Mono", monospace, sans-serif;
+  font-size: 1rem;
   color: rgba(0, 0, 0, 0.4);
-  display: flex; }
+  white-space: nowrap;
+  opacity: 0;
+  overflow: hidden; }
+  .build-history .item.visible {
+    opacity: 1; }
+    .build-history .item.visible .name {
+      opacity: 1; }
   .build-history .item .name {
-    width: 150px; }
+    display: inline-block;
+    overflow: hidden;
+    transition: max-width .3s ease-out;
+    transition-delay: .3s;
+    position: relative;
+    top: 2px;
+    width: auto;
+    opacity: 0;
+    transition: opacity .2s ease-out; }
+  .build-history .item .action {
+    margin-left: auto;
+    position: relative;
+    top: 2px;
+    opacity: .5; }
+  .build-history .item .icon {
+    height: 20px;
+    display: inline-block;
+    width: 20px;
+    border-radius: 10px;
+    margin-right: 10px;
+    background: #35ce35;
+    color: white; }
+  .build-history .item.added .name {
+    color: #72c653; }
+  .build-history .item.added .action {
+    color: #60bf3e; }
+  .build-history .item.added .icon {
+    background-image: url(../img/circle-plus.svg); }
+  .build-history .item.changed .name {
+    color: #3569C4; }
+  .build-history .item.changed .action {
+    color: #498fec; }
+  .build-history .item.changed .icon {
+    background: #3569C4; }
+  .build-history .item.removed .name {
+    color: #db3444; }
+  .build-history .item.removed .action {
+    color: #db3444; }
+  .build-history .item.removed .icon {
+    background-image: url(../img/circle-minus.svg); }
+  .build-history .item.visible .icon {
+    animation: iconAppear .3s ease-out; }
+  .build-history .item.visible .name {
+    max-width: 300px; }
+
+@keyframes iconAppear {
+  0% {
+    transform: scaleX(0); }
+  60% {
+    transform: scaleX(1.1); }
+  80% {
+    transform: scaleX(0.9); }
+  100% {
+    transform: scaleX(1); } }
   .build-history .item .status {
     margin-left: auto; }
   .build-history .item img {
