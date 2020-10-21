@@ -336,7 +336,8 @@ h1 + .section {
   .terminal pre {
     font-family: "Roboto Mono", monospace;
     color: rgba(255, 255, 255, 0.7);
-    line-height: 140%; }
+    line-height: 140%;
+    font-size: .9rem; }
   .terminal .success {
     color: #29b929; }
 
