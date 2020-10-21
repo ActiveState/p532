@@ -4,8 +4,6 @@
   --virtual-progress: 0;
 }
 
-
-
 .spinner-wrapper {
   perspective: 500px;
   height: 200px;
@@ -247,6 +245,7 @@ h1 + .section {
 
   h3 {
     margin: 0 0 1rem 0;
+    line-height: 2.2rem;
   }
 
   p {
@@ -293,67 +292,87 @@ h1 + .section {
 }
 
 .build-progress {
-  padding: 15px;
+  padding: 20px;
+  padding-bottom: 10px;
   border-radius: 10px;
   box-shadow: 0 3px 15px rgba(0,0,0,.12);
-}
 
-.progress {
-  background: rgba(0,0,0,.12);
-  margin: 0 0 10px 0;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  height: 8px;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 3px;
+  .progress-header {
+    display: flex;
+    margin-bottom: 15px;
 
-  .bar {
-    height: inherit;
-    width: 10%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #5dc133;
-    transition: width .2s linear;
-  }
-}
+    .build-label {
+      white-space: nowrap;
+      text-transform: uppercase;
+      font-size: .8rem;
+      font-weight: 600;
+    }
 
-.build-progress {
-  .item {
-  border-bottom: solid 1px rgba(0,0,0,.12);
-  padding: 8px 0px;
-  font-size: .9rem;
-  color: rgba(0,0,0,.4);
-  display: flex;
-
-  .name {
-    width: 150px;
-  }
-
-  .status {
-    margin-left: auto;
-  }
-
-  img {
-    display: none;
-    margin-left: auto;
-  }
-
-  &.done {
-    color: rgba(0,0,0,.65);
-    img {
-      display: inline-block;
+    .progress {
+      flex: 1;
+      top: 2px;
+      margin-left: 10px;
     }
   }
 
-  &:last-child {
-    border: none;
+  .progress {
+    background: rgba(0,0,0,.12);
+    margin: 0 0 10px 0;
+    position: relative;
+    height: 8px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 3px;
+
+    .bar {
+      height: inherit;
+      width: 10%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #5dc133;
+      transition: width .2s linear;
+    }
+  }
+
+
+  .item {
+    border-bottom: solid 1px rgba(0,0,0,.12);
+    padding: 8px 0px;
+    font-size: .9rem;
+    color: rgba(0,0,0,.4);
+    display: flex;
+    font-family: "Roboto Mono", monospace, sans-serif;
+
+    .name {
+      margin-right: 15px;
+    }
+
+    .status {
+      margin-left: auto;
+    }
+
+    img {
+      margin-left: auto;
+      display: inline-block;
+      opacity: 0;
+    }
+
+    &.done {
+      color: rgba(0,0,0,.65);
+
+      img {
+        display: inline-block;
+        opacity: 1;
+        animation: iconAppear .3s ease-out;
+      }
+    }
+
+    &:last-child {
+      border: none;
+    }
   }
 }
-}
-
-
 
 
 .bundle-wrapper {
@@ -588,8 +607,7 @@ h1 + .section {
       top: -2px;
       width: auto;
       font-size: .85rem;
-      opacity:0;
-      transition: opacity .2s ease-out;
+      color: rgba(0,0,0,.6);
     }
 
     .action {
@@ -614,7 +632,7 @@ h1 + .section {
 
     &.added {
       .name {
-        color: #72c653;
+        // color: #72c653;
       }
       .action {
         color: #60bf3e;
@@ -626,7 +644,7 @@ h1 + .section {
 
     &.changed {
       .name {
-        color: #3569C4;
+        // color: #3569C4;
       }
       .action {
         color: #498fec;
@@ -639,7 +657,7 @@ h1 + .section {
 
     &.removed {
       .name {
-        color: #db3444;
+        // color: #db3444;
       }
       .action {
         color: #db3444;
@@ -656,22 +674,6 @@ h1 + .section {
       .name {
         max-width: 300px;
       }
-
-      @keyframes iconAppear {
-        0% {
-          transform: scaleX(0);
-        }
-        60% {
-          transform: scaleX(1.1);
-        }
-        80% {
-          transform: scaleX(.9);
-        }
-
-        100% {
-          transform: scaleX(1);
-        }
-      }
     }
 
     .status {
@@ -685,8 +687,10 @@ h1 + .section {
 
     &.done {
       color: rgba(0,0,0,.65);
+
       img {
-        display: inline-block;
+        opacity: 1;
+        animation: iconAppear .3s ease-out;
       }
     }
 
@@ -865,3 +869,19 @@ h1 + .section {
 
   }
 }
+
+      @keyframes iconAppear {
+        0% {
+          transform: scaleX(0);
+        }
+        60% {
+          transform: scaleX(1.1);
+        }
+        80% {
+          transform: scaleX(.9);
+        }
+
+        100% {
+          transform: scaleX(1);
+        }
+      }

@@ -175,7 +175,8 @@ h1 + .section {
   z-index: 1;
   position: relative; }
   .section h3 {
-    margin: 0 0 1rem 0; }
+    margin: 0 0 1rem 0;
+    line-height: 2.2rem; }
   .section p {
     margin: 0 0 1.5rem 0;
     line-height: 150%;
@@ -200,47 +201,61 @@ h1 + .section {
     margin-left: 30px; }
 
 .build-progress {
-  padding: 15px;
+  padding: 20px;
+  padding-bottom: 10px;
   border-radius: 10px;
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12); }
-
-.progress {
-  background: rgba(0, 0, 0, 0.12);
-  margin: 0 0 10px 0;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  height: 8px;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 3px; }
-  .progress .bar {
-    height: inherit;
-    width: 10%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #5dc133;
-    transition: width .2s linear; }
-
-.build-progress .item {
-  border-bottom: solid 1px rgba(0, 0, 0, 0.12);
-  padding: 8px 0px;
-  font-size: .9rem;
-  color: rgba(0, 0, 0, 0.4);
-  display: flex; }
-  .build-progress .item .name {
-    width: 150px; }
-  .build-progress .item .status {
-    margin-left: auto; }
-  .build-progress .item img {
-    display: none;
-    margin-left: auto; }
-  .build-progress .item.done {
-    color: rgba(0, 0, 0, 0.65); }
-    .build-progress .item.done img {
-      display: inline-block; }
-  .build-progress .item:last-child {
-    border: none; }
+  .build-progress .progress-header {
+    display: flex;
+    margin-bottom: 15px; }
+    .build-progress .progress-header .build-label {
+      white-space: nowrap;
+      text-transform: uppercase;
+      font-size: .8rem;
+      font-weight: 600; }
+    .build-progress .progress-header .progress {
+      flex: 1;
+      top: 2px;
+      margin-left: 10px; }
+  .build-progress .progress {
+    background: rgba(0, 0, 0, 0.12);
+    margin: 0 0 10px 0;
+    position: relative;
+    height: 8px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 3px; }
+    .build-progress .progress .bar {
+      height: inherit;
+      width: 10%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #5dc133;
+      transition: width .2s linear; }
+  .build-progress .item {
+    border-bottom: solid 1px rgba(0, 0, 0, 0.12);
+    padding: 8px 0px;
+    font-size: .9rem;
+    color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    font-family: "Roboto Mono", monospace, sans-serif; }
+    .build-progress .item .name {
+      margin-right: 15px; }
+    .build-progress .item .status {
+      margin-left: auto; }
+    .build-progress .item img {
+      margin-left: auto;
+      display: inline-block;
+      opacity: 0; }
+    .build-progress .item.done {
+      color: rgba(0, 0, 0, 0.65); }
+      .build-progress .item.done img {
+        display: inline-block;
+        opacity: 1;
+        animation: iconAppear .3s ease-out; }
+    .build-progress .item:last-child {
+      border: none; }
 
 .bundle-wrapper {
   background: #eee;
@@ -405,8 +420,7 @@ h1 + .section {
       top: -2px;
       width: auto;
       font-size: .85rem;
-      opacity: 0;
-      transition: opacity .2s ease-out; }
+      color: rgba(0, 0, 0, 0.6); }
     .build-history .item .action {
       margin-left: auto;
       position: relative;
@@ -423,20 +437,14 @@ h1 + .section {
       color: white;
       position: relative;
       top: 1px; }
-    .build-history .item.added .name {
-      color: #72c653; }
     .build-history .item.added .action {
       color: #60bf3e; }
     .build-history .item.added .icon {
       background-image: url(../img/circle-plus.svg); }
-    .build-history .item.changed .name {
-      color: #3569C4; }
     .build-history .item.changed .action {
       color: #498fec; }
     .build-history .item.changed .icon {
       background: #3569C4; }
-    .build-history .item.removed .name {
-      color: #db3444; }
     .build-history .item.removed .action {
       color: #db3444; }
     .build-history .item.removed .icon {
@@ -445,16 +453,6 @@ h1 + .section {
       animation: iconAppear .3s ease-out; }
     .build-history .item.visible .name {
       max-width: 300px; }
-
-@keyframes iconAppear {
-  0% {
-    transform: scaleX(0); }
-  60% {
-    transform: scaleX(1.1); }
-  80% {
-    transform: scaleX(0.9); }
-  100% {
-    transform: scaleX(1); } }
     .build-history .item .status {
       margin-left: auto; }
     .build-history .item img {
@@ -463,7 +461,8 @@ h1 + .section {
     .build-history .item.done {
       color: rgba(0, 0, 0, 0.65); }
       .build-history .item.done img {
-        display: inline-block; }
+        opacity: 1;
+        animation: iconAppear .3s ease-out; }
     .build-history .item:last-child {
       border: none; }
 
@@ -579,3 +578,13 @@ h1 + .section {
       width: 60px;
       top: 5%;
       left: calc(50% - 30px); }
+
+@keyframes iconAppear {
+  0% {
+    transform: scaleX(0); }
+  60% {
+    transform: scaleX(1.1); }
+  80% {
+    transform: scaleX(0.9); }
+  100% {
+    transform: scaleX(1); } }
