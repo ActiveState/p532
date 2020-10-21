@@ -370,14 +370,14 @@ h1 + .section {
       position: absolute;
       left: -20px;
       height: 100%;
-      border-left: solid 2px #BBB;
+      border-left: solid 2px #CCC;
       top: 0; }
       .build-history .item .arrow:before {
         content: "";
         position: absolute;
         width: 6px;
         height: 6px;
-        background: #BBB;
+        background: #CCC;
         border-radius: 5px;
         left: -4px;
         top: calc(50% - 3px); }
@@ -386,20 +386,20 @@ h1 + .section {
         position: absolute;
         width: 18px;
         height: calc(50% - 1px);
-        border-bottom: solid 2px #BBB; }
+        border-bottom: solid 2px #CCC; }
     .build-history .item:last-child .arrow {
       height: 50%; }
       .build-history .item:last-child .arrow:after {
         height: 100%; }
       .build-history .item:last-child .arrow:before {
-        top: calc(100% - 3px); }
+        top: calc(100% - 2px); }
     .build-history .item .name {
       display: inline-block;
       overflow: hidden;
       transition: max-width .3s ease-out;
       transition-delay: .3s;
       position: relative;
-      top: -3px;
+      top: -2px;
       width: auto;
       font-size: .85rem;
       opacity: 0;
@@ -415,9 +415,11 @@ h1 + .section {
       display: inline-block;
       width: 20px;
       border-radius: 10px;
-      margin-right: 10px;
+      margin-right: 0px;
       background: #35ce35;
-      color: white; }
+      color: white;
+      position: relative;
+      top: 1px; }
     .build-history .item.added .name {
       color: #72c653; }
     .build-history .item.added .action {

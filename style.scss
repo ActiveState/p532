@@ -327,7 +327,6 @@ h1 + .section {
   display: flex;
 
   .name {
-    // display: inline-block;
     width: 150px;
   }
 
@@ -532,11 +531,13 @@ h1 + .section {
       }
     }
 
+    $arrowColor: #CCC;
+    
     .arrow {
       position: absolute;
       left: -20px;
       height: 100%;
-      border-left: solid 2px #BBB;
+      border-left: solid 2px $arrowColor;
       top:0;
 
       &:before {
@@ -544,7 +545,7 @@ h1 + .section {
         position: absolute;
         width: 6px;
         height: 6px;
-        background: #BBB;
+        background: $arrowColor;
         border-radius: 5px;
         left: -4px;
         top: calc(50% - 3px);
@@ -555,7 +556,7 @@ h1 + .section {
         position: absolute;
         width: 18px;
         height: calc(50% - 1px);
-        border-bottom: solid 2px #BBB;
+        border-bottom: solid 2px $arrowColor;
       }
     }
 
@@ -567,7 +568,7 @@ h1 + .section {
       }
 
       &:before {
-        top: calc(100% - 3px);
+        top: calc(100% - 2px);
       }
     }
 
@@ -577,7 +578,7 @@ h1 + .section {
       transition: max-width .3s ease-out;
       transition-delay: .3s;
       position: relative;
-      top: -3px;
+      top: -2px;
       width: auto;
       font-size: .85rem;
       opacity:0;
@@ -597,9 +598,11 @@ h1 + .section {
       display: inline-block;
       width: 20px;
       border-radius: 10px;
-      margin-right: 10px;
+      margin-right: 0px;
       background: #35ce35;
       color: white;
+      position: relative;
+      top: 1px;
     }
 
     &.added {
@@ -663,8 +666,6 @@ h1 + .section {
         }
       }
     }
-
-
 
     .status {
       margin-left: auto;
