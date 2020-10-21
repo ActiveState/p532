@@ -16,7 +16,7 @@ let buildRatio = size => {
 }
 
 let options = {
-  rootMargin: "-200px",
+  rootMargin: "-200px 0px -200px 0px",
   threshold: buildRatio(20) // 20 steps
 }
 
@@ -84,14 +84,15 @@ virtualObserver.observe(virtualTarget);
 //Dependencies
 
 let observeDependencyProgress = (entries, observer) => {
-  updateItemsTwo(entries, observer, depEls, "resolved");
+  updateItemsTwo(entries, observer, depEls, "resolved", depTarget);
 }
 
-let depEls = Array.from(document.querySelectorAll(".dependencies-section .package")).reverse();
+let depEls = Array.from(document.querySelectorAll(".dependencies-section .package:not(.first)"));
 let depObserver = new IntersectionObserver(observeDependencyProgress, options);
-depObserver.observe(document.querySelector('.dependencies-section'));
+let depTarget = document.querySelector('.dependencies-section');
+depObserver.observe(depTarget);
 
-const updateItemsTwo = (entries, observer, elements, className) => {
+const updateItemsTwo = (entries, observer, elements, className, depTarget) => {
 
   let itemArray = elements;
   let itemCount = itemArray.length;
@@ -104,12 +105,21 @@ const updateItemsTwo = (entries, observer, elements, className) => {
     let ratio = entry.intersectionRatio;
 
     let finishedItemCount = Math.ceil(ratio * itemCount);
+
+
     let completedItems = itemArray.slice(0, finishedItemCount);
+    if(itemCount ==finishedItemCount) {
+      depTarget.classList.add("finished");
+    } else {
+      depTarget.classList.remove("finished");
+    }
 
     for(let el of completedItems) {
       el.classList.add(className);
     }
   }
+
+
 }
 
 const updateItems = (entries, observer, elements, className) => {

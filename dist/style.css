@@ -416,6 +416,9 @@ h1 + .section {
   .build-history .item:last-child {
     border: none; }
 
+.finished .dependency-tree .level-one .package:after {
+  display: block; }
+
 .dependency-tree {
   display: flex;
   flex-direction: row; }
@@ -425,15 +428,15 @@ h1 + .section {
     background-repeat: no-repeat; }
     .dependency-tree .package.resolved {
       background: url(../img/package.svg);
-      animation: packagePop .15s ease-out; }
+      animation: packagePop .3s ease-out; }
 
 @keyframes packagePop {
   0% {
-    transform: scale(0.9); }
-  60% {
-    transform: scale(1.15); }
+    transform: scale(1);
+    opacity: 0; }
   100% {
-    transform: scale(1); } }
+    transform: scale(1);
+    opacity: 1; } }
   .dependency-tree .level-one {
     display: flex; }
     .dependency-tree .level-one .package {
@@ -443,21 +446,20 @@ h1 + .section {
       display: block;
       position: relative;
       background: url(../img/package.svg); }
-      .dependency-tree .level-one .package.resolved {
-        animation: none; }
-        .dependency-tree .level-one .package.resolved:after {
-          content: "";
-          background: url(../img/package-checkmark.svg);
-          background-size: contain;
-          width: 50px;
-          height: 50px;
-          position: absolute;
-          right: -15px;
-          top: 0px;
-          opacity: 0;
-          animation: checkPop .2s ease-out;
-          animation-fill-mode: forwards;
-          animation-delay: .3s; }
+      .dependency-tree .level-one .package:after {
+        content: "";
+        background: url(../img/package-checkmark.svg);
+        background-size: contain;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        right: -15px;
+        top: 0px;
+        opacity: 0;
+        animation: checkPop .2s ease-out;
+        animation-fill-mode: forwards;
+        animation-delay: .3s;
+        display: none; }
 
 @keyframes checkPop {
   0% {

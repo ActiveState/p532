@@ -16,9 +16,9 @@
 
       <div class="section hero">
         <div class="col">
-          <h1>ActivePerl 5.32 Beta is here!</h1>
-          <h2>The modern perl experience</h2>
-          <p>Some awesome benefits of modern perl. Some awesome benefits of modern perl. Some awesome benefits of modern perl. Some awesome benefits of modern perl.</p>
+          <h1>Perl 5.32 Beta is here!</h1>
+          <h2>Perl powered by the ActiveState Platform</h2>
+          <p>We’ve re-imagined the way developers manage and interact with their Perl development environments starting with Perl 5.32. Backed by the ActiveState Platform, Perl 5.32 offers new benefits that make your experience faster, easier and more powerful! Read on to learn more about why Perl 5.32 is the way forward for our language builds.</p>
         </div>
         <div class="col">
           <img width="200" src="img/modern-perl.png" />
@@ -40,11 +40,70 @@
       <h1>So, what's new?</h1>
 
 
-      <div class="section history-section">
-        <div class="col">
-          <h3>History</h3>
-          <p>Builds are done in parallel, they are done in parallel. Builds are done in parallel, they are done in parallel. Builds are done in parallel, they are done in parallel. Builds are done in parallel, they are done in parallel.</p>
+
+      <!-- Powered by the Platform -->
+      <div class="section">
+        <div class="col ">
+          <h3>Powered by the AciveState Platform</h3>
+          <p>
+            The ActiveState Platform offers sophisticated dependency management, distributed parallel cloud builds, team collaboration tools, a versatile CLI and the benefits of an experience build engineering team for every developer.
+          </p>
         </div>
+        <div class="col">
+        </div>
+      </div>
+      <hr>
+
+      <!-- Package Management -->
+      <div class="section bundles-section">
+        <div class="col ">
+            <div class="bundle-wrapper">
+              <div class="bundle">
+                <input type="checkbox" />
+                <input checked type="checkbox" />
+                <h4>Utilities Bundle</h4>
+                <p>This cool bundle is cool.</p>
+              </div>
+              <div class="bundle">
+                <input type="checkbox" />
+                <input checked type="checkbox" />
+                <h4>Databases Bundle</h4>
+                <p>This cool bundle is cool.</p>
+              </div>
+              <div class="bundle">
+                <input type="checkbox" />
+                <input checked type="checkbox" />
+                <h4>Testing Bundle</h4>
+                <p>This cool bundle is cool.</p>
+              </div>
+            </div>
+        </div>
+        <div class="col">
+          <h3>Multi-OS Universal Package Management</h3>
+          <p>
+            Use the same tooling across platforms to manage the contents of your builds. Use bundles of curated packages by use-case to get developing quickly.
+          </p>
+        </div>
+      </div>
+      <hr>
+
+
+      <!-- Multi-OS Teams -->
+      <div class="section bundles-section">
+        <div class="col">
+          <h3>Common Development Environments</h3>
+          <p>
+            Keep teams synchronized with shared, common development environments that are 100% reproducible on any machine.
+          </p>
+        </div>
+        <div class="col">
+          <img src="img/three-comps.svg" width="100%"/>
+        </div>
+      </div>
+      <hr />
+
+
+      <div class="section history-section">
         <div class="col">
           <div class="build-history">
             <div class="item added">
@@ -79,77 +138,23 @@
             </div>
           </div>
         </div>
-      </div>
-      <hr>
-
-
-      <!-- Parallel builds -->
-
-      <div class="section">
-        <div class="col ">
-          <h3>Easy Dependency Management</h3>
-          <p>Add packages easily from the command line. We have all the best packages we've been told. The best. Just run a command and see.</p>
-          <h4>Add a package</h4>
-          <input class="cli-command" value="state install DateTime" type="text"/>
-          <!-- <a href="#">See other commands</a> -->
-        </div>
         <div class="col">
-          <div class="terminal">
-<pre>
-$ state install DateTime
-░ Building from source
-↓ Downloading...
-<span class="success">✓ Package installed: DateTime</span>
-
-$ _
-</pre>
-          </div>
-        </div>
-      </div>
-      <hr>
-
-      <!-- Bundles -->
-      <div class="section bundles-section">
-        <div class="col ">
-            <div class="bundle-wrapper">
-              <div class="bundle">
-                <input type="checkbox" />
-                <input checked type="checkbox" />
-                <h4>Utilities Bundle</h4>
-                <p>This cool bundle is cool.</p>
-              </div>
-              <div class="bundle">
-                <input type="checkbox" />
-                <input checked type="checkbox" />
-                <h4>Databases Bundle</h4>
-                <p>This cool bundle is cool.</p>
-              </div>
-              <div class="bundle">
-                <input type="checkbox" />
-                <input checked type="checkbox" />
-                <h4>Testing Bundle</h4>
-                <p>This cool bundle is cool.</p>
-              </div>
-            </div>
-        </div>
-        <div class="col">
-          <h3>Package Bundles</h3>
-          <p>Add bundles it's cool. Add bundles it's cool. Add bundles it's cool. Add bundles it's cool. Add bundles it's cool. Add bundles it's cool. Add bundles it's cool. Add bundles it's cool. </p>
-          <a href="#">Check out all the bundles</a>
+          <h3>Revision Control</h3>
+          <p>
+            See history of any change to your builds with the ability to revert, fork and merge changes between projects.
+          </p>
         </div>
       </div>
       <hr>
 
       <!-- Virtual Environments -->
       <div class="section virtual-env-section">
-
         <div class="col ">
           <h3>Virtual Environments</h3>
           <p>
-            ActivePerl is Installed via the command line using our State Tool CLI, which will automatically create a virtual environment to ensure against dependency conflicts and environment corruption.
+            Keep your projects sandboxed on your machine with a cross-platform, universal virtual environment solution.
           </p>
         </div>
-
         <div class="col">
           <div class="spinner-wrapper">
             <div class="spinner">
@@ -164,17 +169,17 @@ $ _
             </div>
           </div>
         </div>
-
       </div>
       <hr>
 
-      <!-- Compiler Free Toolchain --> 
+
+     <!-- Dependency Management -->
       <div class="section dependencies-section">
 
         <div class="col">
           <div class="dependency-tree">
             <div class="level-one">
-              <div class="package"></div>
+              <div class="package first"></div>
             </div>
             <div class="level-two-arrow">
               <img src="img/large-arrow.svg"/>
@@ -198,63 +203,22 @@ $ _
         </div>
 
         <div class="col ">
-          <h3>No Compiler Toolchain</h3>
+          <h3>Enterprise Grade Dependency Management</h3>
           <p>
-            Need to add specific dependencies post-install? We’ll automatically build them (including linked C libraries) for you, just like PPM. No need to maintain your own build environment.
+            The ActiveState Platform offers enhanced dependency resolution with better control and more refined data to ensure that you get known-good sets of dependencies that can meet the demanding standards of the Enterprise.
           </p>
         </div>
 
       </div>
       <hr />
 
-      <div class="section bundles-section">
-        <div class="col">
-          <h3>Support for Multi-OS Teams</h3>
-          <p>
-            Share your pre-built Perl environment with your team members, no matter whether they use Windows, Mac or Linux, ensuring everyone’s environment is in sync.
-          </p>
-        </div>
-        <div class="col"></div>
-      </div>
-      <hr />
-
-     <div class="section bundles-section">
-        <div class="col ">
-          <h3>Track & Restore Environments</h3>
-          <p>
-            The ActiveState Platform saves each change you make to your environment so you can roll back/restore any version at any time.
-          </p>
-        </div>
-        <div class="col"></div>
-      </div>
-      <hr />
-
-      <div class="section bundles-section">
-        <div class="col ">
-          <h3>No More Dependency Hell</h3>
-          <p>
-            Automatically resolves all dependencies, and provides clear messaging when conflicts arise, simplifying resolution.. 
-          </p>
-        </div>
-        <div class="col"></div>
-      </div>
-      <hr />
-
-      <div class="section bundles-section">
-        <div class="col ">
-          <h3>Vetted Perl</h3>
-          <p>
-Our catalog of Perl modules is imported from CPAN, vetted by ActiveState, and updated every 48 hours to ensure you’re always building with the latest dependency versions. Know the provenance of what you’re installing.          </a>
-        </div>
-        <div class="col"></div>
-      </div>
-      <hr />
-
-
+      <!-- Built from Source -->
       <div class="section build-progress-section">
         <div class="col">
-          <h3>Parallel builds</h3>
-          <p>Builds are done in parallel, they are done in parallel. Builds are done in parallel, they are done in parallel. Builds are done in parallel, they are done in parallel. Builds are done in parallel, they are done in parallel.</p>
+          <h3>Built Directly from Source</h3>
+          <p>
+            The ActiveState Platform gives you access to a distributed, parallel build system so that even complex development environments can build in record time--straight from source code--giving you all the security assurances and flexibility that comes with it. A sophisticated cache system means that installing packages in your build is instant--without the need for any compiler toolchains!
+          </p>
         </div>
         <div class="col">
           <div class="build-progress">
@@ -295,6 +259,44 @@ Our catalog of Perl modules is imported from CPAN, vetted by ActiveState, and up
         </div>
       </div>
       <hr />
+
+
+      <!-- Parallel builds -->
+
+      <div class="section">
+        <div class="col">
+          <div class="terminal">
+<pre>
+$ state install DateTime
+░ Building from source
+↓ Downloading...
+<span class="success">✓ Package installed: DateTime</span>
+
+$ _
+</pre>
+          </div>
+        </div>
+
+        <div class="col ">
+          <h3>Versatile CLI</h3>
+          <p>
+            An all-new CLI lets you manage your build directly from the terminal, easily integrate with your existing CI/CD pipelines, and keep your team synchronized across platforms.
+          </p>
+          <h4>Add a package</h4>
+          <input class="cli-command" value="state install DateTime" type="text"/>
+        </div>
+
+      </div>
+      <hr>
+
+
+      
+
+
+
+
+
+
       <!-- Parallel builds -->
 
       <p> Read more about ActivePerl 5.32 in our Modernizing ActivePerl blog post.</p>
@@ -305,3 +307,4 @@ Our catalog of Perl modules is imported from CPAN, vetted by ActiveState, and up
 </html>
 
 <script src="app.js" type="text/javascript" charset="utf-8"></script>
+
