@@ -148,7 +148,6 @@ $cubeSize: 150px;
 
 html {
   font-family: "Open Sans";
-  padding-bottom: 100px;
 }
 
 h1, h2, h3, h4 {
@@ -255,6 +254,13 @@ h1 + .section {
     &:last-child {
       margin: 0;
     }
+  }
+  
+  a {
+    line-height: 150%;
+    font-weight: 600;
+    color: #0453bd;
+    font-size: 1.1rem;
   }
 }
 
@@ -497,6 +503,8 @@ h1 + .section {
 
 .terminal {
   background: #222;
+  background: linear-gradient(321deg, rgba(0,63,132,1) 0%, rgba(4,0,0,1) 33%, rgba(0,63,132,1) 100%);
+
   border-top: solid 20px #DDD;
   border-radius: 5px;
   box-shadow: 0 3px 15px rgba(0,0,0,.12); 
@@ -869,18 +877,34 @@ h1 + .section {
   }
 }
 
-      @keyframes iconAppear {
-        0% {
-          transform: scaleX(0);
-        }
-        60% {
-          transform: scaleX(1.1);
-        }
-        80% {
-          transform: scaleX(.9);
-        }
+@keyframes iconAppear {
+  0% {
+    transform: scaleX(0);
+  }
+  60% {
+    transform: scaleX(1.1);
+  }
+  80% {
+    transform: scaleX(.9);
+  }
 
-        100% {
-          transform: scaleX(1);
-        }
-      }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+footer {
+  padding: 80px;
+  background: #222;
+  margin-top: 10rem;
+
+  .content {
+    width: clamp(600px, 75%, 1000px);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    padding: 0 3rem;
+    color: rgba(255,255,255,.4);
+  }
+}
+
