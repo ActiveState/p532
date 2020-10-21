@@ -501,9 +501,8 @@ h1 + .section {
   padding: 15px 20px;
   padding-left: 40px;
   border-radius: 10px;
-  
+
   .item-body {
-    animation: bundlePop .25s ease-in-out;
     position: relative;
     border-radius: 8px;
     background: white;
@@ -513,6 +512,12 @@ h1 + .section {
     font-size: 1rem;
     color: rgba(0,0,0,.4);
     white-space: nowrap;
+  }
+
+  .visible {
+    .item-body {
+      animation: bundlePop .25s ease-in-out;
+    }
   }
 
   .item {
