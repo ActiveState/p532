@@ -251,6 +251,7 @@ h1 + .section {
   p {
     margin: 0 0 1.5rem 0;
     line-height: 150%;
+    font-size: 1.1rem;
 
     &:last-child {
       margin: 0;
@@ -317,7 +318,8 @@ h1 + .section {
   }
 }
 
-.item {
+.build-progress {
+  .item {
   border-bottom: solid 1px rgba(0,0,0,.12);
   padding: 8px 0px;
   font-size: .9rem;
@@ -349,6 +351,8 @@ h1 + .section {
     border: none;
   }
 }
+}
+
 
 
 
@@ -375,6 +379,11 @@ h1 + .section {
     opacity: 1;
     animation: bundlePop .25s ease-in-out;
     box-shadow: 0 2px 12px rgba(0,0,0,.1);
+  }
+
+  p {
+    font-size: .9rem;
+    margin: 4px 0 0 0;
   }
 
 }
@@ -488,17 +497,32 @@ h1 + .section {
 
 
 .build-history {
-
-  .item {
-    border-bottom: solid 1px rgba(0,0,0,.12);
-    padding: 8px 0px;
+  background: #EEE;
+  padding: 15px 20px;
+  padding-left: 40px;
+  border-radius: 10px;
+  
+  .item-body {
+    animation: bundlePop .25s ease-in-out;
+    position: relative;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 2px 12px rgba(0,0,0,.1);
+    padding: 8px 10px;
     font-family: "Roboto Mono", monospace, sans-serif;
     font-size: 1rem;
     color: rgba(0,0,0,.4);
     white-space: nowrap;
+  }
+
+  .item {
+    position: relative;
     opacity: 0;
-    
-    overflow: hidden;
+    padding: 5px 0;
+
+    &:last-child {
+      margin: 0;
+    }
 
     &.visible {
       opacity: 1;
@@ -508,14 +532,54 @@ h1 + .section {
       }
     }
 
+    .arrow {
+      position: absolute;
+      left: -20px;
+      height: 100%;
+      border-left: solid 2px #BBB;
+      top:0;
+
+      &:before {
+        content:"";
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: #BBB;
+        border-radius: 5px;
+        left: -4px;
+        top: calc(50% - 3px);
+      }
+
+      &:after {
+        content:"";
+        position: absolute;
+        width: 18px;
+        height: calc(50% - 1px);
+        border-bottom: solid 2px #BBB;
+      }
+    }
+
+    &:last-child .arrow {
+      height: 50%;
+
+      &:after {
+        height: 100%;
+      }
+
+      &:before {
+        top: calc(100% - 3px);
+      }
+    }
+
     .name {
       display: inline-block;
       overflow: hidden;
       transition: max-width .3s ease-out;
       transition-delay: .3s;
       position: relative;
-      top: 2px;
+      top: -3px;
       width: auto;
+      font-size: .85rem;
       opacity:0;
       transition: opacity .2s ease-out;
     }
@@ -525,6 +589,7 @@ h1 + .section {
       position: relative;
       top: 2px;
       opacity: .5;
+      display: none;
     }
 
     .icon {
