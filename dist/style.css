@@ -146,7 +146,8 @@ hr {
   width: clamp(600px, 75%, 1000px);
   margin: 0 auto;
   position: relative;
-  z-index: 1; }
+  z-index: 1;
+  padding: 0 3rem; }
 
 h1 + .section {
   margin-top: 60px; }
