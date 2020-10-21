@@ -740,3 +740,40 @@ h1 + .section {
     }
   }
 }
+
+
+.many-computers {
+  display: flex;
+  flex-direction: row;
+
+  .computer {
+    height: 200px;
+    display: flex;
+    position: relative;
+
+    img {
+      height: 160px;
+      display: block;
+      margin: auto;
+    }
+
+    .camel {
+      position: absolute;
+      width: 40px;
+      top: 5%;
+      left: calc(50% - 20px);
+      display: none;
+    }
+
+    &.activated .camel {
+      display: block;
+    }
+
+    &.two .camel {
+      width: 60px;
+      top: 5%;
+      left: calc(50% - 30px);
+    }
+
+  }
+}

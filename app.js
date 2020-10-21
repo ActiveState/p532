@@ -92,6 +92,21 @@ let depObserver = new IntersectionObserver(observeDependencyProgress, options);
 let depTarget = document.querySelector('.dependencies-section');
 depObserver.observe(depTarget);
 
+
+//Environments
+
+let observeEnvironmentsProgress = (entries, observer) => {
+  updateItemsTwo(entries, observer, envEls, "activated", envTarget);
+}
+
+let envEls = Array.from(document.querySelectorAll(".environments-section .computer"));
+let envObserver = new IntersectionObserver(observeEnvironmentsProgress, options);
+let envTarget = document.querySelector('.environments-section');
+envObserver.observe(envTarget);
+
+
+
+
 const updateItemsTwo = (entries, observer, elements, className, depTarget) => {
 
   let itemArray = elements;
