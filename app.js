@@ -105,8 +105,6 @@ let envTarget = document.querySelector('.environments-section');
 envObserver.observe(envTarget);
 
 
-
-
 const updateItemsTwo = (entries, observer, elements, className, depTarget) => {
 
   let itemArray = elements;
@@ -118,12 +116,10 @@ const updateItemsTwo = (entries, observer, elements, className, depTarget) => {
 
   for (let entry of entries) {
     let ratio = entry.intersectionRatio;
-
     let finishedItemCount = Math.ceil(ratio * itemCount);
-
-
     let completedItems = itemArray.slice(0, finishedItemCount);
-    if(itemCount ==finishedItemCount) {
+
+    if(itemCount == finishedItemCount) {
       depTarget.classList.add("finished");
     } else {
       depTarget.classList.remove("finished");
@@ -132,9 +128,11 @@ const updateItemsTwo = (entries, observer, elements, className, depTarget) => {
     for(let el of completedItems) {
       el.classList.add(className);
     }
+
+    if(ratio == 1) {
+      // observer.disconnect();
+    }
   }
-
-
 }
 
 const updateItems = (entries, observer, elements, className) => {
