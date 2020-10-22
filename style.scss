@@ -1,5 +1,6 @@
 :root {
   --virtual-progress: 0;
+  --bar-width: 0%;
 }
 
 .spinner-wrapper {
@@ -318,7 +319,7 @@ h1 + .section {
 
     .bar {
       height: inherit;
-      width: 10%;
+      width: var(--bar-width);
       position: absolute;
       top: 0;
       left: 0;

@@ -1,5 +1,6 @@
 :root {
-  --virtual-progress: 0; }
+  --virtual-progress: 0;
+  --bar-width: 0%; }
 
 .spinner-wrapper {
   perspective: 500px;
@@ -227,7 +228,7 @@ h1 + .section {
     border-radius: 3px; }
     .build-progress .progress .bar {
       height: inherit;
-      width: 10%;
+      width: var(--bar-width);
       position: absolute;
       top: 0;
       left: 0;

@@ -1,6 +1,5 @@
 let root = document.documentElement;
 
-let bar = document.querySelector(".build-progress-section .bar");
 let platformToggles = document.querySelectorAll(".platform-picker span");
 let cliInputs = document.querySelectorAll(".cli-install input");
 let cliCopyButtons = document.querySelectorAll(".cli-install .cli-copy-icon");
@@ -145,14 +144,13 @@ const createObserver = (sectionSelector, itemSelector, progressClass, callBack =
 
 let setBarWidth = (ratio) => {
     ratio = ratio > .95 ? 1 : ratio;
-    bar.style.width = (ratio * 100) + "%";
+    root.style.setProperty('--bar-width', (ratio * 100) + "%");
 }
 
 let setPanelScale = (ratio) => {
     ratio = ratio > .95 ? .95 : ratio;
     root.style.setProperty('--virtual-progress', ratio);
 }
-
 
 // Sets up all the intersectioon observers
 createObserver(".cli-section",".cli-section .line", "visible");
@@ -164,4 +162,3 @@ createObserver(".bundles-section",".bundles-section .bundle", "selected");
 createObserver(".build-progress-section",".build-progress-section .item", "done", setBarWidth);
 
 switchPlatform(getOS());
-
