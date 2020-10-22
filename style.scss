@@ -468,12 +468,13 @@ h1 + .section {
       z-index: 2;
       padding-right: 1rem;
 
-      a {
+      span {
         color: rgba(0,0,0,.5);
         text-decoration: none;
         padding-bottom: .75rem;
         display: inline-block;
         margin: 0 .6rem;
+        cursor: pointer;
 
         &.selected {
           color: rgba(0,0,0,.8);

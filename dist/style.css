@@ -323,13 +323,14 @@ h1 + .section {
       margin-left: auto;
       z-index: 2;
       padding-right: 1rem; }
-      .cli-install .cli-header .platform-picker a {
+      .cli-install .cli-header .platform-picker span {
         color: rgba(0, 0, 0, 0.5);
         text-decoration: none;
         padding-bottom: .75rem;
         display: inline-block;
-        margin: 0 .6rem; }
-        .cli-install .cli-header .platform-picker a.selected {
+        margin: 0 .6rem;
+        cursor: pointer; }
+        .cli-install .cli-header .platform-picker span.selected {
           color: rgba(0, 0, 0, 0.8);
           border-bottom: solid 4px #3569C4;
           font-weight: 600; }
