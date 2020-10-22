@@ -1,4 +1,6 @@
 let root = document.documentElement;
+
+let bar = document.querySelector(".build-progress-section .bar");
 let platformToggles = document.querySelectorAll(".platform-picker span");
 let cliInputs = document.querySelectorAll(".cli-install input");
 let cliCopyButtons = document.querySelectorAll(".cli-install .cli-copy-icon");
@@ -60,7 +62,6 @@ const switchPlatform = platform => {
   })
 }
 
-switchPlatform(getOS());
 
 let buildThresholds = size => {
   let arr = [];
@@ -75,44 +76,8 @@ let options = {
   threshold: buildThresholds(20) // 20 steps
 }
 
-let bar = document.querySelector(".build-progress-section .bar");
-let packageEls = Array.from(document.querySelectorAll(".item"));
-let itemCount = packageEls.length;
-let startAt = 0;
+const updateItemsTwo = (entries, observer, elements, className, depTarget, callBack = false) => {
 
-
-let observePackageProgress = (entries, observer) => {
-
-  updateItems(entries, observer, packageEls, "done");
-
-  for (let entry of entries) {
-    let ratio = (startAt > 0) ? (entry.intersectionRatio - startAt) / startAt : entry.intersectionRatio;
-    ratio = (ratio < 0) ? 0 : ratio;
-    bar.style.width = (ratio * 100) + "%";
-  }
-};
-
-let packageProgressObserver = new IntersectionObserver(observePackageProgress, options);
-let target = document.querySelector('.build-progress-section');
-
-packageProgressObserver.observe(target);
-
-
-// Bundle Observer
-let observeBundleProgress = (entries, observer) => {
-  updateItems(entries, observer, bundleEls, "selected");
-}
-
-let bundleEls = Array.from(document.querySelectorAll(".bundle"));
-let bundleProgressObserver = new IntersectionObserver(observeBundleProgress, options);
-let bundleTarget = document.querySelector('.bundles-section');
-bundleProgressObserver.observe(bundleTarget);
-
-
-
-const updateItemsTwo = (entries, observer, elements, className, depTarget) => {
-
-  console.log("hi", className);
   let itemArray = elements;
   let itemCount = itemArray.length;
 
@@ -125,6 +90,10 @@ const updateItemsTwo = (entries, observer, elements, className, depTarget) => {
     let finishedItemCount = Math.ceil(ratio * itemCount);
     let completedItems = itemArray.slice(0, finishedItemCount);
 
+    if(callBack) {
+      callBack(ratio);
+    }
+
     if(itemCount == finishedItemCount) {
       depTarget.classList.add("finished");
     } else {
@@ -133,37 +102,6 @@ const updateItemsTwo = (entries, observer, elements, className, depTarget) => {
 
     for(let el of completedItems) {
       el.classList.add(className);
-    }
-
-    if(ratio == 1) {
-      // observer.disconnect();
-    }
-  }
-}
-
-const updateItems = (entries, observer, elements, className) => {
-
-  let itemArray = elements;
-  let itemCount = itemArray.length;
-
-  for (let el of itemArray) {
-    el.classList.remove(className);
-  }
-
-  for (let entry of entries) {
-
-    let ratio = (startAt > 0) ? (entry.intersectionRatio - startAt) / startAt : entry.intersectionRatio;
-    ratio = (ratio < 0) ? 0 : ratio;
-
-    let finishedItemCount = Math.ceil(ratio * itemCount);
-    let completedItems = itemArray.slice(0, finishedItemCount);
-
-    for(let el of completedItems) {
-      el.classList.add(className);
-    }
-
-    if(ratio == 1) {
-      // observer.disconnect();
     }
   }
 }
@@ -192,48 +130,38 @@ function getOS() {
 }
 
 
-
-
-//CLI Observer
-
-
-
-
-
-const createObserver = (sectionSelector, itemSelector, progressClass) => {
+// Generic intersection observer setup method
+const createObserver = (sectionSelector, itemSelector, progressClass, callBack = false) => {
 
   let observerProgress = (entries, observer) => {
-    updateItemsTwo(entries, observer, elements, progressClass, target);
+    updateItemsTwo(entries, observer, elements, progressClass, target, callBack);
   }
 
-  let elements = Array.from(document.querySelectorAll(itemSelector));
+  let elements = itemSelector ? Array.from(document.querySelectorAll(itemSelector)) : [];
   let observer = new IntersectionObserver(observerProgress, options);
   let target = document.querySelector(sectionSelector);
-
   observer.observe(target);
 }
 
+let setBarWidth = (ratio) => {
+    ratio = ratio > .95 ? 1 : ratio;
+    bar.style.width = (ratio * 100) + "%";
+}
+
+let setPanelScale = (ratio) => {
+    ratio = ratio > .95 ? .95 : ratio;
+    root.style.setProperty('--virtual-progress', ratio);
+}
+
+
+// Sets up all the intersectioon observers
 createObserver(".cli-section",".cli-section .line", "visible");
 createObserver(".environments-section",".environments-section .computer", "activated");
 createObserver(".history-section",".history-section .item", "visible");
-createObserver(".history-section",".history-section .item", "visible");
+createObserver(".virtual-env-section",false, false, setPanelScale);
 createObserver(".dependencies-section",".dependencies-section .package:not(.first)", "resolved");
+createObserver(".bundles-section",".bundles-section .bundle", "selected");
+createObserver(".build-progress-section",".build-progress-section .item", "done", setBarWidth);
 
-
-
-//Virtual Envs
-
-let observeVirtualProgess = (entries, observer) => {
-  for (let entry of entries) {
-    let ratio = entry.intersectionRatio > .95 ? .95 : entry.intersectionRatio;
-    root.style.setProperty('--virtual-progress', ratio);
-  }
-}
-
-let virtualObserver = new IntersectionObserver(observeVirtualProgess, options);
-let virtualTarget = document.querySelector('.spinner-wrapper');
-virtualObserver.observe(virtualTarget);
-
-
-
+switchPlatform(getOS());
 

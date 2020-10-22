@@ -551,7 +551,6 @@ h1 + .section {
 .terminal {
   background: #222;
   background: linear-gradient(321deg, rgba(0,63,132,1) 0%, rgba(4,0,0,1) 33%, rgba(0,63,132,1) 100%);
-
   border-top: solid 20px #DDD;
   border-radius: 5px;
   box-shadow: 0 3px 15px rgba(0,0,0,.12); 
@@ -559,9 +558,14 @@ h1 + .section {
 
   .line {
     opacity: 0;
+    display: inline-block;
+    max-width: 0;
+    overflow: hidden;
+    transition: max-width .5s linear;
 
     &.visible {
       opacity: 1;
+      max-width: 100%;
     }
   }
 

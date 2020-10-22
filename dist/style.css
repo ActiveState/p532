@@ -393,9 +393,14 @@ h1 + .section {
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12);
   padding: 20px; }
   .terminal .line {
-    opacity: 0; }
+    opacity: 0;
+    display: inline-block;
+    max-width: 0;
+    overflow: hidden;
+    transition: max-width .5s linear; }
     .terminal .line.visible {
-      opacity: 1; }
+      opacity: 1;
+      max-width: 100%; }
   .terminal pre {
     font-family: "Roboto Mono", monospace;
     color: rgba(255, 255, 255, 0.7);
