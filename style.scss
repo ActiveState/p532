@@ -551,7 +551,7 @@ h1 + .section {
 
 .terminal {
   background: #222;
-  background: linear-gradient(321deg, rgba(0,63,132,1) 0%, rgba(4,0,0,1) 33%, rgba(0,63,132,1) 100%);
+  background: linear-gradient(-228deg, rgba(0,63,132,1) 0%, #000 20%, #000 50%, #0f3763 100%);
   border-top: solid 20px #DDD;
   border-radius: 5px;
   box-shadow: 0 3px 15px rgba(0,0,0,.12); 
@@ -572,7 +572,7 @@ h1 + .section {
 
   pre {
     font-family: "Roboto Mono", monospace;
-    color: rgba(255,255,255,.7);
+    color: rgba(255,255,255,.8);
     line-height: 140%;
     font-size: .9rem;
   }

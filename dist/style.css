@@ -388,7 +388,7 @@ h1 + .section {
 
 .terminal {
   background: #222;
-  background: linear-gradient(321deg, #003f84 0%, #040000 33%, #003f84 100%);
+  background: linear-gradient(-228deg, #003f84 0%, #000 20%, #000 50%, #0f3763 100%);
   border-top: solid 20px #DDD;
   border-radius: 5px;
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12);
@@ -404,7 +404,7 @@ h1 + .section {
       max-width: 100%; }
   .terminal pre {
     font-family: "Roboto Mono", monospace;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.8);
     line-height: 140%;
     font-size: .9rem; }
   .terminal .success {
