@@ -1,6 +1,4 @@
 :root {
-  --angle: "30deg";
-  --reverse-angle: "30deg";
   --virtual-progress: 0; }
 
 .spinner-wrapper {
@@ -14,9 +12,9 @@
     transform: rotateY(359deg) rotateX(90deg); } }
 
 .spinner {
-  transform: rotateY(var(--angle)) rotateX(90deg);
   height: 150px;
   width: 150px;
+  animation: spin 5s linear infinite;
   position: relative;
   top: 100px;
   transform-style: preserve-3d;
@@ -55,9 +53,9 @@
     transform: rotateY(90deg); }
   .spinner .mini-terminal {
     background: black;
-    transform: translateZ(75px) rotateX(-90deg) rotateY(var(--reverse-angle));
     position: absolute;
     box-sizing: border-box;
+    animation: innerSpin 5s linear infinite;
     left: 20%;
     top: 25%;
     width: 60%;
@@ -273,6 +271,9 @@ h1 + .section {
   margin-bottom: 10px;
   opacity: .5;
   background: white; }
+  .bundle h4 {
+    margin: 0 0 4px 0;
+    font-size: 1.05rem; }
   .bundle:last-child {
     margin-bottom: 0; }
   .bundle.selected {
@@ -281,7 +282,16 @@ h1 + .section {
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1); }
   .bundle p {
     font-size: .9rem;
-    margin: 4px 0 0 0; }
+    margin: 0; }
+  .bundle input[checked] {
+    display: none; }
+  .bundle.selected input[checked] {
+    display: block; }
+  .bundle input {
+    position: absolute;
+    top: 13px;
+    left: 11px;
+    pointer-events: none; }
 
 @keyframes bundlePop {
   0% {
@@ -290,23 +300,6 @@ h1 + .section {
     transform: scale(0.98); }
   100% {
     transform: scale(1); } }
-
-.bundle input[checked] {
-  display: none; }
-
-.bundle.selected input[checked] {
-  display: block; }
-
-.bundle h4 {
-  margin: 0; }
-
-.bundle p {
-  margin: 0; }
-
-.bundle input {
-  position: absolute;
-  top: 12px;
-  left: 10px; }
 
 .cli-install {
   padding: 30px 25px 15px 25px;

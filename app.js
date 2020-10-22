@@ -1,20 +1,18 @@
-// Set up platform toggle for the CLI command
-
+let root = document.documentElement;
 let platformToggles = document.querySelectorAll(".platform-picker span");
 let cliInputs = document.querySelectorAll(".cli-install input");
 let cliCopyButtons = document.querySelectorAll(".cli-install .cli-copy-icon");
 let defaultPlatform = 'Windows';
-cliCopyButtons.forEach(el => {
-  el.addEventListener("click", e => {
-    copyToClipboard(el);
-  });
-});
-
 let cliCommands = {
   'Linux' : 'sh <(curl -q https://platform.activestate.com/dl/cli/install.sh)',
   'Windows' : 'powershell -- sh <(curl -q https://platform.activestate.com/dl/cli/install.sh)'
 }
 
+cliCopyButtons.forEach(el => {
+  el.addEventListener("click", e => {
+    copyToClipboard(el);
+  });
+});
 
 const copyToClipboard = button => {
   let inputId = button.getAttribute("for");
@@ -36,7 +34,6 @@ const copyToClipboard = button => {
     console.log('Unable to copy: ', err)
   }
 }
-
 
 platformToggles.forEach(el => {
   el.addEventListener("click", e => {
@@ -65,21 +62,7 @@ const switchPlatform = platform => {
 
 switchPlatform(getOS());
 
-
-
-
-
-
-let root = document.documentElement;
-
-window.addEventListener("scroll", e => {
-  let deg = window.scrollY / 8;
-  root.style.setProperty('--angle', deg + "deg");
-  root.style.setProperty('--reverse-angle', -deg + "deg");
-});
-
-
-let buildRatio = size => {
+let buildThresholds = size => {
   let arr = [];
   for(var i = 0; i <= size; i++) {
     arr.push(i/size);
@@ -89,7 +72,7 @@ let buildRatio = size => {
 
 let options = {
   rootMargin: "200px 0px -200px 0px",
-  threshold: buildRatio(20) // 20 steps
+  threshold: buildThresholds(20) // 20 steps
 }
 
 let bar = document.querySelector(".build-progress-section .bar");

@@ -1,6 +1,4 @@
 :root {
-  --angle: "30deg";
-  --reverse-angle: "30deg";
   --virtual-progress: 0;
 }
 
@@ -21,10 +19,10 @@
 $cubeSize: 150px;
 
 .spinner {
-  transform: rotateY(var(--angle)) rotateX(90deg);
+  // transform: rotateY(var(--angle)) rotateX(90deg);
   height: $cubeSize;
   width: $cubeSize;
-  // animation: spin 5s linear infinite;
+  animation: spin 5s linear infinite;
   position: relative;
   top:100px;
   transform-style: preserve-3d;
@@ -78,10 +76,10 @@ $cubeSize: 150px;
 
   .mini-terminal {
     background: black;
-    transform: translateZ($cubeSize / 2) rotateX(-90deg) rotateY(var(--reverse-angle)) ;
+    // transform: translateZ($cubeSize / 2) rotateX(-90deg) rotateY(var(--reverse-angle)) ;
     position: absolute;
     box-sizing: border-box;
-    // animation: innerSpin 5s linear infinite;
+    animation: innerSpin 5s linear infinite;
 
     left: 20%;
     top: 25%;
@@ -394,6 +392,11 @@ h1 + .section {
   opacity: .5;
   background: white;
 
+  h4 {
+    margin: 0 0 4px 0;
+    font-size: 1.05rem;
+  }
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -406,9 +409,25 @@ h1 + .section {
 
   p {
     font-size: .9rem;
-    margin: 4px 0 0 0;
+    margin: 0;
   }
 
+
+  input[checked] {
+    display: none;
+  }
+
+
+  &.selected input[checked]{
+    display: block;
+  }
+
+  input {
+    position: absolute;
+    top: 13px;
+    left: 11px;
+    pointer-events: none;
+  }
 }
 
 
@@ -424,28 +443,6 @@ h1 + .section {
   }
 }
 
-.bundle input[checked] {
-  display: none;
-}
-
-
-.bundle.selected input[checked]{
-  display: block;
-}
-
-.bundle h4 {
-  margin: 0;
-}
-
-.bundle p {
-  margin: 0;
-}
-
-.bundle input {
-  position: absolute;
-  top: 12px;
-  left: 10px;
-}
 
 .cli-install {
   padding: 30px 25px 15px 25px;
