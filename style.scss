@@ -19,7 +19,6 @@
 $cubeSize: 150px;
 
 .spinner {
-  // transform: rotateY(var(--angle)) rotateX(90deg);
   height: $cubeSize;
   width: $cubeSize;
   animation: spin 5s linear infinite;
@@ -76,49 +75,40 @@ $cubeSize: 150px;
 
   .mini-terminal {
     background: black;
-    // transform: translateZ($cubeSize / 2) rotateX(-90deg) rotateY(var(--reverse-angle)) ;
     position: absolute;
     box-sizing: border-box;
-    animation: innerSpin 5s linear infinite;
-
     left: 20%;
     top: 25%;
     width: 60%;
     height: 50%;
     border-radius: 5px;
     background: linear-gradient(321deg, rgba(0,63,132,1) 0%, rgba(4,0,0,1) 33%, rgba(0,63,132,1) 100%);
+    animation: innerSpin 5s linear infinite;
 
     .dots {
       position: absolute;
       top: -5px;
+      width: 100%;
+      height: 20px;
       padding-left: 0;
-      letter-spacing: -3px;
+      letter-spacing: 2px;
       padding: 0 0 0 5px;
       opacity: .4;
-      width: 100%;
-
-      height: 20px;
       border-bottom: solid 1px white;
+      color: white;
     }
 
     .cursor {
       animation: blink 1s ease-in-out infinite;
 
       @keyframes blink {
-        0% {
-          opacity: 1;
-        }
         50% {
           opacity: 0;
         }
-        100% {
-          opacity: 1;
-        }
-
       }
     }
 
-    div {
+    .content {
       font-family: "Roboto Mono", sans-serif;
       position: absolute;
       bottom: 0;
@@ -788,19 +778,16 @@ h1 + .section {
 
     &.resolved {
       background: url(../img/package.svg);
-      animation: packagePop .3s ease-out;
+      animation: packageFadeIn .5s ease-out;
     }
 
-    @keyframes packagePop {
+    @keyframes packageFadeIn {
       0% {
-        transform: scale(1);
         opacity: 0;
       }
       100% {
-        transform: scale(1);
         opacity: 1;
       }
-
     }
   }
 

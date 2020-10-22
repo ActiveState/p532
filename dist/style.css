@@ -55,34 +55,31 @@
     background: black;
     position: absolute;
     box-sizing: border-box;
-    animation: innerSpin 5s linear infinite;
     left: 20%;
     top: 25%;
     width: 60%;
     height: 50%;
     border-radius: 5px;
-    background: linear-gradient(321deg, #003f84 0%, #040000 33%, #003f84 100%); }
+    background: linear-gradient(321deg, #003f84 0%, #040000 33%, #003f84 100%);
+    animation: innerSpin 5s linear infinite; }
     .spinner .mini-terminal .dots {
       position: absolute;
       top: -5px;
-      padding-left: 0;
-      letter-spacing: -3px;
-      padding: 0 0 0 5px;
-      opacity: .4;
       width: 100%;
       height: 20px;
-      border-bottom: solid 1px white; }
+      padding-left: 0;
+      letter-spacing: 2px;
+      padding: 0 0 0 5px;
+      opacity: .4;
+      border-bottom: solid 1px white;
+      color: white; }
     .spinner .mini-terminal .cursor {
       animation: blink 1s ease-in-out infinite; }
 
 @keyframes blink {
-  0% {
-    opacity: 1; }
   50% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-    .spinner .mini-terminal div {
+    opacity: 0; } }
+    .spinner .mini-terminal .content {
       font-family: "Roboto Mono", sans-serif;
       position: absolute;
       bottom: 0;
@@ -528,14 +525,12 @@ h1 + .section {
     background-repeat: no-repeat; }
     .dependency-tree .package.resolved {
       background: url(../img/package.svg);
-      animation: packagePop .3s ease-out; }
+      animation: packageFadeIn .5s ease-out; }
 
-@keyframes packagePop {
+@keyframes packageFadeIn {
   0% {
-    transform: scale(1);
     opacity: 0; }
   100% {
-    transform: scale(1);
     opacity: 1; } }
   .dependency-tree .level-one {
     display: flex; }
