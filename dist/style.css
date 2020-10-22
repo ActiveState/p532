@@ -368,7 +368,7 @@ h1 + .section {
   border-radius: 10px; }
   .build-history .item-body {
     position: relative;
-    border-radius: 8px;
+    border-radius: 6px;
     background: white;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
     padding: 8px 10px;
@@ -376,6 +376,16 @@ h1 + .section {
     font-size: 1rem;
     color: rgba(0, 0, 0, 0.4);
     white-space: nowrap; }
+    .build-history .item-body:before {
+      content: "";
+      position: absolute;
+      height: 14px;
+      width: 14px;
+      left: -4px;
+      top: calc(50% - 7px);
+      background: black;
+      transform: rotate(45deg);
+      background: white; }
   .build-history .visible .item-body {
     animation: bundlePop .25s ease-in-out; }
   .build-history .item {
@@ -403,12 +413,6 @@ h1 + .section {
         border-radius: 5px;
         left: -4px;
         top: calc(50% - 3px); }
-      .build-history .item .arrow:after {
-        content: "";
-        position: absolute;
-        width: 18px;
-        height: calc(50% - 1px);
-        border-bottom: solid 2px #CCC; }
     .build-history .item:last-child .arrow {
       height: 50%; }
       .build-history .item:last-child .arrow:after {

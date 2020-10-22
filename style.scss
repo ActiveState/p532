@@ -530,7 +530,7 @@ h1 + .section {
 
   .item-body {
     position: relative;
-    border-radius: 8px;
+    border-radius: 6px;
     background: white;
     box-shadow: 0 2px 12px rgba(0,0,0,.1);
     padding: 8px 10px;
@@ -538,6 +538,18 @@ h1 + .section {
     font-size: 1rem;
     color: rgba(0,0,0,.4);
     white-space: nowrap;
+
+    &:before {
+      content: "";
+      position: absolute;
+      height: 14px;
+      width: 14px;
+      left: -4px;
+      top: calc(50% - 7px);
+      background: black;
+      transform: rotate(45deg);
+      background: white;
+    }
   }
 
   .visible {
@@ -583,13 +595,7 @@ h1 + .section {
         top: calc(50% - 3px);
       }
 
-      &:after {
-        content:"";
-        position: absolute;
-        width: 18px;
-        height: calc(50% - 1px);
-        border-bottom: solid 2px $arrowColor;
-      }
+
     }
 
     &:last-child .arrow {
