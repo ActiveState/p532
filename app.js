@@ -16,7 +16,7 @@ let buildRatio = size => {
 }
 
 let options = {
-  rootMargin: "-200px 0px -200px 0px",
+  rootMargin: "200px 0px -200px 0px",
   threshold: buildRatio(20) // 20 steps
 }
 
