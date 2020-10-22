@@ -2,8 +2,13 @@
 
 let platformToggles = document.querySelectorAll(".platform-picker span");
 let cliInputs = document.querySelectorAll(".cli-install input");
+let cliCopyButtons = document.querySelectorAll(".cli-install .cli-copy-icon");
 let defaultPlatform = 'Windows';
-let selectedPlatform = defaultPlatform;
+cliCopyButtons.forEach(el => {
+  el.addEventListener("click", e => {
+    copyToClipboard(el);
+  });
+});
 
 let cliCommands = {
   'Linux' : 'sh <(curl -q https://platform.activestate.com/dl/cli/install.sh)',
@@ -11,10 +16,32 @@ let cliCommands = {
 }
 
 
+const copyToClipboard = button => {
+  let inputId = button.getAttribute("for");
+  let input = document.getElementById(inputId);
+
+  input.focus();
+  input.select();
+
+  try {
+    var successful = document.execCommand('copy')
+
+    if (successful) {
+      button.classList.remove("success");
+      setTimeout(() => {
+        button.classList.add("success");
+      }, 1)
+    }
+  } catch (err) {
+    console.log('Unable to copy: ', err)
+  }
+}
+
+
 platformToggles.forEach(el => {
   el.addEventListener("click", e => {
     switchPlatform(el.getAttribute("platform"));
-  })
+  });
 });
 
 const switchPlatform = platform => {

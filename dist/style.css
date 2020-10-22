@@ -310,6 +310,7 @@ h1 + .section {
 
 .cli-install {
   padding: 30px 25px 15px 25px;
+  position: relative;
   top: 0;
   z-index: 99;
   background: white;
@@ -334,18 +335,64 @@ h1 + .section {
           color: rgba(0, 0, 0, 0.8);
           border-bottom: solid 4px #3569C4;
           font-weight: 600; }
+  .cli-install .cli-command {
+    background: #daeaff;
+    padding: 20px;
+    display: block;
+    width: 100%;
+    border: none;
+    font-size: 1rem;
+    font-family: "Roboto Mono", monospace;
+    color: #498fec;
+    color: #3569C4;
+    border-radius: 3px;
+    padding-right: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 1; }
+    .cli-install .cli-command:focus {
+      border: none;
+      outline: none; }
+      .cli-install .cli-command:focus::selection {
+        background: #3569C4;
+        color: #daeaff; }
+  .cli-install .cli-copy-icon {
+    position: absolute;
+    cursor: pointer;
+    right: 34px;
+    bottom: 21px;
+    height: 50px;
+    width: 50px;
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../img/clipboard-icon-blue.svg); }
+    .cli-install .cli-copy-icon.success {
+      animation: copySuccess 2s ease-in-out; }
 
-.cli-command {
-  background: #daeaff;
-  padding: 20px;
-  display: block;
-  width: 100%;
-  border: none;
-  font-size: 1rem;
-  font-family: "Roboto Mono", monospace;
-  color: #498fec;
-  border-radius: 3px;
-  z-index: 1; }
+@keyframes copySuccess {
+  5% {
+    opacity: 0;
+    transform: scale(0.7);
+    background-image: url(../img/clipboard-icon-blue.svg); }
+  10% {
+    background-image: url(../img/checkmark-blue-circle.svg); }
+  20% {
+    opacity: 1;
+    transform: scale(1.2); }
+  30% {
+    transform: scale(1); }
+  80% {
+    opacity: 1;
+    background-image: url(../img/checkmark-blue-circle.svg); }
+  85% {
+    opacity: 0;
+    background-image: url(../img/checkmark-blue-circle.svg); }
+  86% {
+    opacity: 0;
+    background-image: url(../img/clipboard-icon-blue.svg); }
+  100% {
+    opacity: 1; } }
 
 .terminal {
   background: #222;

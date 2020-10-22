@@ -36,7 +36,8 @@
             <span platform="Windows" href="#">Windows</span>
           </div>
         </div>
-        <input class="cli-command" type="text"/>
+        <input readonly id="cli-input-top" class="cli-command" type="text"/>
+        <div for="cli-input-top" class="cli-copy-icon"></div>
       </div>
 
       <hr />
@@ -313,16 +314,18 @@ $ _
       </div>
       <hr>
 
-      <h3>Try out Perl 5.32</h3>
+      <h3>Install Perl 5.32</h3>
       <div class="cli-install">
         <div class="cli-header">
-          <h4>Install via Command Line</h4>
+          <h4>Run on your command line</h4>
           <div class="platform-picker">
             <span platform="Linux" class="selected" href="#">Linux</span>
             <span platform="Windows" href="#">Windows</span>
           </div>
         </div>
-        <input class="cli-command" type="text"/>
+        <input readonly id="cli-input-bottom" class="cli-command" type="text"/>
+        <div for="cli-input-bottom" class="cli-copy-icon"></div>
+
       </div>
 
     </div>
