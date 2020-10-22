@@ -109,59 +109,10 @@ let bundleTarget = document.querySelector('.bundles-section');
 bundleProgressObserver.observe(bundleTarget);
 
 
-//History
-
-let observeHistoryProgress = (entries, observer) => {
-  updateItems(entries, observer, historyEls, "visible");
-}
-
-let historyEls = Array.from(document.querySelectorAll(".history-section .item"));
-let historyProgressObserver = new IntersectionObserver(observeHistoryProgress, options);
-let historyTarget = document.querySelector('.history-section');
-historyProgressObserver.observe(historyTarget);
-
-
-
-//Virtual Envs
-
-let observeVirtualProgess = (entries, observer) => {
-  for (let entry of entries) {
-    let ratio = entry.intersectionRatio > .95 ? .95 : entry.intersectionRatio;
-    root.style.setProperty('--virtual-progress', ratio);
-  }
-}
-
-let virtualObserver = new IntersectionObserver(observeVirtualProgess, options);
-let virtualTarget = document.querySelector('.spinner-wrapper');
-virtualObserver.observe(virtualTarget);
-
-
-//Dependencies
-
-let observeDependencyProgress = (entries, observer) => {
-  updateItemsTwo(entries, observer, depEls, "resolved", depTarget);
-}
-
-let depEls = Array.from(document.querySelectorAll(".dependencies-section .package:not(.first)"));
-let depObserver = new IntersectionObserver(observeDependencyProgress, options);
-let depTarget = document.querySelector('.dependencies-section');
-depObserver.observe(depTarget);
-
-
-//Environments
-
-let observeEnvironmentsProgress = (entries, observer) => {
-  updateItemsTwo(entries, observer, envEls, "activated", envTarget);
-}
-
-let envEls = Array.from(document.querySelectorAll(".environments-section .computer"));
-let envObserver = new IntersectionObserver(observeEnvironmentsProgress, options);
-let envTarget = document.querySelector('.environments-section');
-envObserver.observe(envTarget);
-
 
 const updateItemsTwo = (entries, observer, elements, className, depTarget) => {
 
+  console.log("hi", className);
   let itemArray = elements;
   let itemCount = itemArray.length;
 
@@ -239,3 +190,50 @@ function getOS() {
 
   return os;
 }
+
+
+
+
+//CLI Observer
+
+
+
+
+
+const createObserver = (sectionSelector, itemSelector, progressClass) => {
+
+  let observerProgress = (entries, observer) => {
+    updateItemsTwo(entries, observer, elements, progressClass, target);
+  }
+
+  let elements = Array.from(document.querySelectorAll(itemSelector));
+  let observer = new IntersectionObserver(observerProgress, options);
+  let target = document.querySelector(sectionSelector);
+
+  observer.observe(target);
+}
+
+createObserver(".cli-section",".cli-section .line", "visible");
+createObserver(".environments-section",".environments-section .computer", "activated");
+createObserver(".history-section",".history-section .item", "visible");
+createObserver(".history-section",".history-section .item", "visible");
+createObserver(".dependencies-section",".dependencies-section .package:not(.first)", "resolved");
+
+
+
+//Virtual Envs
+
+let observeVirtualProgess = (entries, observer) => {
+  for (let entry of entries) {
+    let ratio = entry.intersectionRatio > .95 ? .95 : entry.intersectionRatio;
+    root.style.setProperty('--virtual-progress', ratio);
+  }
+}
+
+let virtualObserver = new IntersectionObserver(observeVirtualProgess, options);
+let virtualTarget = document.querySelector('.spinner-wrapper');
+virtualObserver.observe(virtualTarget);
+
+
+
+

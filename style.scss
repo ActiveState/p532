@@ -98,16 +98,6 @@ $cubeSize: 150px;
       color: white;
     }
 
-    .cursor {
-      animation: blink 1s ease-in-out infinite;
-
-      @keyframes blink {
-        50% {
-          opacity: 0;
-        }
-      }
-    }
-
     .content {
       font-family: "Roboto Mono", sans-serif;
       position: absolute;
@@ -120,15 +110,24 @@ $cubeSize: 150px;
   }
 }
 
+.cursor {
+  animation: blink 1s ease-in-out infinite;
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+}
+
+
 @keyframes innerSpin {
   0% {
     transform: translateZ($cubeSize / 2 - 10) rotateX(-90deg) rotateY(0);
   }
-
   50% {
     transform: translateZ($cubeSize / 2 + 10) rotateX(-90deg) rotateY(-180deg);
   }
-
   100% {
     transform: translateZ($cubeSize / 2 - 10) rotateX(-90deg) rotateY(-359deg);
   }
@@ -557,6 +556,14 @@ h1 + .section {
   border-radius: 5px;
   box-shadow: 0 3px 15px rgba(0,0,0,.12); 
   padding: 20px;
+
+  .line {
+    opacity: 0;
+
+    &.visible {
+      opacity: 1;
+    }
+  }
 
   pre {
     font-family: "Roboto Mono", monospace;
