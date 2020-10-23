@@ -665,3 +665,9 @@ footer {
       text-decoration: none; }
       footer .content a:hover {
         text-decoration: underline; }
+
+@media only screen and (max-width: 750px) {
+  body .section {
+    flex-direction: column; }
+    body .section .col {
+      margin: 0 0 3rem 0; } }
