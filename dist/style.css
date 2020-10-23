@@ -668,6 +668,6 @@ footer {
 
 @media only screen and (max-width: 750px) {
   body .section {
-    flex-direction: column; }
+    display: block; }
     body .section .col {
       margin: 0 0 3rem 0; } }

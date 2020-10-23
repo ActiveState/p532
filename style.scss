@@ -993,7 +993,7 @@ footer {
   body {
 
     .section {
-      flex-direction: column;
+      display: block;
 
       .col {
         margin: 0 0 3rem 0;
