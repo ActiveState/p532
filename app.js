@@ -154,7 +154,7 @@ let setPanelScale = (ratio) => {
 
 // Sets up all the intersectioon observers
 createObserver(".cli-section",".cli-section .line", "visible");
-createObserver(".environments-section",".environments-section .computer", "activated");
+createObserver(".environments-section",".environments-section .camel", "activated");
 createObserver(".history-section",".history-section .item", "visible");
 createObserver(".virtual-env-section",false, false, setPanelScale);
 createObserver(".dependencies-section",".dependencies-section .package:not(.first)", "resolved");

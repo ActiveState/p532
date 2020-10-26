@@ -146,7 +146,7 @@ hr {
   padding: 0 3rem; }
 
 h1 + .section {
-  margin-top: 60px; }
+  margin-top: 2.5rem; }
 
 .header {
   border-bottom: solid 1px #DDD;
@@ -157,11 +157,13 @@ h1 + .section {
   margin-bottom: 1rem;
   margin-top: 0; }
   .section.hero img {
-    width: 100%; }
+    width: 90%;
+    margin: 0 auto; }
   .section.hero h1 {
-    margin: 0 0 .5rem 0; }
+    margin: 0 0 .6rem 0; }
   .section.hero h2 {
-    margin: 0 0 1.2rem 0; }
+    margin: 0 0 1.2rem 0;
+    line-height: 130%; }
   .section.hero p {
     font-size: 1.15rem;
     color: rgba(0, 0, 0, 0.5); }
@@ -322,7 +324,8 @@ h1 + .section {
         padding-bottom: .75rem;
         display: inline-block;
         margin: 0 .6rem;
-        cursor: pointer; }
+        cursor: pointer;
+        font-size: 1.1rem; }
         .cli-install .cli-header .platform-picker span.selected {
           color: rgba(0, 0, 0, 0.8);
           border-bottom: solid 4px #3569C4;
@@ -533,9 +536,10 @@ h1 + .section {
   .dependency-tree .package {
     background: url(../img/package-wire.svg);
     background-size: contain;
+    background-position: center;
     background-repeat: no-repeat; }
     .dependency-tree .package.resolved {
-      background: url(../img/package.svg);
+      background-image: url(../img/package.svg);
       animation: packageFadeIn .5s ease-out; }
 
 @keyframes packageFadeIn {
@@ -551,7 +555,7 @@ h1 + .section {
       margin: auto;
       display: block;
       position: relative;
-      background: url(../img/package.svg); }
+      background-image: url(../img/package.svg); }
       .dependency-tree .level-one .package:after {
         content: "";
         background: url(../img/package-checkmark.svg);
@@ -603,23 +607,37 @@ h1 + .section {
       margin: auto 5px; }
 
 .many-computers {
-  display: flex;
-  flex-direction: row; }
-  .many-computers .computer {
-    height: 200px;
+  position: relative;
+  position: relative; }
+  .many-computers img.computers {
+    width: 100%;
+    display: block; }
+  .many-computers .camels {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     display: flex;
-    position: relative; }
-    .many-computers .computer img {
-      height: 160px;
-      display: block;
-      margin: auto; }
-    .many-computers .computer .camel {
-      position: absolute;
-      width: 40px;
-      top: 5%;
-      left: calc(50% - 20px);
-      display: none;
-      animation: camelPop .25s ease-out; }
+    top: 0; }
+    .many-computers .camels img {
+      width: 100%;
+      display: none; }
+    .many-computers .camels .camel {
+      width: 28%;
+      display: flex; }
+      .many-computers .camels .camel.middle {
+        width: 40%; }
+        .many-computers .camels .camel.middle img {
+          height: 42%;
+          top: 19%; }
+      .many-computers .camels .camel.last {
+        width: 31%; }
+      .many-computers .camels .camel img {
+        height: 25%;
+        position: relative;
+        top: 28%; }
+      .many-computers .camels .camel.activated img {
+        display: block;
+        animation: camelPop .25s ease-out; }
 
 @keyframes camelPop {
   0% {
@@ -628,12 +646,6 @@ h1 + .section {
     transform: scaleX(0.9) scaleY(1.1); }
   100% {
     transform: scaleX(1) scaleY(1); } }
-    .many-computers .computer.activated .camel {
-      display: block; }
-    .many-computers .computer.two .camel {
-      width: 60px;
-      top: 5%;
-      left: calc(50% - 30px); }
 
 @keyframes iconAppear {
   0% {
@@ -648,7 +660,9 @@ h1 + .section {
 footer {
   padding: 80px;
   background: #222;
-  margin-top: 10rem; }
+  margin-top: 8rem; }
+  footer a, footer span {
+    font-size: 1rem; }
   footer .content {
     width: clamp(600px, 75%, 1000px);
     margin: 0 auto;
@@ -667,7 +681,86 @@ footer {
         text-decoration: underline; }
 
 @media only screen and (max-width: 750px) {
-  body .section {
-    display: block; }
-    body .section .col {
-      margin: 0 0 3rem 0; } }
+  .header {
+    margin: 2rem 0 2rem 0; }
+  .section + hr {
+    margin: 3rem 0; }
+  .build-progress {
+    width: 90%;
+    box-sizing: border-box;
+    margin: 0 auto; }
+  .page {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 1.5rem; }
+  footer {
+    margin-top: 6rem;
+    line-height: 150%; }
+    footer .content {
+      width: auto; }
+  .section {
+    flex-direction: column; }
+    .section .col {
+      order: 2;
+      flex: 1 0 auto !important;
+      margin: 0; }
+      .section .col p:last-child {
+        margin: 0; }
+    .section .image-col {
+      margin: 0 0 3rem 0;
+      order: 1; }
+  .cli-install {
+    margin: 0;
+    width: auto;
+    padding: 0; }
+    .cli-install .cli-copy-icon {
+      bottom: 5px;
+      right: 5px; }
+    .cli-install .cli-header {
+      display: block; }
+      .cli-install .cli-header h4 {
+        margin: 2rem 0 1.5rem 0; }
+      .cli-install .cli-header .platform-picker {
+        display: block; }
+        .cli-install .cli-header .platform-picker span {
+          padding-left: 1rem;
+          margin: 0;
+          padding-right: 1rem; }
+  .many-computers {
+    justify-content: center; }
+    .many-computers .computer {
+      height: auto;
+      flex: 1; }
+      .many-computers .computer img {
+        height: auto; }
+      .many-computers .computer .camel {
+        top: 30%; }
+      .many-computers .computer.two .camel {
+        top: 23%; }
+  .dependency-tree {
+    margin: 0 1.5rem 0 0rem; }
+    .dependency-tree .level-one {
+      width: 25%; }
+      .dependency-tree .level-one .package {
+        width: 100%; }
+        .dependency-tree .level-one .package:after {
+          content: "";
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          right: calc(50% - 65px); }
+    .dependency-tree .level-two-arrow {
+      width: 15%; }
+      .dependency-tree .level-two-arrow img {
+        max-width: 100%; }
+    .dependency-tree .level-two {
+      width: 15%; }
+      .dependency-tree .level-two .package {
+        width: 100%; }
+    .dependency-tree .level-three-arrows {
+      width: 10%; }
+    .dependency-tree .level-three {
+      width: 35%; }
+      .dependency-tree .level-three .package {
+        width: 33%;
+        margin: auto 0; } }

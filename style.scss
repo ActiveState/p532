@@ -193,7 +193,7 @@ hr {
 }
 
 h1 + .section {
-  margin-top: 60px;
+  margin-top: 2.5rem;
 }
 
 .header {
@@ -207,15 +207,17 @@ h1 + .section {
   margin-top: 0;
 
   img {
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
   }
 
   h1 {
-    margin: 0 0 .5rem 0;
+    margin: 0 0 .6rem 0;
   }
 
   h2 {
     margin: 0 0 1.2rem 0;
+    line-height: 130%;
   }
 
   p {
@@ -462,6 +464,7 @@ h1 + .section {
         display: inline-block;
         margin: 0 .6rem;
         cursor: pointer;
+        font-size: 1.1rem;
 
         &.selected {
           color: rgba(0,0,0,.8);
@@ -786,10 +789,11 @@ h1 + .section {
   .package {
     background: url(../img/package-wire.svg);
     background-size: contain;
+    background-position: center;
     background-repeat: no-repeat;
 
     &.resolved {
-      background: url(../img/package.svg);
+      background-image: url(../img/package.svg);
       animation: packageFadeIn .5s ease-out;
     }
 
@@ -812,23 +816,23 @@ h1 + .section {
       margin: auto;
       display: block;
       position: relative;
-      background: url(../img/package.svg);
+      background-image: url(../img/package.svg);
 
-        &:after {
-          content: "";
-          background: url(../img/package-checkmark.svg);
-          background-size: contain;
-          width: 50px;
-          height: 50px;
-          position: absolute;
-          right: -15px;
-          top: 0px;
-          opacity: 0;
-          animation: checkPop .2s ease-out;
-          animation-fill-mode: forwards;
-          animation-delay: .3s;
-          display: none;
-        }
+      &:after {
+        content: "";
+        background: url(../img/package-checkmark.svg);
+        background-size: contain;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        right: -15px;
+        top: 0px;
+        opacity: 0;
+        animation: checkPop .2s ease-out;
+        animation-fill-mode: forwards;
+        animation-delay: .3s;
+        display: none;
+      }
     }
   }
 
@@ -890,30 +894,58 @@ h1 + .section {
 
 
 .many-computers {
-  display: flex;
-  flex-direction: row;
+  position: relative;
+  position: relative;
 
-  .computer {
-    height: 200px;
+  img.computers {
+    width: 100%;
+    display: block;
+  }
+
+  .camels {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     display: flex;
-    position: relative;
+    top: 0;
 
     img {
-      height: 160px;
-      display: block;
-      margin: auto;
+      width: 100%;
+      display: none;
     }
 
     .camel {
-      position: absolute;
-      width: 40px;
-      top: 5%;
-      left: calc(50% - 20px);
-      display: none;
-      animation: camelPop .25s ease-out;
+      width: 28%;
+      display: flex;
+
+      &.middle {
+        width: 40%;
+
+        img {
+          height: 42%;
+          top: 19%;
+        }
+      }
+
+      &.last {
+        width: 31%;
+      }
+
+      img {
+        height: 25%;
+        position: relative;
+        top: 28%;
+      }
+
+      &.activated img {
+        display: block;
+        animation: camelPop .25s ease-out;
+      }
     }
 
-    @keyframes camelPop {
+  }
+
+  @keyframes camelPop {
       0% {
         transform: scaleX(1.5) scaleY(.3);
       }
@@ -924,20 +956,9 @@ h1 + .section {
       100% {
         transform: scaleX(1) scaleY(1);
       }
-
     }
 
-    &.activated .camel {
-      display: block;
-    }
-
-    &.two .camel {
-      width: 60px;
-      top: 5%;
-      left: calc(50% - 30px);
-    }
-
-  }
+  
 }
 
 @keyframes iconAppear {
@@ -959,7 +980,11 @@ h1 + .section {
 footer {
   padding: 80px;
   background: #222;
-  margin-top: 10rem;
+  margin-top: 8rem;
+
+  a, span {
+    font-size: 1rem;
+  }
 
   .content {
     width: clamp(600px, 75%, 1000px);
@@ -987,17 +1012,157 @@ footer {
 }
 
 
-
-
 @media only screen and (max-width: 750px) { 
-  body {
 
-    .section {
+  .header {
+    margin: 2rem 0 2rem 0;
+  }
+  
+  .section + hr {
+    margin: 3rem 0; 
+  }
+
+  .build-progress {
+    width: 90%;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+
+  .page {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 1.5rem;
+  }
+
+  footer {
+    margin-top: 6rem;
+    line-height: 150%;
+
+    .content {
+      width: auto;
+    }
+  }
+
+
+  .section {
+    flex-direction: column;
+
+    .col {
+      order: 2;
+      flex: 1 0 auto !important;
+      margin: 0;
+
+      p:last-child {
+        margin: 0;
+      }
+    }
+
+    .image-col {
+      margin: 0 0 3rem 0;
+      order: 1;
+    }
+  }
+
+  .cli-install {
+    margin: 0;
+    width: auto;
+    padding: 0;
+
+    .cli-copy-icon {
+      bottom: 5px;
+      right: 5px;
+    }
+
+    .cli-header {
       display: block;
 
-      .col {
-        margin: 0 0 3rem 0;
+      h4 {
+        margin: 2rem 0 1.5rem 0;
+      }
+
+      .platform-picker {
+        display: block;
+
+        span {
+          padding-left: 1rem;
+          margin: 0;
+          padding-right: 1rem;
+        }
+      }
+    }
+
+
+  }
+
+  .many-computers {
+    justify-content: center;
+
+    .computer {
+      height: auto;
+      flex: 1;
+
+      img {
+        height: auto;
+      }
+
+      .camel {
+        top: 30%;
+      }
+
+      &.two {
+        .camel {
+          top: 23%;
+        }
       }
     }
   }
+
+  .dependency-tree {
+    margin: 0 1.5rem 0 0rem;
+
+    .level-one {
+      width: 25%;
+
+      .package {
+        width: 100%;
+
+        &:after {
+          content: "";
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          right: calc(50% - 65px);
+        }
+      }
+    }
+
+    .level-two-arrow {
+      width: 15%;
+
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .level-two {
+      width: 15%;
+
+      .package {
+        width: 100%;
+      }
+    }
+
+    .level-three-arrows {
+      width: 10%;
+    }
+
+    .level-three {
+      width: 35%;
+      .package {
+        width: 33%;
+        margin: auto 0;
+      }
+    }
+  }
+
 }

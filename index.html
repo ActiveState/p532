@@ -22,10 +22,10 @@
         <div class="col">
           <h1>Perl 5.32 Beta is here!</h1>
           <h2>Perl powered by the ActiveState Platform</h2>
-          <p>We’ve re-imagined the way developers manage and interact with their Perl development environments starting with Perl 5.32. Backed by the ActiveState Platform, Perl 5.32 offers new benefits that make your experience faster, easier and more powerful!</p>
+          <p>We've re-imagined the way developers manage and interact with their Perl development environments starting with Perl 5.32. Backed by the ActiveState Platform, Perl 5.32 offers new benefits that make your experience faster, easier and more powerful!</p>
         </div>
-        <div class="col">
-          <img width="200" src="img/modern-perl.png" />
+        <div class="col image-col">
+          <img src="img/modern-perl.png" />
         </div>
       </div>
 
@@ -59,7 +59,7 @@
 
       <!-- Package Management -->
       <div class="section bundles-section">
-        <div class="col ">
+        <div class="col image-col">
             <div class="bundle-wrapper">
               <div class="bundle">
                 <input type="checkbox" />
@@ -98,27 +98,27 @@
             Keep teams synchronized with shared, common development environments that are 100% reproducible on any machine.
           </p>
         </div>
-        <div class="col">
+        <div class="col image-col">
           <div class="many-computers">
-            <div class="computer one">
-              <img src="img/computer-one.svg"/>
-              <img class="camel" src="img/camel-green.svg"/>
-            </div>
-            <div class="computer two">
-              <img src="img/computer-two.svg"/>
-              <img class="camel" src="img/camel-green.svg"/>
-            </div>
-            <div class="computer three">
-              <img src="img/computer-three.svg"/>
-              <img class="camel" src="img/camel-green.svg"/>
-            </div>
+              <img class="computers" src="img/three-computers.svg?1"/>
+              <div class="camels">
+                <div class="camel first">
+                  <img src="img/camel-green.svg" />
+                </div>
+                <div class="camel middle">
+                  <img src="img/camel-green.svg" />
+                </div>
+                <div class="camel last">
+                  <img src="img/camel-green.svg" />
+                </div>
+              </div>
           </div>
         </div>
       </div>
       <hr />
 
       <div class="section history-section">
-        <div class="col">
+        <div class="col image-col">
           <div class="build-history">
             <div class="item added">
               <span class="arrow"></span>
@@ -174,7 +174,7 @@
             Keep your projects sandboxed on your machine with a cross-platform, universal virtual environment solution.
           </p>
         </div>
-        <div class="col">
+        <div class="col image-col">
           <div class="spinner-wrapper">
             <div class="spinner">
               <div class="back face">   <div class="panel"></div></div>
@@ -195,7 +195,7 @@
      <!-- Dependency Management -->
       <div class="section dependencies-section">
 
-        <div class="col">
+        <div class="col image-col">
           <div class="dependency-tree">
             <div class="level-one">
               <div class="package first"></div>
@@ -243,7 +243,7 @@
           </p>
         </div>
 
-        <div class="col">
+        <div class="col image-col">
           <div class="build-progress">
             <div class="progress-header">
               <div class="build-label">Build Progress</div>
@@ -251,35 +251,35 @@
                 <div class="bar"></div>
               </div>
             </div>
+
             <div class="item">
               <span class="status"><img src="img/checkmark-circle-green.svg" width="16px"/></span>
               <span class="name">DateTime</span>
               <span class="version">1.45</span>
-              
             </div>
+
             <div class="item">
               <span class="status"><img src="img/checkmark-circle-green.svg" width="16px"/></span>
               <span class="name">Moose</span>
               <span class="version">2.2009</span>
-              
             </div>
+
             <div class="item">
               <span class="status"><img src="img/checkmark-circle-green.svg" width="16px"/></span>
               <span class="name">App::Squitch</span>
               <span class="version">1.2.3</span>
-              
             </div>
+
             <div class="item">
               <span class="status"><img src="img/checkmark-circle-green.svg" width="16px"/></span>
               <span class="name">Mojolicious</span>
               <span class="version">8.6.3</span>
-              
             </div>
+
             <div class="item">
               <span class="status"><img src="img/checkmark-circle-green.svg" width="16px"/></span>
               <span class="name">Syntax-Keyword-Try</span>
               <span class="version">0.17</span>
-              
             </div>
           </div>
         </div>
@@ -289,13 +289,13 @@
 
       <!-- CLI -->
       <div class="section cli-section">
-        <div class="col">
+        <div class="col image-col">
           <div class="terminal">
 <pre>
 $ state install DateTime
 <span class="line">░ Building from source</span>
-<span class="line">↓ Downloading...</span>
-<span class="line"><span class="success">✓ Package installed: DateTime</span></span>
+<span class="line">&darr; Downloading...</span>
+<span class="line"><span class="success">&#x2713; Package installed: DateTime</span></span>
 
 
 <span class="line">$ <span class="cursor">_</span></span>
