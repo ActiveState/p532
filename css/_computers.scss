@@ -1,0 +1,92 @@
+.many-computers {
+  position: relative;
+  position: relative;
+
+  img.computers {
+    width: 100%;
+    display: block;
+  }
+
+  .camels {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    top: 0;
+
+    img {
+      width: 100%;
+      display: none;
+    }
+
+    .camel {
+      width: 28%;
+      display: flex;
+
+      &.middle {
+        width: 40%;
+
+        img {
+          height: 42%;
+          top: 19%;
+        }
+      }
+
+      &.last {
+        width: 31%;
+      }
+
+      img {
+        height: 25%;
+        position: relative;
+        top: 28%;
+      }
+
+      &.activated img {
+        display: block;
+        animation: camelPop 0.25s ease-out;
+      }
+    }
+  }
+
+  @keyframes camelPop {
+    0% {
+      transform: scaleX(1.5) scaleY(0.3);
+    }
+
+    60% {
+      transform: scaleX(0.9) scaleY(1.1);
+    }
+
+    100% {
+      transform: scaleX(1) scaleY(1);
+    }
+  }
+}
+
+@media only screen and (max-width: 750px) {
+
+  .many-computers {
+    justify-content: center;
+
+    .computer {
+      height: auto;
+      flex: 1;
+
+      img {
+        height: auto;
+      }
+
+      .camel {
+        top: 30%;
+      }
+
+      &.two {
+        .camel {
+          top: 23%;
+        }
+      }
+    }
+  }
+
+}

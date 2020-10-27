@@ -1,0 +1,65 @@
+
+.bundle-wrapper {
+  background: #eee;
+  padding: 20px;
+  border-radius: 10px;
+
+  .bundle {
+    padding: 15px 15px 10px 15px;
+    border-radius: 10px;
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 10px;
+    opacity: 0.5;
+    background: white;
+
+    h4 {
+      margin: 0 0 4px 0;
+      font-size: 1.05rem;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &.selected {
+      opacity: 1;
+      animation: bundlePop 0.25s ease-in-out;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    p {
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    input[checked] {
+      display: none;
+    }
+
+    &.selected input[checked] {
+      display: block;
+    }
+
+    input {
+      position: absolute;
+      top: 13px;
+      left: 11px;
+      pointer-events: none;
+    }
+  }
+}
+
+@keyframes bundlePop {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.98);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

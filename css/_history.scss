@@ -1,0 +1,194 @@
+.build-history {
+  background: #eee;
+  padding: 15px 20px;
+  padding-left: 40px;
+  border-radius: 10px;
+
+  .item-body {
+    position: relative;
+    border-radius: 6px;
+    background: white;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    padding: 8px 10px;
+    font-family: "Roboto Mono", monospace, sans-serif;
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.4);
+    white-space: nowrap;
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 14px;
+      width: 14px;
+      left: -4px;
+      top: calc(50% - 7px);
+      background: black;
+      transform: rotate(45deg);
+      background: white;
+    }
+  }
+
+  .visible {
+    .item-body {
+      animation: bundlePop 0.25s ease-in-out;
+    }
+  }
+
+  .item {
+    position: relative;
+    opacity: 0;
+    padding: 5px 0;
+
+    &:last-child {
+      margin: 0;
+    }
+
+    &.visible {
+      opacity: 1;
+
+      .name {
+        opacity: 1;
+      }
+    }
+
+    $arrowColor: #ccc;
+
+    .arrow {
+      position: absolute;
+      left: -20px;
+      height: 100%;
+      border-left: solid 2px $arrowColor;
+      top: 0;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: $arrowColor;
+        border-radius: 5px;
+        left: -4px;
+        top: calc(50% - 3px);
+      }
+    }
+
+    &:last-child .arrow {
+      height: 50%;
+
+      &::after {
+        height: 100%;
+      }
+
+      &::before {
+        top: calc(100% - 2px);
+      }
+    }
+
+    .name {
+      display: inline-block;
+      overflow: hidden;
+      transition: max-width 0.3s ease-out;
+      transition-delay: 0.3s;
+      position: relative;
+      top: -2px;
+      width: auto;
+      font-size: 0.85rem;
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+    .action {
+      margin-left: auto;
+      position: relative;
+      top: 2px;
+      opacity: 0.5;
+      display: none;
+    }
+
+    .icon {
+      height: 20px;
+      display: inline-block;
+      width: 20px;
+      border-radius: 10px;
+      margin-right: 0;
+      background: #35ce35;
+      color: white;
+      position: relative;
+      top: 1px;
+    }
+
+    &.added {
+      .name {
+        // color: #72c653;
+      }
+
+      .action {
+        color: #60bf3e;
+      }
+
+      .icon {
+        background-image: url(../img/circle-plus.svg);
+      }
+    }
+
+    &.changed {
+      .name {
+        // color: #3569C4;
+      }
+
+      .action {
+        color: #498fec;
+      }
+
+      .icon {
+        background: #3569c4;
+        background-image: url(../img/circle-change.svg);
+      }
+    }
+
+    &.removed {
+      .name {
+        // color: #db3444;
+      }
+
+      .action {
+        color: #db3444;
+      }
+
+      .icon {
+        background-image: url(../img/circle-minus.svg);
+      }
+    }
+
+    &.visible {
+      .icon {
+        animation: iconAppear 0.3s ease-out;
+      }
+
+      .name {
+        max-width: 300px;
+      }
+    }
+
+    .status {
+      margin-left: auto;
+    }
+
+    img {
+      display: none;
+      margin-left: auto;
+    }
+
+    &.done {
+      color: rgba(0, 0, 0, 0.65);
+
+      img {
+        opacity: 1;
+        animation: iconAppear 0.3s ease-out;
+      }
+    }
+
+    &:last-child {
+      border: none;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+.build-progress {
+  padding: 20px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12);
+
+  .progress-header {
+    display: flex;
+    margin-bottom: 15px;
+
+    .build-label {
+      white-space: nowrap;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .progress {
+      flex: 1;
+      top: 2px;
+      margin-left: 10px;
+    }
+  }
+
+  .progress {
+    background: rgba(0, 0, 0, 0.12);
+    margin: 0 0 10px 0;
+    position: relative;
+    height: 8px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 3px;
+
+    .bar {
+      height: inherit;
+      width: var(--bar-width);
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #5dc133;
+      transition: width 0.2s linear;
+    }
+  }
+
+  .item {
+    border-bottom: solid 1px rgba(0, 0, 0, 0.12);
+    padding: 8px 0;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    font-family: "Roboto Mono", monospace, sans-serif;
+
+    .name {
+      margin-right: 15px;
+    }
+
+    .status {
+      margin-right: 10px;
+    }
+
+    img {
+      display: inline-block;
+      opacity: 0;
+    }
+
+    &.done {
+      color: rgba(0, 0, 0, 0.65);
+
+      img {
+        display: inline-block;
+        opacity: 1;
+        animation: iconAppear 0.3s ease-out;
+      }
+    }
+
+    &:last-child {
+      border: none;
+    }
+  }
+}

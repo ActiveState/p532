@@ -1,0 +1,426 @@
+@import "_cube";
+@import "_computers";
+@import "_build";
+@import "_dependencies";
+@import "_bundles";
+@import "_history";
+
+:root {
+  --virtual-progress: 0;
+  --bar-width: 0%;
+}
+
+html {
+  font-family: "Open Sans";
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Roboto";
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin: 0 0 0.3rem 0;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 26px;
+  font-weight: 300;
+}
+
+h4 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-family: "Roboto";
+  margin: 0 0 0.6rem 0;
+}
+
+p {
+  line-height: 140%;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+a {
+  color: #3279d8;
+}
+
+hr {
+  margin: 3rem 0;
+  border: none;
+  border-bottom: solid 1px #ddd;
+}
+
+.section + hr {
+  margin: 5rem 0;
+}
+
+.page {
+  width: clamp(600px, 75%, 1000px);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  padding: 0 3rem;
+}
+
+h1 + .section {
+  margin-top: 2.5rem;
+}
+
+.header {
+  border-bottom: solid 1px #ddd;
+  margin: 2rem 0 4rem 0;
+  padding: 0 0 1rem 0;
+}
+
+.section.hero {
+  margin-bottom: 1rem;
+  margin-top: 0;
+
+  img {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  h1 {
+    margin: 0 0 0.6rem 0;
+  }
+
+  h2 {
+    margin: 0 0 1.2rem 0;
+    line-height: 130%;
+  }
+
+  p {
+    font-size: 1.15rem;
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.section {
+  display: flex;
+  z-index: 1;
+  position: relative;
+
+  h3 {
+    margin: 0 0 1rem 0;
+    line-height: 2.2rem;
+  }
+
+  p {
+    margin: 0 0 1.5rem 0;
+    line-height: 150%;
+    font-size: 1.1rem;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  a {
+    line-height: 150%;
+    font-weight: 600;
+    color: #0453bd;
+    font-size: 1.1rem;
+  }
+}
+
+.col {
+  z-index: 1;
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &:empty {
+    &::after {
+      padding: 80px;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+
+  &:first-child {
+    margin-right: 30px;
+  }
+
+  &:last-child {
+    margin-left: 30px;
+  }
+}
+
+.cli-install {
+  padding: 30px 25px 15px 25px;
+  position: relative;
+  top: 0;
+  z-index: 99;
+  background: white;
+  width: calc(100%);
+  margin: 0 -25px;
+
+  h4 {
+    margin: 0;
+  }
+
+  .cli-header {
+    display: flex;
+
+    .platform-picker {
+      margin-left: auto;
+      z-index: 2;
+      padding-right: 1rem;
+
+      span {
+        color: rgba(0, 0, 0, 0.5);
+        text-decoration: none;
+        padding-bottom: 0.75rem;
+        display: inline-block;
+        margin: 0 0.6rem;
+        cursor: pointer;
+        font-size: 1.1rem;
+
+        &.selected {
+          color: rgba(0, 0, 0, 0.8);
+          border-bottom: solid 4px #3569c4;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .cli-command {
+    background: #daeaff;
+    padding: 20px;
+    display: block;
+    width: 100%;
+    border: none;
+    font-size: 1rem;
+    font-family: "Roboto Mono", monospace;
+    color: #498fec;
+    color: #3569c4;
+    border-radius: 3px;
+    padding-right: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 1;
+
+    &:focus {
+      border: none;
+      outline: none;
+
+      &::selection {
+        background: #3569c4;
+        color: #daeaff;
+      }
+    }
+  }
+
+  .cli-copy-icon {
+    position: absolute;
+    cursor: pointer;
+    right: 34px;
+    bottom: 21px;
+    height: 50px;
+    width: 50px;
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../img/clipboard-icon-blue.svg);
+
+    &.success {
+      animation: copySuccess 2s ease-in-out;
+    }
+  }
+
+  @keyframes copySuccess {
+    5% {
+      opacity: 0;
+      transform: scale(0.7);
+      background-image: url(../img/clipboard-icon-blue.svg);
+    }
+
+    10% {
+      background-image: url(../img/checkmark-blue-circle.svg);
+    }
+
+    20% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+
+    30% {
+      transform: scale(1);
+    }
+
+    80% {
+      opacity: 1;
+      background-image: url(../img/checkmark-blue-circle.svg);
+    }
+
+    85% {
+      opacity: 0;
+      background-image: url(../img/checkmark-blue-circle.svg);
+    }
+
+    86% {
+      opacity: 0;
+      background-image: url(../img/clipboard-icon-blue.svg);
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+
+.cursor {
+  animation: blink 1s ease-in-out infinite;
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+}
+
+@keyframes iconAppear {
+  0% {
+    transform: scaleX(0);
+  }
+
+  60% {
+    transform: scaleX(1.1);
+  }
+
+  80% {
+    transform: scaleX(0.9);
+  }
+
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+footer {
+  padding: 80px;
+  background: #222;
+  margin-top: 8rem;
+
+  a,
+  span {
+    font-size: 1rem;
+  }
+
+  .content {
+    width: clamp(600px, 75%, 1000px);
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    padding: 0;
+    box-sizing: border-box;
+    color: rgba(255, 255, 255, 0.4);
+
+    .divider {
+      padding: 0 0.5rem;
+    }
+
+    a {
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .header {
+    margin: 2rem 0 2rem 0;
+  }
+
+  .section + hr {
+    margin: 3rem 0;
+  }
+
+  .build-progress {
+    width: 90%;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+
+  .page {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 1.5rem;
+  }
+
+  footer {
+    margin-top: 6rem;
+    line-height: 150%;
+
+    .content {
+      width: auto;
+    }
+  }
+
+  .section {
+    flex-direction: column;
+
+    .col {
+      order: 2;
+      flex: 1 0 auto !important;
+      margin: 0;
+
+      p:last-child {
+        margin: 0;
+      }
+    }
+
+    .image-col {
+      margin: 0 0 3rem 0;
+      order: 1;
+    }
+  }
+
+  .cli-install {
+    margin: 0;
+    width: auto;
+    padding: 0;
+
+    .cli-copy-icon {
+      bottom: 5px;
+      right: 5px;
+    }
+
+    .cli-header {
+      display: block;
+
+      h4 {
+        margin: 2rem 0 1.5rem 0;
+      }
+
+      .platform-picker {
+        display: block;
+
+        span {
+          padding-left: 1rem;
+          margin: 0;
+          padding-right: 1rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,170 @@
+.dependency-tree {
+  margin: 0 1.5rem 0 0;
+  display: flex;
+  flex-direction: row;
+
+  .package {
+    background: url(../img/package-wire.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &.resolved {
+      background-image: url(../img/package.svg);
+      animation: packageFadeIn 0.5s ease-out;
+    }
+
+    @keyframes packageFadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+
+
+
+  .level-one {
+    display: flex;
+
+    .package {
+      height: 100px;
+      width: 100px;
+      margin: auto;
+      display: block;
+      position: relative;
+      background-image: url(../img/package.svg);
+
+      &::after {
+        content: "";
+        background: url(../img/package-checkmark.svg);
+        background-size: contain;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        right: -15px;
+        top: 0;
+        opacity: 0;
+        animation: checkPop 0.2s ease-out;
+        animation-fill-mode: forwards;
+        animation-delay: 0.3s;
+        display: none;
+      }
+    }
+  }
+
+  @keyframes checkPop {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .level-two {
+    display: flex;
+    flex-direction: column;
+
+    .package {
+      height: 75px;
+      width: 75px;
+    }
+  }
+
+  .level-two-arrow {
+    display: flex;
+    flex-direction: column;
+
+    img {
+      margin: auto;
+      height: 180px;
+    }
+  }
+
+  .level-three {
+    display: flex;
+    flex-direction: column;
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      height: 75px;
+    }
+
+    .package {
+      height: 50px;
+      width: 50px;
+      margin: auto 5px;
+    }
+  }
+
+  .level-three-arrows {
+    display: flex;
+    flex-direction: column;
+
+    img {
+      height: 25px;
+      margin: auto 5px;
+    }
+  }
+}
+
+.finished .dependency-tree .level-one .package::after {
+  display: block;
+}
+
+
+@media only screen and (max-width: 750px) {
+
+  .dependency-tree {
+    .level-one {
+      width: 25%;
+
+      .package {
+        width: 100%;
+
+        &::after {
+          content: "";
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          right: calc(50% - 65px);
+        }
+      }
+    }
+
+    .level-two-arrow {
+      width: 15%;
+
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .level-two {
+      width: 15%;
+
+      .package {
+        width: 100%;
+      }
+    }
+
+    .level-three-arrows {
+      width: 10%;
+    }
+
+    .level-three {
+      width: 35%;
+
+      .package {
+        width: 33%;
+        margin: auto 0;
+      }
+    }
+  }
+
+}

@@ -2,6 +2,7 @@ export { create, setBarWidth, setPanelScale };
 
 let root = document.documentElement;
 
+
 let buildThresholds = size => {
   let arr = [];
   for(var i = 0; i <= size; i++) {
@@ -10,7 +11,7 @@ let buildThresholds = size => {
   return arr;
 }
 
-let options = {
+let observerOptions = {
   rootMargin: "200px 0px -200px 0px",
   threshold: buildThresholds(20) // 20 steps
 }
@@ -47,15 +48,15 @@ const updateItems = (entries, observer, elements, className, depTarget, callBack
 
 
 // Generic intersection observer setup method
-const create = (sectionSelector, itemSelector, progressClass, callBack = false) => {
+const create = (parentSelector, itemSelector, progressClass, callBack = false) => {
 
   let observerProgress = (entries, observer) => {
     updateItems(entries, observer, elements, progressClass, target, callBack);
   }
 
   let elements = itemSelector ? Array.from(document.querySelectorAll(itemSelector)) : [];
-  let observer = new IntersectionObserver(observerProgress, options);
-  let target = document.querySelector(sectionSelector);
+  let observer = new IntersectionObserver(observerProgress, observerOptions);
+  let target = document.querySelector(parentSelector);
   observer.observe(target);
 }
 
