@@ -4,13 +4,14 @@
         max-width: 100%;
     }
 
-    $flapDeg: 135deg;
+    $flapDeg: 195deg;
     $box-size: 40px;
     $side-height: 75%;
     $box-light: #C69D6B;
     $box-medium: #9B7B56;
     $box-dark: #7F6145;
-    $box-corner-radius: 3px;
+    $box-corner-radius: 4px;
+    $box-open-speed: .3s;
 
     .boxes-wrapper {
         display: flex;
@@ -24,12 +25,25 @@
         height: 175px;
         display: flex;
         flex-direction: column;
+
+        &:first-child .license {
+            background-image: url(../img/license-1.svg);
+        }
+
+        .license {
+            background-image: url(../img/license-2.svg);
+        }
+
+        &:last-child .license {
+            background-image: url(../img/license-3.svg);
+        }
+
     }
 
     .license {
         width: 65px;
         height: 85px;
-        margin-top: 20px;
+        margin-top: 25px;
         background: white;
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
         border-radius: 5px;
@@ -37,7 +51,6 @@
         transition-delay: .15s;
         opacity: 0;
         transform: translateY(50px) scale(.5);
-        background-image: url(../img/license.svg);
         background-position: top;
         background-size: contain;
         background-repeat: no-repeat;
@@ -51,19 +64,15 @@
     .open {
         .flap.left {
             transform: rotateY(-$flapDeg);
-            transition-delay: .15s;
         }
         .flap.right {
             transform: rotateY($flapDeg);
-            transition-delay: .15s;
         }
         .flap.top {
             transform: rotateX($flapDeg);
-            transition-delay: 0s;
         }
         .flap.bottom {
             transform: rotateX(-$flapDeg);
-            transition-delay: 0s;
         }
     }
 
@@ -76,15 +85,15 @@
         transform: rotateX(65deg) rotateZ(45deg);
         transform-origin: center;
 
-
         .side {
             position: absolute;
         }
 
         .flap {
             position: absolute;
-            transition: transform .15s ease-out;
+            transition: transform $box-open-speed ease-out;
             background: $box-light;
+            box-sizing: border-box;
         }
 
         .left {
@@ -93,7 +102,7 @@
 
             &.flap {
                 width: 50%;
-                background: $box-medium;
+                border-radius: 0 $box-corner-radius $box-corner-radius 0;
             }
 
             &.side {
@@ -111,7 +120,7 @@
 
             &.flap {
                 width: 50%;
-                background: $box-medium;
+                border-radius: $box-corner-radius 0 0 $box-corner-radius;
             }
 
             &.side {
@@ -129,7 +138,7 @@
 
             &.flap {
                 height: 50%;
-                transition-delay: .15s;
+                border-radius: 0 0 $box-corner-radius $box-corner-radius;
             }
 
             &.side {
@@ -147,7 +156,7 @@
 
             &.flap {
                 height: 50%;
-                transition-delay: .15s;
+                border-radius: $box-corner-radius $box-corner-radius 0 0;
             }
 
             &.side {

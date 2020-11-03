@@ -504,11 +504,17 @@
   height: 175px;
   display: flex;
   flex-direction: column; }
+  .license-section .box-wrapper:first-child .license {
+    background-image: url(../img/license-1.svg); }
+  .license-section .box-wrapper .license {
+    background-image: url(../img/license-2.svg); }
+  .license-section .box-wrapper:last-child .license {
+    background-image: url(../img/license-3.svg); }
 
 .license-section .license {
   width: 65px;
   height: 85px;
-  margin-top: 20px;
+  margin-top: 25px;
   background: white;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
@@ -516,7 +522,6 @@
   transition-delay: .15s;
   opacity: 0;
   transform: translateY(50px) scale(0.5);
-  background-image: url(../img/license.svg);
   background-position: top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -526,20 +531,16 @@
   transform: scale(1); }
 
 .license-section .open .flap.left {
-  transform: rotateY(-135deg);
-  transition-delay: .15s; }
+  transform: rotateY(-195deg); }
 
 .license-section .open .flap.right {
-  transform: rotateY(135deg);
-  transition-delay: .15s; }
+  transform: rotateY(195deg); }
 
 .license-section .open .flap.top {
-  transform: rotateX(135deg);
-  transition-delay: 0s; }
+  transform: rotateX(195deg); }
 
 .license-section .open .flap.bottom {
-  transform: rotateX(-135deg);
-  transition-delay: 0s; }
+  transform: rotateX(-195deg); }
 
 .license-section .box {
   margin: auto auto 0 auto;
@@ -553,55 +554,56 @@
     position: absolute; }
   .license-section .box .flap {
     position: absolute;
-    transition: transform .15s ease-out;
-    background: #C69D6B; }
+    transition: transform 0.3s ease-out;
+    background: #C69D6B;
+    box-sizing: border-box; }
   .license-section .box .left {
     height: 100%;
     transform-origin: left; }
     .license-section .box .left.flap {
       width: 50%;
-      background: #9B7B56; }
+      border-radius: 0 4px 4px 0; }
     .license-section .box .left.side {
       width: 75%;
       transform: rotateY(90deg);
       background: #7F6145;
-      border-radius: 0 0 3px 0; }
+      border-radius: 0 0 4px 0; }
   .license-section .box .right {
     right: 0;
     height: 100%;
     transform-origin: right; }
     .license-section .box .right.flap {
       width: 50%;
-      background: #9B7B56; }
+      border-radius: 4px 0 0 4px; }
     .license-section .box .right.side {
       width: 75%;
       transform: rotateY(-90deg);
       background: #7F6145;
-      border-radius: 3px 0 0 0; }
+      border-radius: 4px 0 0 0; }
   .license-section .box .top {
     left: 0;
     width: 100%;
     transform-origin: top; }
     .license-section .box .top.flap {
       height: 50%;
-      transition-delay: .15s; }
+      border-radius: 0 0 4px 4px; }
     .license-section .box .top.side {
       height: 75%;
       transform: rotateX(-90deg);
       background: #9B7B56;
-      border-radius: 0 0 3px 0; }
+      border-radius: 0 0 4px 0; }
   .license-section .box .bottom {
     transform-origin: bottom;
     bottom: 0;
     width: 100%; }
     .license-section .box .bottom.flap {
       height: 50%;
-      transition-delay: .15s; }
+      border-radius: 4px 4px 0 0; }
     .license-section .box .bottom.side {
       height: 75%;
       transform: rotateX(90deg);
       background: #9B7B56;
-      border-radius: 3px 0 0 0; }
+      border-radius: 4px 0 0 0; }
 
 :root {
   --virtual-progress: 0;
