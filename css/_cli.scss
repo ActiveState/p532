@@ -1,0 +1,32 @@
+.terminal {
+  background: #222;
+  background: linear-gradient(-228deg, rgba(0, 63, 132, 1) 0%, #000 20%, #000 50%, #0f3763 100%);
+  border-top: solid 20px #ddd;
+  border-radius: 5px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12);
+  padding: 20px;
+
+  .line {
+    opacity: 0;
+    display: inline-block;
+    max-width: 0;
+    overflow: hidden;
+    transition: max-width 0.5s linear;
+
+    &.visible {
+      opacity: 1;
+      max-width: 100%;
+    }
+  }
+
+  pre {
+    font-family: "Roboto Mono", monospace;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 140%;
+    font-size: 0.9rem;
+  }
+
+  .success {
+    color: #29b929;
+  }
+}

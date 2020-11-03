@@ -1,3 +1,27 @@
+.terminal {
+  background: #222;
+  background: linear-gradient(-228deg, #003f84 0%, #000 20%, #000 50%, #0f3763 100%);
+  border-top: solid 20px #ddd;
+  border-radius: 5px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12);
+  padding: 20px; }
+  .terminal .line {
+    opacity: 0;
+    display: inline-block;
+    max-width: 0;
+    overflow: hidden;
+    transition: max-width 0.5s linear; }
+    .terminal .line.visible {
+      opacity: 1;
+      max-width: 100%; }
+  .terminal pre {
+    font-family: "Roboto Mono", monospace;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 140%;
+    font-size: 0.9rem; }
+  .terminal .success {
+    color: #29b929; }
+
 .spinner-wrapper {
   perspective: 500px;
   height: 200px; }
@@ -86,30 +110,6 @@
       color: white;
       padding: 10px;
       font-size: 16px; }
-
-.terminal {
-  background: #222;
-  background: linear-gradient(-228deg, #003f84 0%, #000 20%, #000 50%, #0f3763 100%);
-  border-top: solid 20px #ddd;
-  border-radius: 5px;
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12);
-  padding: 20px; }
-  .terminal .line {
-    opacity: 0;
-    display: inline-block;
-    max-width: 0;
-    overflow: hidden;
-    transition: max-width 0.5s linear; }
-    .terminal .line.visible {
-      opacity: 1;
-      max-width: 100%; }
-  .terminal pre {
-    font-family: "Roboto Mono", monospace;
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 140%;
-    font-size: 0.9rem; }
-  .terminal .success {
-    color: #29b929; }
 
 .many-computers {
   position: relative;
@@ -220,6 +220,12 @@
         animation: iconAppear 0.3s ease-out; }
     .build-progress .item:last-child {
       border: none; }
+
+@media only screen and (max-width: 750px) {
+  .build-progress {
+    width: 90%;
+    box-sizing: border-box;
+    margin: 0 auto; } }
 
 .dependency-tree {
   margin: 0 1.5rem 0 0;
@@ -484,6 +490,119 @@
     .build-history .item:last-child {
       border: none; }
 
+.license-section img {
+  max-width: 100%; }
+
+.license-section .boxes-wrapper {
+  display: flex;
+  justify-content: center;
+  background: #EEE;
+  border-radius: 15px; }
+
+.license-section .box-wrapper {
+  margin: 0 20px;
+  height: 175px;
+  display: flex;
+  flex-direction: column; }
+
+.license-section .license {
+  width: 65px;
+  height: 85px;
+  margin-top: 20px;
+  background: white;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  transition: all 0.25s cubic-bezier(0.63, 1.94, 0.64, 0.84);
+  transition-delay: .15s;
+  opacity: 0;
+  transform: translateY(50px) scale(0.5);
+  background-image: url(../img/license.svg);
+  background-position: top;
+  background-size: contain;
+  background-repeat: no-repeat; }
+
+.license-section .open .license {
+  opacity: 1;
+  transform: scale(1); }
+
+.license-section .open .flap.left {
+  transform: rotateY(-135deg);
+  transition-delay: .15s; }
+
+.license-section .open .flap.right {
+  transform: rotateY(135deg);
+  transition-delay: .15s; }
+
+.license-section .open .flap.top {
+  transform: rotateX(135deg);
+  transition-delay: 0s; }
+
+.license-section .open .flap.bottom {
+  transform: rotateX(-135deg);
+  transition-delay: 0s; }
+
+.license-section .box {
+  margin: auto auto 0 auto;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(65deg) rotateZ(45deg);
+  transform-origin: center; }
+  .license-section .box .side {
+    position: absolute; }
+  .license-section .box .flap {
+    position: absolute;
+    transition: transform .15s ease-out;
+    background: #C69D6B; }
+  .license-section .box .left {
+    height: 100%;
+    transform-origin: left; }
+    .license-section .box .left.flap {
+      width: 50%;
+      background: #9B7B56; }
+    .license-section .box .left.side {
+      width: 75%;
+      transform: rotateY(90deg);
+      background: #7F6145;
+      border-radius: 0 0 3px 0; }
+  .license-section .box .right {
+    right: 0;
+    height: 100%;
+    transform-origin: right; }
+    .license-section .box .right.flap {
+      width: 50%;
+      background: #9B7B56; }
+    .license-section .box .right.side {
+      width: 75%;
+      transform: rotateY(-90deg);
+      background: #7F6145;
+      border-radius: 3px 0 0 0; }
+  .license-section .box .top {
+    left: 0;
+    width: 100%;
+    transform-origin: top; }
+    .license-section .box .top.flap {
+      height: 50%;
+      transition-delay: .15s; }
+    .license-section .box .top.side {
+      height: 75%;
+      transform: rotateX(-90deg);
+      background: #9B7B56;
+      border-radius: 0 0 3px 0; }
+  .license-section .box .bottom {
+    transform-origin: bottom;
+    bottom: 0;
+    width: 100%; }
+    .license-section .box .bottom.flap {
+      height: 50%;
+      transition-delay: .15s; }
+    .license-section .box .bottom.side {
+      height: 75%;
+      transform: rotateX(90deg);
+      background: #9B7B56;
+      border-radius: 3px 0 0 0; }
+
 :root {
   --virtual-progress: 0;
   --bar-width: 0%; }
@@ -524,12 +643,9 @@ a {
   color: #3279d8; }
 
 hr {
-  margin: 3rem 0;
+  margin: 0;
   border: none;
   border-bottom: solid 1px #ddd; }
-
-.section + hr {
-  margin: 5rem 0; }
 
 .page {
   width: clamp(600px, 75%, 1000px);
@@ -564,7 +680,8 @@ h1 + .section {
 .section {
   display: flex;
   z-index: 1;
-  position: relative; }
+  position: relative;
+  margin: 5rem 0; }
   .section h3 {
     margin: 0 0 1rem 0;
     line-height: 2.2rem; }
@@ -595,6 +712,12 @@ h1 + .section {
     margin-right: 30px; }
   .col:last-child {
     margin-left: 30px; }
+
+.cli-install + hr {
+  margin: 3rem 0; }
+
+hr + h3 {
+  margin-top: 3rem; }
 
 .cli-install {
   padding: 30px 25px 15px 25px;
@@ -727,16 +850,16 @@ footer {
 @media only screen and (max-width: 750px) {
   .header {
     margin: 2rem 0 2rem 0; }
-  .section + hr {
-    margin: 3rem 0; }
-  .build-progress {
-    width: 90%;
-    box-sizing: border-box;
-    margin: 0 auto; }
   .page {
     width: 100%;
     box-sizing: border-box;
     padding: 0 1.5rem; }
+  .section.hero {
+    margin-bottom: 1rem;
+    margin-top: 0; }
+    .section.hero img {
+      width: 70%;
+      margin: 0; }
   footer {
     margin-top: 6rem;
     line-height: 150%; }

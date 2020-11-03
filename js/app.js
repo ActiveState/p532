@@ -16,3 +16,4 @@ Observer.create(".virtual-env-section",false, false, Observer.setPanelScale);
 Observer.create(".dependencies-section",".dependencies-section .package:not(.first)", "resolved");
 Observer.create(".bundles-section",".bundles-section .bundle", "selected");
 Observer.create(".build-progress-section",".build-progress-section .item", "done", Observer.setBarWidth);
+Observer.create(".license-section",".license-section .box-wrapper", "open");

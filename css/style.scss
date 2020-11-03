@@ -1,9 +1,11 @@
+@import "_cli";
 @import "_cube";
 @import "_computers";
 @import "_build";
 @import "_dependencies";
 @import "_bundles";
 @import "_history";
+@import "_licenses";
 
 :root {
   --virtual-progress: 0;
@@ -54,13 +56,9 @@ a {
 }
 
 hr {
-  margin: 3rem 0;
+  margin: 0;
   border: none;
   border-bottom: solid 1px #ddd;
-}
-
-.section + hr {
-  margin: 5rem 0;
 }
 
 .page {
@@ -109,6 +107,7 @@ h1 + .section {
   display: flex;
   z-index: 1;
   position: relative;
+  margin: 5rem 0;
 
   h3 {
     margin: 0 0 1rem 0;
@@ -156,6 +155,14 @@ h1 + .section {
   &:last-child {
     margin-left: 30px;
   }
+}
+
+.cli-install + hr {
+  margin: 3rem 0;
+}
+
+hr + h3 {
+  margin-top: 3rem;
 }
 
 .cli-install {
@@ -351,20 +358,21 @@ footer {
     margin: 2rem 0 2rem 0;
   }
 
-  .section + hr {
-    margin: 3rem 0;
-  }
-
-  .build-progress {
-    width: 90%;
-    box-sizing: border-box;
-    margin: 0 auto;
-  }
 
   .page {
     width: 100%;
     box-sizing: border-box;
     padding: 0 1.5rem;
+  }
+
+  .section.hero {
+    margin-bottom: 1rem;
+    margin-top: 0;
+
+    img {
+        width: 70%;
+        margin: 0;
+    }
   }
 
   footer {

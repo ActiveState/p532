@@ -7,7 +7,8 @@
   "scripts": {
     "css": "node-sass css/style.scss dist/style.css",
     "lint": "npx stylelint \"**/*.scss\" --fix",
-    "watch": "chokidar \"css/*.scss\" -c \"npm run css\""
+    "watch": "chokidar \"css/*.scss\" -c \"npm run css\"",
+    "start": "python -m SimpleHTTPServer 8008"
   },
   "devDependencies": {
     "stylelint": "^13.3.3",
