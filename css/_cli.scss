@@ -7,16 +7,10 @@
   padding: 20px;
 
   .line {
-    opacity: 0;
     display: inline-block;
     max-width: 0;
     overflow: hidden;
     transition: max-width 0.5s linear;
-
-    &.visible {
-      opacity: 1;
-      max-width: 100%;
-    }
   }
 
   pre {
@@ -29,4 +23,26 @@
   .success {
     color: #29b929;
   }
+}
+
+@keyframes lineAppear {
+  0% {
+    max-width: 0%;
+  }
+  100% {
+    max-width: 100%;
+  }
+}
+
+.cli-section.visible {
+    .line {
+      animation: lineAppear .6s ease-out;
+      animation-fill-mode: forwards;
+    }
+
+    @for $i from 1 through 3 {
+      .line:nth-child(#{$i}) {
+          animation-delay: #{$i * .25}s;
+      }
+    }
 }

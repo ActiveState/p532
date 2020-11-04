@@ -90,6 +90,7 @@ h1 + .section {
 
   h1 {
     margin: 0 0 0.6rem 0;
+    line-height: 125%;
   }
 
   h2 {
@@ -97,10 +98,25 @@ h1 + .section {
     line-height: 130%;
   }
 
-  p {
+  p, li {
     font-size: 1.15rem;
+    line-height: 140%;
     color: rgba(0, 0, 0, 0.5);
   }
+
+  ul {
+    list-style-type: disc;
+    padding-left: 25px;
+
+    li {
+      margin: 0 0 20px 0;
+    }
+  }
+
+  .image-col {
+    justify-content: start;
+  }
+
 }
 
 .section {

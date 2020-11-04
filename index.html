@@ -19,9 +19,20 @@
 
       <div class="section hero">
         <div class="col">
-          <h1>Perl 5.32 Beta is here!</h1>
-          <h2>Perl powered by the ActiveState Platform</h2>
-          <p>We've re-imagined the way developers manage and interact with their Perl development environments starting with Perl 5.32. Backed by the ActiveState Platform, Perl 5.32 offers new benefits that make your experience faster, easier and more powerful!</p>
+          <h1>Solving Multi-Project, Cross-Platform Package Management for Perl 5.32</h1>
+          <p>With our Perl 5.32 release we're reimagining how you build, work with and even consume Perl from ActiveState. Rather than receive a monolithic build of packages, you'll have a new powerful way to build and maintain your own customized Perl development environment using our next-gen package management tools. Give it a try to experience:</p>
+          <ul>
+            <li>
+              A unified, cloud-based toolchain that delivers automated, parallel builds from source for both Linux and Windows
+            </li>
+            <li>
+              Virtual environment support that automatically creates isolated working directories (similar to Python's virtualenv)
+            </li>
+            <li>
+              Pure Open Source licensing, rather than an ActiveState licensed ActivePerl distribution. Modules you install just have their original licensing.
+            </li>
+          </ul>
+
         </div>
         <div class="col image-col">
           <img src="img/modern-perl.png" />
@@ -203,9 +214,9 @@
               <img src="img/large-arrow.svg"/>
             </div>
             <div class="level-two">
-              <div class="package"></div>
-              <div class="package"></div>
-              <div class="package"></div>
+              <div class="package package-1"></div>
+              <div class="package package-2"></div>
+              <div class="package package-3"></div>
             </div>
             <div class="level-three-arrows">
               <img src="img/small-arrow.svg"/>
@@ -213,9 +224,18 @@
               <img src="img/small-arrow.svg"/>
             </div>
             <div class="level-three">
-              <div class="row"><div class="package"></div><div class="package"></div></div>
-              <div class="row"><div class="package"></div><div class="package"></div><div class="package"></div></div>
-              <div class="row"><div class="package"></div></div>
+              <div class="row">
+                <div class="package package-4"></div>
+                <div class="package package-5"></div>
+              </div>
+              <div class="row">
+                <div class="package package-6"></div>
+                <div class="package package-7"></div>
+                <div class="package package-8"></div>
+              </div>
+              <div class="row">
+                <div class="package package-9"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -292,7 +312,7 @@
           <div class="terminal">
 <pre>
 $ state install DateTime
-<span class="line">░ Building from source</span>
+<span class="line">&rarr; Building from source</span>
 <span class="line">&darr; Downloading...</span>
 <span class="line"><span class="success">&#x2713; Package installed: DateTime</span></span>
 
