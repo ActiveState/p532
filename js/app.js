@@ -9,11 +9,14 @@ Platforms.setDefaultPlatform();
 
 // Sets up all the intersectioon observers
 import * as Observer from './observer.js';
-Observer.create(".cli-section",".cli-section .line", "visible");
-Observer.create(".environments-section",".environments-section .camel", "activated");
-Observer.create(".history-section",".history-section .item", "visible");
-Observer.create(".virtual-env-section",false, false, Observer.setPanelScale);
-Observer.create(".dependencies-section",".dependencies-section .package:not(.first)", "resolved");
-Observer.create(".bundles-section",".bundles-section .bundle", "selected");
-Observer.create(".build-progress-section",".build-progress-section .item", "done", Observer.setBarWidth);
-Observer.create(".license-section",".license-section .box-wrapper", "open");
+
+Observer.simple(".bundles-section",".bundles-section .bundle", "selected");
+
+// Observer.create(".cli-section",".cli-section .line", "visible");
+// Observer.create(".environments-section",".environments-section .camel", "activated");
+// Observer.create(".history-section",".history-section .item", "visible");
+// Observer.create(".virtual-env-section",false, false, Observer.setPanelScale);
+// Observer.create(".dependencies-section",".dependencies-section .package:not(.first)", "resolved");
+// Observer.create(".bundles-section",".bundles-section .bundle", "selected");
+// Observer.create(".build-progress-section",".build-progress-section .item", "done", Observer.setBarWidth);
+// Observer.create(".license-section",".license-section .box-wrapper", "open");
