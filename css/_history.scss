@@ -28,11 +28,7 @@
     }
   }
 
-  .visible {
-    .item-body {
-      animation: bundlePop 0.25s ease-in-out;
-    }
-  }
+
 
   .item {
     position: relative;
@@ -41,14 +37,6 @@
 
     &:last-child {
       margin: 0;
-    }
-
-    &.visible {
-      opacity: 1;
-
-      .name {
-        opacity: 1;
-      }
     }
 
     $arrowColor: #ccc;
@@ -159,15 +147,6 @@
       }
     }
 
-    &.visible {
-      .icon {
-        animation: iconAppear 0.3s ease-out;
-      }
-
-      .name {
-        max-width: 300px;
-      }
-    }
 
     .status {
       margin-left: auto;
@@ -191,4 +170,67 @@
       border: none;
     }
   }
+}
+
+@keyframes historyPop {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(0.98);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    opacity: 1;
+  }
+}
+
+
+@keyframes historyItemFade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+.history-section.visible {
+
+    .item-body {
+      animation: historyPop 0.25s ease-in-out;
+    }
+
+    .item {
+        animation: historyItemFade .15s ease-in-out;
+        animation-fill-mode: forwards;
+
+        .name {
+          opacity: 1;
+           max-width: 300px;
+        }
+
+        .icon {
+          animation: iconAppear 0.3s ease-out;
+        }
+    }
+
+    @for $i from 1 through 5 {
+      .item:nth-child(#{$i}) {
+        animation-delay: #{$i * .15}s; 
+
+        .item-body {
+          animation-delay: #{$i * .15}s;
+        }
+        .icon {
+          animation-delay: #{$i * .15}s;
+        }
+      }
+    }
 }

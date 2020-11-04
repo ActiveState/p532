@@ -33,12 +33,13 @@
 
     .bar {
       height: inherit;
-      width: var(--bar-width);
+      width: 0;
       position: absolute;
       top: 0;
       left: 0;
       background: #5dc133;
-      transition: width 0.2s linear;
+      transition: width 1.4s ease-out;
+      transition-delay: .2s;
     }
   }
 
@@ -63,16 +64,6 @@
       opacity: 0;
     }
 
-    &.done {
-      color: rgba(0, 0, 0, 0.65);
-
-      img {
-        display: inline-block;
-        opacity: 1;
-        animation: iconAppear 0.3s ease-out;
-      }
-    }
-
     &:last-child {
       border: none;
     }
@@ -87,3 +78,58 @@
     margin: 0 auto;
   }
 }
+
+
+@keyframes itemProgress {
+  100% {
+    color: rgba(0, 0, 0, 0.65);
+  }
+}
+
+@keyframes buildIconAppear {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+
+  60% {
+    transform: scaleX(1.1);
+  }
+
+  80% {
+    transform: scaleX(0.9);
+  }
+
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.build-progress-section.visible {
+
+  .progress .bar {
+    width: 100%;
+  }
+
+  .item {
+    animation: itemProgress .2s ease-out;
+    animation-fill-mode:forwards;
+
+    img {
+      animation: buildIconAppear 0.3s ease-out;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  @for $i from 2 through 6 {
+    .item:nth-child(#{$i}) {
+      animation-delay: #{$i * .2}s;
+
+      img {
+        animation-delay: #{$i * .2}s;
+      }
+    }
+  }
+}
+

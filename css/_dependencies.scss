@@ -9,23 +9,7 @@
     background-position: center;
     background-repeat: no-repeat;
 
-    &.resolved {
-      background-image: url(../img/package.svg);
-      animation: packageFadeIn 0.5s ease-out;
-    }
-
-    @keyframes packageFadeIn {
-      0% {
-        opacity: 0;
-      }
-
-      100% {
-        opacity: 1;
-      }
-    }
   }
-
-
 
   .level-one {
     display: flex;
@@ -48,10 +32,6 @@
         right: -15px;
         top: 0;
         opacity: 0;
-        animation: checkPop 0.2s ease-out;
-        animation-fill-mode: forwards;
-        animation-delay: 0.3s;
-        display: none;
       }
     }
   }
@@ -113,9 +93,6 @@
   }
 }
 
-.finished .dependency-tree .level-one .package::after {
-  display: block;
-}
 
 
 @media only screen and (max-width: 750px) {
@@ -166,5 +143,59 @@
       }
     }
   }
+}
 
+  @keyframes packageFadeIn {
+    0% {
+      background-image: url(../img/package-wire.svg);
+    }
+    49% {
+      background-image: url(../img/package-wire.svg);
+      opacity: 1;
+    }
+    50% {
+      background-image: url(../img/package.svg);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      background-image: url(../img/package.svg);
+    }
+  }
+
+  @keyframes packagePop {
+    0% {
+      transform: scale(1);
+    }
+    60% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+
+.dependencies-section.visible {
+
+  .level-one .package::after {
+    animation: checkPop 0.2s ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: 1.25s;
+  }
+
+  .package {
+      animation: packageFadeIn 0.5s ease-out;
+      animation-fill-mode: forwards;
+  }
+
+  .package.first {
+    animation: none;
+  }
+
+  @for $i from 1 through 9 {
+      .package-#{$i}  {
+          animation-delay: #{$i * .1}s; 
+      }
+    }
 }
