@@ -40,8 +40,8 @@
       animation-fill-mode: forwards;
     }
 
-    @for $i from 1 through 3 {
-      .line:nth-child(#{$i}) {
+    @for $i from 1 through 2 {
+      .line:nth-child(#{$i + 1}) {
           animation-delay: #{$i * .25}s;
       }
     }

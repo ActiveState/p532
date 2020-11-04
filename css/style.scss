@@ -70,7 +70,7 @@ hr {
 }
 
 h1 + .section {
-  margin-top: 2.5rem;
+  padding-top: 2.5rem;
 }
 
 .header {
@@ -80,7 +80,7 @@ h1 + .section {
 }
 
 .section.hero {
-  margin-bottom: 1rem;
+  padding-bottom: 1rem;
   margin-top: 0;
 
   .image-col {
@@ -129,7 +129,7 @@ h1 + .section {
   display: flex;
   z-index: 1;
   position: relative;
-  margin: 5rem 0;
+  padding: 5rem 0;
 
   h3 {
     margin: 0 0 1rem 0;

@@ -149,11 +149,7 @@
     0% {
       background-image: url(../img/package-wire.svg);
     }
-    49% {
-      background-image: url(../img/package-wire.svg);
-      opacity: 1;
-    }
-    50% {
+    2% {
       background-image: url(../img/package.svg);
       opacity: 0;
     }
@@ -193,9 +189,9 @@
     animation: none;
   }
 
-  @for $i from 1 through 9 {
-      .package-#{$i}  {
-          animation-delay: #{$i * .1}s; 
+  @for $i from 1 through 8 {
+      .package-#{$i + 1}  {
+          animation-delay: #{$i * .1}s;
       }
     }
 }

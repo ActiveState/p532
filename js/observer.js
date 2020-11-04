@@ -12,7 +12,7 @@ let buildThresholds = size => {
 }
 
 let observerOptions = {
-  rootMargin: "0px 0px -100px 0px",
+  rootMargin: "0px 0px 0px 0px",
   threshold: buildThresholds(1)
 }
 

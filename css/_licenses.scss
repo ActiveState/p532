@@ -147,9 +147,7 @@
                 border-radius: $box-corner-radius 0 0 0;
             }
         }
-
     }
-
 }
 
 
@@ -174,8 +172,8 @@
         transform: scale(1);
     }
 
-    @for $i from 1 through 3 {
-      .box-wrapper:nth-child(#{$i}) {
+    @for $i from 1 through 2 {
+      .box-wrapper:nth-child(#{$i + 1}) {
         .flap {
             transition-delay: #{$i * .15}s; 
         }

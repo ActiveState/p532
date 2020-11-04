@@ -221,8 +221,8 @@
         }
     }
 
-    @for $i from 1 through 5 {
-      .item:nth-child(#{$i}) {
+    @for $i from 1 through 4 {
+      .item:nth-child(#{$i + 1}) {
         animation-delay: #{$i * .15}s; 
 
         .item-body {

@@ -28,14 +28,11 @@
   animation: lineAppear .6s ease-out;
   animation-fill-mode: forwards; }
 
-.cli-section.visible .line:nth-child(1) {
+.cli-section.visible .line:nth-child(2) {
   animation-delay: 0.25s; }
 
-.cli-section.visible .line:nth-child(2) {
-  animation-delay: 0.5s; }
-
 .cli-section.visible .line:nth-child(3) {
-  animation-delay: 0.75s; }
+  animation-delay: 0.5s; }
 
 .spinner-wrapper {
   perspective: 500px;
@@ -285,29 +282,29 @@
     animation-fill-mode: forwards; }
 
 .build-progress-section.visible .item:nth-child(2) {
-  animation-delay: 0.4s; }
+  animation-delay: 0.2s; }
   .build-progress-section.visible .item:nth-child(2) img {
-    animation-delay: 0.4s; }
+    animation-delay: 0.2s; }
 
 .build-progress-section.visible .item:nth-child(3) {
-  animation-delay: 0.6s; }
+  animation-delay: 0.4s; }
   .build-progress-section.visible .item:nth-child(3) img {
-    animation-delay: 0.6s; }
+    animation-delay: 0.4s; }
 
 .build-progress-section.visible .item:nth-child(4) {
-  animation-delay: 0.8s; }
+  animation-delay: 0.6s; }
   .build-progress-section.visible .item:nth-child(4) img {
-    animation-delay: 0.8s; }
+    animation-delay: 0.6s; }
 
 .build-progress-section.visible .item:nth-child(5) {
-  animation-delay: 1s; }
+  animation-delay: 0.8s; }
   .build-progress-section.visible .item:nth-child(5) img {
-    animation-delay: 1s; }
+    animation-delay: 0.8s; }
 
 .build-progress-section.visible .item:nth-child(6) {
-  animation-delay: 1.2s; }
+  animation-delay: 1s; }
   .build-progress-section.visible .item:nth-child(6) img {
-    animation-delay: 1.2s; }
+    animation-delay: 1s; }
 
 .dependency-tree {
   margin: 0 1.5rem 0 0;
@@ -403,10 +400,7 @@
 @keyframes packageFadeIn {
   0% {
     background-image: url(../img/package-wire.svg); }
-  49% {
-    background-image: url(../img/package-wire.svg);
-    opacity: 1; }
-  50% {
+  2% {
     background-image: url(../img/package.svg);
     opacity: 0; }
   100% {
@@ -433,32 +427,29 @@
 .dependencies-section.visible .package.first {
   animation: none; }
 
-.dependencies-section.visible .package-1 {
+.dependencies-section.visible .package-2 {
   animation-delay: 0.1s; }
 
-.dependencies-section.visible .package-2 {
+.dependencies-section.visible .package-3 {
   animation-delay: 0.2s; }
 
-.dependencies-section.visible .package-3 {
+.dependencies-section.visible .package-4 {
   animation-delay: 0.3s; }
 
-.dependencies-section.visible .package-4 {
+.dependencies-section.visible .package-5 {
   animation-delay: 0.4s; }
 
-.dependencies-section.visible .package-5 {
+.dependencies-section.visible .package-6 {
   animation-delay: 0.5s; }
 
-.dependencies-section.visible .package-6 {
+.dependencies-section.visible .package-7 {
   animation-delay: 0.6s; }
 
-.dependencies-section.visible .package-7 {
+.dependencies-section.visible .package-8 {
   animation-delay: 0.7s; }
 
-.dependencies-section.visible .package-8 {
-  animation-delay: 0.8s; }
-
 .dependencies-section.visible .package-9 {
-  animation-delay: 0.9s; }
+  animation-delay: 0.8s; }
 
 .bundle-wrapper {
   background: #eee;
@@ -509,21 +500,18 @@
   animation: bundlePop 0.25s ease-in-out;
   animation-fill-mode: forwards; }
   .bundles-section.visible .bundle-wrapper .bundle input[checked] {
-    animation-delay: inherit;
     animation: checkFade 0.1s ease-out;
     animation-fill-mode: forwards; }
-  .bundles-section.visible .bundle-wrapper .bundle:nth-child(1) {
-    animation-delay: .2s; }
-    .bundles-section.visible .bundle-wrapper .bundle:nth-child(1) input[checked] {
-      animation-delay: inherit; }
-  .bundles-section.visible .bundle-wrapper .bundle:nth-child(2) {
-    animation-delay: .4s; }
-    .bundles-section.visible .bundle-wrapper .bundle:nth-child(2) input[checked] {
-      animation-delay: inherit; }
-  .bundles-section.visible .bundle-wrapper .bundle:nth-child(3) {
-    animation-delay: .6s; }
-    .bundles-section.visible .bundle-wrapper .bundle:nth-child(3) input[checked] {
-      animation-delay: inherit; }
+
+.bundles-section.visible .bundle-wrapper .bundle:nth-child(2) {
+  animation-delay: 0.2s; }
+  .bundles-section.visible .bundle-wrapper .bundle:nth-child(2) input[checked] {
+    animation-delay: inherit; }
+
+.bundles-section.visible .bundle-wrapper .bundle:nth-child(3) {
+  animation-delay: 0.4s; }
+  .bundles-section.visible .bundle-wrapper .bundle:nth-child(3) input[checked] {
+    animation-delay: inherit; }
 
 .build-history {
   background: #eee;
@@ -658,40 +646,33 @@
   .history-section.visible .item .icon {
     animation: iconAppear 0.3s ease-out; }
 
-.history-section.visible .item:nth-child(1) {
-  animation-delay: 0.15s; }
-  .history-section.visible .item:nth-child(1) .item-body {
-    animation-delay: 0.15s; }
-  .history-section.visible .item:nth-child(1) .icon {
-    animation-delay: 0.15s; }
-
 .history-section.visible .item:nth-child(2) {
-  animation-delay: 0.3s; }
+  animation-delay: 0.15s; }
   .history-section.visible .item:nth-child(2) .item-body {
-    animation-delay: 0.3s; }
+    animation-delay: 0.15s; }
   .history-section.visible .item:nth-child(2) .icon {
-    animation-delay: 0.3s; }
+    animation-delay: 0.15s; }
 
 .history-section.visible .item:nth-child(3) {
-  animation-delay: 0.45s; }
+  animation-delay: 0.3s; }
   .history-section.visible .item:nth-child(3) .item-body {
-    animation-delay: 0.45s; }
+    animation-delay: 0.3s; }
   .history-section.visible .item:nth-child(3) .icon {
-    animation-delay: 0.45s; }
+    animation-delay: 0.3s; }
 
 .history-section.visible .item:nth-child(4) {
-  animation-delay: 0.6s; }
+  animation-delay: 0.45s; }
   .history-section.visible .item:nth-child(4) .item-body {
-    animation-delay: 0.6s; }
+    animation-delay: 0.45s; }
   .history-section.visible .item:nth-child(4) .icon {
-    animation-delay: 0.6s; }
+    animation-delay: 0.45s; }
 
 .history-section.visible .item:nth-child(5) {
-  animation-delay: 0.75s; }
+  animation-delay: 0.6s; }
   .history-section.visible .item:nth-child(5) .item-body {
-    animation-delay: 0.75s; }
+    animation-delay: 0.6s; }
   .history-section.visible .item:nth-child(5) .icon {
-    animation-delay: 0.75s; }
+    animation-delay: 0.6s; }
 
 .license-section img {
   max-width: 100%; }
@@ -808,23 +789,17 @@
   opacity: 1;
   transform: scale(1); }
 
-.license-section.visible .box-wrapper:nth-child(1) .flap {
+.license-section.visible .box-wrapper:nth-child(2) .flap {
   transition-delay: 0.15s; }
 
-.license-section.visible .box-wrapper:nth-child(1) .license {
+.license-section.visible .box-wrapper:nth-child(2) .license {
   transition-delay: 0.35s; }
 
-.license-section.visible .box-wrapper:nth-child(2) .flap {
+.license-section.visible .box-wrapper:nth-child(3) .flap {
   transition-delay: 0.3s; }
 
-.license-section.visible .box-wrapper:nth-child(2) .license {
-  transition-delay: 0.5s; }
-
-.license-section.visible .box-wrapper:nth-child(3) .flap {
-  transition-delay: 0.45s; }
-
 .license-section.visible .box-wrapper:nth-child(3) .license {
-  transition-delay: 0.65s; }
+  transition-delay: 0.5s; }
 
 :root {
   --virtual-progress: 0;
@@ -878,7 +853,7 @@ hr {
   padding: 0 3rem; }
 
 h1 + .section {
-  margin-top: 2.5rem; }
+  padding-top: 2.5rem; }
 
 .header {
   border-bottom: solid 1px #ddd;
@@ -886,7 +861,7 @@ h1 + .section {
   padding: 0 0 1rem 0; }
 
 .section.hero {
-  margin-bottom: 1rem;
+  padding-bottom: 1rem;
   margin-top: 0; }
   .section.hero .image-col {
     flex: .7; }
@@ -916,7 +891,7 @@ h1 + .section {
   display: flex;
   z-index: 1;
   position: relative;
-  margin: 5rem 0; }
+  padding: 5rem 0; }
   .section h3 {
     margin: 0 0 1rem 0;
     line-height: 2.2rem; }
