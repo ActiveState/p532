@@ -862,7 +862,7 @@ h1 + .section {
 
 .section.hero {
   padding-bottom: 1rem;
-  margin-top: 0; }
+  padding-top: 0; }
   .section.hero .image-col {
     flex: .7; }
   .section.hero img {
