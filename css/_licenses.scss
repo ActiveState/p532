@@ -4,7 +4,7 @@
     $box-light: #C69D6B;
     $box-medium: #9B7B56;
     $box-dark: #7F6145;
-    $box-corner-radius: 4px;
+    $box-corner-radius: 2px;
     $box-open-speed: .3s;
 
 
@@ -152,34 +152,41 @@
 
 
 .license-section.visible {
-    .box {
-        .flap.left {
-            transform: rotateY(-$flapDeg);
+    .box-wrapper:not(:hover) {
+        .box {
+                .flap.left {
+                    transform: rotateY(-$flapDeg);
+                }
+                .flap.right {
+                    transform: rotateY($flapDeg);
+                }
+                .flap.top {
+                    transform: rotateX($flapDeg);
+                }
+                .flap.bottom {
+                    transform: rotateX(-$flapDeg);
+                }
+            }
+
+            .license {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+        @for $i from 1 through 2 {
+          &:nth-child(#{$i + 1}) {
+            .flap {
+                transition-delay: #{$i * .15}s; 
+            }
+            .license {
+                transition-delay: #{.2  + ($i * .15)}s; 
+            }
+          }
         }
-        .flap.right {
-            transform: rotateY($flapDeg);
-        }
-        .flap.top {
-            transform: rotateX($flapDeg);
-        }
-        .flap.bottom {
-            transform: rotateX(-$flapDeg);
-        }
+
     }
 
-    .license {
-        opacity: 1;
-        transform: scale(1);
-    }
 
-    @for $i from 1 through 2 {
-      .box-wrapper:nth-child(#{$i + 1}) {
-        .flap {
-            transition-delay: #{$i * .15}s; 
-        }
-        .license {
-            transition-delay: #{.2  + ($i * .15)}s; 
-        }
-      }
-    }
+
+
 }

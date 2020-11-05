@@ -730,75 +730,75 @@
     transform-origin: left; }
     .license-section .box .left.flap {
       width: 50%;
-      border-radius: 0 4px 4px 0; }
+      border-radius: 0 2px 2px 0; }
     .license-section .box .left.side {
       width: 75%;
       transform: rotateY(90deg);
       background: #7F6145;
-      border-radius: 0 0 4px 0; }
+      border-radius: 0 0 2px 0; }
   .license-section .box .right {
     right: 0;
     height: 100%;
     transform-origin: right; }
     .license-section .box .right.flap {
       width: 50%;
-      border-radius: 4px 0 0 4px; }
+      border-radius: 2px 0 0 2px; }
     .license-section .box .right.side {
       width: 75%;
       transform: rotateY(-90deg);
       background: #7F6145;
-      border-radius: 4px 0 0 0; }
+      border-radius: 2px 0 0 0; }
   .license-section .box .top {
     left: 0;
     width: 100%;
     transform-origin: top; }
     .license-section .box .top.flap {
       height: 50%;
-      border-radius: 0 0 4px 4px; }
+      border-radius: 0 0 2px 2px; }
     .license-section .box .top.side {
       height: 75%;
       transform: rotateX(-90deg);
       background: #9B7B56;
-      border-radius: 0 0 4px 0; }
+      border-radius: 0 0 2px 0; }
   .license-section .box .bottom {
     transform-origin: bottom;
     bottom: 0;
     width: 100%; }
     .license-section .box .bottom.flap {
       height: 50%;
-      border-radius: 4px 4px 0 0; }
+      border-radius: 2px 2px 0 0; }
     .license-section .box .bottom.side {
       height: 75%;
       transform: rotateX(90deg);
       background: #9B7B56;
-      border-radius: 4px 0 0 0; }
+      border-radius: 2px 0 0 0; }
 
-.license-section.visible .box .flap.left {
+.license-section.visible .box-wrapper:not(:hover) .box .flap.left {
   transform: rotateY(-195deg); }
 
-.license-section.visible .box .flap.right {
+.license-section.visible .box-wrapper:not(:hover) .box .flap.right {
   transform: rotateY(195deg); }
 
-.license-section.visible .box .flap.top {
+.license-section.visible .box-wrapper:not(:hover) .box .flap.top {
   transform: rotateX(195deg); }
 
-.license-section.visible .box .flap.bottom {
+.license-section.visible .box-wrapper:not(:hover) .box .flap.bottom {
   transform: rotateX(-195deg); }
 
-.license-section.visible .license {
+.license-section.visible .box-wrapper:not(:hover) .license {
   opacity: 1;
   transform: scale(1); }
 
-.license-section.visible .box-wrapper:nth-child(2) .flap {
+.license-section.visible .box-wrapper:not(:hover):nth-child(2) .flap {
   transition-delay: 0.15s; }
 
-.license-section.visible .box-wrapper:nth-child(2) .license {
+.license-section.visible .box-wrapper:not(:hover):nth-child(2) .license {
   transition-delay: 0.35s; }
 
-.license-section.visible .box-wrapper:nth-child(3) .flap {
+.license-section.visible .box-wrapper:not(:hover):nth-child(3) .flap {
   transition-delay: 0.3s; }
 
-.license-section.visible .box-wrapper:nth-child(3) .license {
+.license-section.visible .box-wrapper:not(:hover):nth-child(3) .license {
   transition-delay: 0.5s; }
 
 :root {
