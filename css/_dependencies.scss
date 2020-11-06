@@ -40,7 +40,7 @@
         height: 50px;
         position: absolute;
         right: -15px;
-        top: 0;
+        top: 2px;
         opacity: 0;
       }
     }
@@ -49,9 +49,14 @@
   @keyframes checkPop {
     0% {
       opacity: 0;
+      transform: scale(.6);
+    }
+    60% {
+      transform: scale(1.1);
     }
     100% {
       opacity: 1;
+      transform: scale(1);
     }
   }
 
@@ -172,7 +177,7 @@
   .level-one .package::after {
     animation: checkPop 0.2s ease-out;
     animation-fill-mode: forwards;
-    animation-delay: 1.25s;
+    animation-delay: 1s;
   }
 
   .package .resolved {
