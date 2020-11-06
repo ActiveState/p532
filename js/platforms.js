@@ -6,8 +6,6 @@ let platformToggles,
 let toggleSelector = ".platform-picker span";
 let inputSelector = ".cli-install input";
 
-
-
 let defaultPlatform = 'Windows';
 let cliCommands = {
   'Windows' : "powershell -Command \"& $([scriptblock]::Create((New-Object Net.WebClient).DownloadString('https://platform.activestate.com/dl/cli/install.ps1'))) -activate-default ActiveState/Perl-5.32\" ",
