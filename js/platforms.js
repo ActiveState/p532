@@ -10,8 +10,8 @@ let inputSelector = ".cli-install input";
 
 let defaultPlatform = 'Windows';
 let cliCommands = {
-  'Windows' : "powershell -Command \"& $([scriptblock]::Create((New-Object Net.WebClient).DownloadString('https://platform.activestate.com/dl/cli/install.ps1'))) -activate ActiveState/Perl-5.32\" ",
-  'Linux' : 'sh <(curl -q https://platform.activestate.com/dl/cli/install.sh) --activate ActiveState/Perl-5.32'
+  'Windows' : "powershell -Command \"& $([scriptblock]::Create((New-Object Net.WebClient).DownloadString('https://platform.activestate.com/dl/cli/install.ps1'))) -activate-default ActiveState/Perl-5.32\" ",
+  'Linux' : 'sh <(curl -q https://platform.activestate.com/dl/cli/install.sh) --activate-default ActiveState/Perl-5.32'
 }
 
 const setupToggles = () => {
