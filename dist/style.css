@@ -314,7 +314,16 @@
     background: url(../img/package-wire.svg);
     background-size: contain;
     background-position: center;
-    background-repeat: no-repeat; }
+    background-repeat: no-repeat;
+    position: relative; }
+  .dependency-tree .resolved {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../img/package.svg);
+    opacity: 0; }
   .dependency-tree .level-one {
     display: flex; }
     .dependency-tree .level-one .package {
@@ -399,20 +408,10 @@
 
 @keyframes packageFadeIn {
   0% {
-    background-image: url(../img/package-wire.svg); }
-  2% {
-    background-image: url(../img/package.svg);
-    opacity: 0; }
+    opacity: .3;
+    transform: scale(0.2); }
   100% {
     opacity: 1;
-    background-image: url(../img/package.svg); } }
-
-@keyframes packagePop {
-  0% {
-    transform: scale(1); }
-  60% {
-    transform: scale(1.1); }
-  100% {
     transform: scale(1); } }
 
 .dependencies-section.visible .level-one .package::after {
@@ -420,35 +419,35 @@
   animation-fill-mode: forwards;
   animation-delay: 1.25s; }
 
-.dependencies-section.visible .package {
-  animation: packageFadeIn 0.5s ease-out;
+.dependencies-section.visible .package .resolved {
+  animation: packageFadeIn .2s ease-out;
   animation-fill-mode: forwards; }
 
 .dependencies-section.visible .package.first {
   animation: none; }
 
-.dependencies-section.visible .package-2 {
+.dependencies-section.visible .package-2 .resolved {
   animation-delay: 0.1s; }
 
-.dependencies-section.visible .package-3 {
+.dependencies-section.visible .package-3 .resolved {
   animation-delay: 0.2s; }
 
-.dependencies-section.visible .package-4 {
+.dependencies-section.visible .package-4 .resolved {
   animation-delay: 0.3s; }
 
-.dependencies-section.visible .package-5 {
+.dependencies-section.visible .package-5 .resolved {
   animation-delay: 0.4s; }
 
-.dependencies-section.visible .package-6 {
+.dependencies-section.visible .package-6 .resolved {
   animation-delay: 0.5s; }
 
-.dependencies-section.visible .package-7 {
+.dependencies-section.visible .package-7 .resolved {
   animation-delay: 0.6s; }
 
-.dependencies-section.visible .package-8 {
+.dependencies-section.visible .package-8 .resolved {
   animation-delay: 0.7s; }
 
-.dependencies-section.visible .package-9 {
+.dependencies-section.visible .package-9 .resolved {
   animation-delay: 0.8s; }
 
 .bundle-wrapper {

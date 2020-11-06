@@ -8,7 +8,17 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    position: relative;
+  }
 
+  .resolved {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../img/package.svg);
+    opacity: 0;
   }
 
   .level-one {
@@ -147,26 +157,11 @@
 
   @keyframes packageFadeIn {
     0% {
-      background-image: url(../img/package-wire.svg);
-    }
-    2% {
-      background-image: url(../img/package.svg);
-      opacity: 0;
+      opacity: .3;
+      transform: scale(.2);
     }
     100% {
       opacity: 1;
-      background-image: url(../img/package.svg);
-    }
-  }
-
-  @keyframes packagePop {
-    0% {
-      transform: scale(1);
-    }
-    60% {
-      transform: scale(1.1);
-    }
-    100% {
       transform: scale(1);
     }
   }
@@ -180,8 +175,8 @@
     animation-delay: 1.25s;
   }
 
-  .package {
-      animation: packageFadeIn 0.5s ease-out;
+  .package .resolved {
+      animation: packageFadeIn .2s ease-out;
       animation-fill-mode: forwards;
   }
 
@@ -190,7 +185,7 @@
   }
 
   @for $i from 1 through 8 {
-      .package-#{$i + 1}  {
+      .package-#{$i + 1} .resolved  {
           animation-delay: #{$i * .1}s;
       }
     }
