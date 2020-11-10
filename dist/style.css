@@ -986,35 +986,43 @@ hr + h3 {
     right: 34px;
     bottom: 21px;
     height: 50px;
-    width: 50px;
-    background-size: 24px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-image: url(../img/clipboard-icon-blue.svg); }
-    .cli-install .cli-copy-icon.success {
-      animation: copySuccess 2s ease-in-out; }
+    width: 50px; }
+    .cli-install .cli-copy-icon .clipboard, .cli-install .cli-copy-icon .checkmark {
+      background-size: 24px;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      width: 100%;
+      height: 100%; }
+    .cli-install .cli-copy-icon .clipboard {
+      background-image: url(../img/clipboard-icon-blue.svg); }
+    .cli-install .cli-copy-icon .checkmark {
+      background-image: url(../img/checkmark-blue-circle.svg);
+      opacity: 0; }
+    .cli-install .cli-copy-icon.success .clipboard {
+      animation: copyClipboard 1s ease-in-out; }
+    .cli-install .cli-copy-icon.success .checkmark {
+      animation: copyCheckmark 1s ease-in-out; }
 
-@keyframes copySuccess {
-  5% {
-    opacity: 0;
-    transform: scale(0.7);
-    background-image: url(../img/clipboard-icon-blue.svg); }
-  10% {
-    background-image: url(../img/checkmark-blue-circle.svg); }
+@keyframes copyCheckmark {
+  0% {
+    transform: scale(0.7); }
   20% {
-    opacity: 1;
-    transform: scale(1.2); }
-  30% {
-    transform: scale(1); }
+    transform: scale(1);
+    opacity: 1; }
   80% {
     opacity: 1;
-    background-image: url(../img/checkmark-blue-circle.svg); }
-  85% {
+    transform: scale(1); }
+  100% {
     opacity: 0;
-    background-image: url(../img/checkmark-blue-circle.svg); }
-  86% {
+    transform: scale(0.7); } }
+
+@keyframes copyClipboard {
+  20% {
     opacity: 0;
-    background-image: url(../img/clipboard-icon-blue.svg); }
+    transform: scale(0.7); }
+  80% {
+    opacity: 0; }
   100% {
     opacity: 1; } }
 
