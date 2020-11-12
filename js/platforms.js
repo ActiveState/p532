@@ -1,34 +1,56 @@
-export { setDefaultPlatform, setupToggles };
+// export { setDefaultPlatform, setupToggles };
 
 let platformToggles, 
-    cliInputs;
+    cliInputs,
+    cliHeadings;
 
 let toggleSelector = ".platform-picker span";
 let inputSelector = ".cli-install input";
+let cliHeadingSelector = ".cli-header .terminal-type";
 
 let defaultPlatform = 'Windows';
 let cliCommands = {
-  'Windows' : "powershell -Command \"& $([scriptblock]::Create((New-Object Net.WebClient).DownloadString('https://platform.activestate.com/dl/cli/install.ps1'))) -activate-default ActiveState/Perl-5.32\" ",
-  'Linux' : 'sh <(curl -q https://platform.activestate.com/dl/cli/install.sh) --activate-default ActiveState/Perl-5.32'
+  "Windows" : 
+      {
+        "prompt" : "Command Prompt",
+        "command" : "powershell -Command \"& $([scriptblock]::Create((New-Object Net.WebClient).DownloadString('https://platform.activestate.com/dl/cli/install.ps1'))) -activate-default ActiveState/Perl-5.32\"",
+      },  
+  "Linux" : 
+      {
+        "prompt" : "command line",
+        "command" : "sh <(curl -q https://platform.activestate.com/dl/cli/install.sh) --activate-default ActiveState/Perl-5.32"
+      }
+  
 }
 
-const setupToggles = () => {
+function setupToggles() {
 
   cliInputs = document.querySelectorAll(inputSelector);
+  cliHeadings = document.querySelectorAll(cliHeadingSelector);
   platformToggles = document.querySelectorAll(toggleSelector);
 
-  platformToggles.forEach(el => {
-    el.addEventListener("click", e => {
-      switchPlatform(el.getAttribute("platform"));
-    });
-  });
+  for(var i = 0; i < platformToggles.length; i++) {
+    let el = platformToggles[i];
+
+    if (el.addEventListener){
+      el.addEventListener("click", function() {
+        switchPlatform(el.getAttribute("platform"));
+      });
+    } else if (el.attachEvent){
+      el.attachEvent('onclick', function() {
+        switchPlatform(el.getAttribute("platform"));
+      });
+    }
+  }
+  
 }
 
-const switchPlatform = platform => {
+function switchPlatform(platform) {
 
   platform = cliCommands[platform] ? platform : defaultPlatform;
 
-  platformToggles.forEach(el => {
+  for(var i = 0; i < platformToggles.length; i++) {
+    let el = platformToggles[i];
     let thisPlatform = el.getAttribute("platform");
     
     if(thisPlatform == platform) {
@@ -36,11 +58,18 @@ const switchPlatform = platform => {
     } else {
       el.classList.remove("selected");
     }
-  });
+  }
 
-  cliInputs.forEach(el => {
-    el.value = cliCommands[platform];
-  })
+  for(var i = 0; i < cliInputs.length; i++) {
+    let el = cliInputs[i];
+    el.value = cliCommands[platform]["command"];
+  }
+
+  for(var i = 0; i < cliHeadings.length; i++) {
+    let el = cliHeadings[i];
+    
+    el.innerText = cliCommands[platform]["prompt"];
+  }
 }
 
 function getOS() {
@@ -66,6 +95,6 @@ function getOS() {
   return os;
 }
 
-const setDefaultPlatform = () =>{
+function setDefaultPlatform() {
   switchPlatform(getOS());
 }

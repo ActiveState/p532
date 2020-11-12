@@ -43,13 +43,13 @@
 
       <div class="cli-install">
         <div class="cli-header">
-          <h4>Try it out, install via command line...</h4>
+          <h4>Try it out, install via <span class="terminal-type">Command Prompt</span>...</h4>
           <div class="platform-picker">
             <span platform="Linux" class="selected" href="#">Linux</span>
             <span platform="Windows" href="#">Windows</span>
           </div>
         </div>
-        <input readonly id="cli-input-top" class="cli-command" type="text"/>
+        <input readonly id="cli-input-bottom" class="cli-command" type="text" value="powershell -Command &quot;& $([scriptblock]::Create((New-Object Net.WebClient).DownloadString('https://platform.activestate.com/dl/cli/install.ps1'))) -activate-default ActiveState/Perl-5.32&quot;" />
         <div for="cli-input-top" class="cli-copy-icon">
           <div class="clipboard"></div>
           <div class="checkmark"></div>
@@ -108,7 +108,7 @@
         <div class="col">
           <h3>Common Development Environments</h3>
           <p>
-            Keep teams synchronized with a centrally managed and updated Perl environment all team members can share, eliminating “works on my machine issues” (requires free ActiveState Platform account).
+            Keep teams synchronized with a centrally managed and updated Perl environment all team members can share, eliminating "works on my machine issues" (requires free ActiveState Platform account).
           </p>
         </div>
         <div class="col image-col">
@@ -396,13 +396,13 @@ $ state install DateTime
       <h3>Install Perl 5.32</h3>
       <div class="cli-install">
         <div class="cli-header">
-          <h4>Run on your command line</h4>
+          <h4>Run on your <span class="terminal-type">Command Prompt</span></h4>
           <div class="platform-picker">
             <span platform="Linux" class="selected" href="#">Linux</span>
             <span platform="Windows" href="#">Windows</span>
           </div>
         </div>
-        <input readonly id="cli-input-bottom" class="cli-command" type="text"/>
+        <input readonly id="cli-input-bottom" class="cli-command" type="text" value="powershell -Command &quot;& $([scriptblock]::Create((New-Object Net.WebClient).DownloadString('https://platform.activestate.com/dl/cli/install.ps1'))) -activate-default ActiveState/Perl-5.32&quot;" />
         <div for="cli-input-bottom" class="cli-copy-icon">
           <div class="clipboard"></div>
           <div class="checkmark"></div>
@@ -422,6 +422,9 @@ $ state install DateTime
     </footer>
   </body>
 
+<script src="js/copy.js" charset="utf-8"></script>
+<script src="js/platforms.js" charset="utf-8"></script>
+<script src="js/start.js" charset="utf-8"></script>
+<script src="js/app.js" type="module" charset="utf-8"></script>
 </html>
 
-<script src="js/app.js" type="module" charset="utf-8"></script>

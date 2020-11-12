@@ -1,16 +1,26 @@
-export { setupButtons };
+// export { setupButtons };
 
-const setupButtons = selector => {
+function setupButtons(selector) {
     let cliCopyButtons = document.querySelectorAll(selector);
 
-    cliCopyButtons.forEach(el => {
-        el.addEventListener("click", e => {
+    for(var i = 0; i < cliCopyButtons.length; i++) {
+      let el = cliCopyButtons[i];
+
+      if (el.addEventListener){
+        el.addEventListener("click", function() {
             copyToClipboard(el);
         });
-    });
+      } else if (el.attachEvent){
+        el.attachEvent('onclick', function() {
+            copyToClipboard(el);
+        });
+      }
+
+
+    }
 }
 
-const copyToClipboard = button => {
+function copyToClipboard(button) {
   let inputId = button.getAttribute("for");
   let input = document.getElementById(inputId);
 
@@ -22,7 +32,7 @@ const copyToClipboard = button => {
 
     if (successful) {
       button.classList.remove("success");
-      setTimeout(() => {
+      setTimeout(function() {
         button.classList.add("success");
       }, 1)
     }

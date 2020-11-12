@@ -1,12 +1,3 @@
-// Setup clipboard buttons
-import * as Clipboard from './copy.js';
-Clipboard.setupButtons(".cli-install .cli-copy-icon");
-
-// Setup platform toggles on CLI instructions
-import * as Platforms from './platforms.js';
-Platforms.setupToggles();
-Platforms.setDefaultPlatform();
-
 // Sets up all the intersectioon observers
 import * as Observer from './observer.js';
 Observer.simple(".bundles-section");
