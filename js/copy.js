@@ -14,8 +14,6 @@ function setupButtons(selector) {
             copyToClipboard(el);
         });
       }
-
-
     }
 }
 

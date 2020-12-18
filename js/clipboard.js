@@ -6,7 +6,9 @@ let toggleSelector = ".platform-picker span";
 let inputSelector = ".cli-install input";
 let cliHeadingSelector = ".cli-header .terminal-type";
 
+
 let defaultPlatform = 'Windows';
+
 let cliCommands = {
   "Windows" : 
       {
@@ -18,11 +20,55 @@ let cliCommands = {
         "prompt" : "command line",
         "command" : "sh <(curl -q https://platform.activestate.com/dl/cli/install.sh) --activate-default ActiveState/Perl-5.32"
       }
-  
 }
 
-function setupToggles() {
 
+setupButtons(".cli-install .cli-copy-icon");
+setupToggles();
+setDefaultPlatform();
+
+
+function setupButtons(selector) {
+    let cliCopyButtons = document.querySelectorAll(selector);
+
+    for(var i = 0; i < cliCopyButtons.length; i++) {
+      let el = cliCopyButtons[i];
+
+      if (el.addEventListener){
+        el.addEventListener("click", function() {
+            copyToClipboard(el);
+        });
+      } else if (el.attachEvent){
+        el.attachEvent('onclick', function() {
+            copyToClipboard(el);
+        });
+      }
+    }
+}
+
+function copyToClipboard(button) {
+  let inputId = button.getAttribute("for");
+  let input = document.getElementById(inputId);
+
+  input.focus();
+  input.select();
+
+  try {
+    var successful = document.execCommand('copy')
+
+    if (successful) {
+      button.classList.remove("success");
+      setTimeout(function() {
+        button.classList.add("success");
+      }, 1)
+    }
+  } catch (err) {
+    console.log('Unable to copy: ', err)
+  }
+}
+
+
+function setupToggles() {
   cliInputs = document.querySelectorAll(inputSelector);
   cliHeadings = document.querySelectorAll(cliHeadingSelector);
   platformToggles = document.querySelectorAll(toggleSelector);
