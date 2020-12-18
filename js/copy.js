@@ -1,6 +1,5 @@
-// export { setupButtons };
-
 function setupButtons(selector) {
+
     let cliCopyButtons = document.querySelectorAll(selector);
 
     for(var i = 0; i < cliCopyButtons.length; i++) {

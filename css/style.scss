@@ -278,13 +278,10 @@ hr + h3 {
       background-image: url(../img/checkmark-blue-circle.svg);
       opacity: 0;
     }
-    
-
 
     &.success .clipboard {
       animation: copyClipboard 1s ease-in-out;
     }
-
 
     &.success .checkmark {
       animation: copyCheckmark 1s ease-in-out;
