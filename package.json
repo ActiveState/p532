@@ -2,7 +2,7 @@
   "dependencies": {
     "chokidar": "^3.4.3",
     "chokidar-cli": "^2.1.0",
-    "node-sass": "^4.14.0"
+    "node-sass": "^4.14.1"
   },
   "scripts": {
     "css": "node-sass css/style.scss dist/style.css",
